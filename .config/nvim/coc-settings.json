@@ -1,12 +1,15 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["dart", "javascript", "json", "html"],
+  "explorer.file.root.template": "[icon] [root]",
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.sources": [{ "name": "file", "expand": true }],
+  "explorer.width": 35,
+  "diagnostic.displayByAle": true,
   "highlight.colorNames.enable": false,
   "list.normalMappings": {
-		"d": "action:delete"
-	},
+    "d": "action:delete"
+  },
   "pairs.disableLanguages": ["json"],
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "prettier.singleQuote": true,
