@@ -1,0 +1,19 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["dart", "javascript", "json", "html"],
+  "explorer.file.showHiddenFiles": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.sources": [{ "name": "file", "expand": true }],
+  "highlight.colorNames.enable": false,
+  "list.normalMappings": {
+		"d": "action:delete"
+	},
+  "pairs.disableLanguages": ["json"],
+  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 100,
+  "prettier.tabWidth": 2,
+  "prettier.semi": true,
+  "prettier.trailingComma": "es5",
+  "prettier.arrowParens": "avoid",
+  "snippets.textmateSnippetsRoots": ["~/.config/nvim/snippets"]
+}

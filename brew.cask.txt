@@ -1,0 +1,8 @@
+alacritty
+google-chrome
+mockoon
+notion
+postman
+pritunl
+slack
+zoom
