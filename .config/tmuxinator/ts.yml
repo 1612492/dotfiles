@@ -1,0 +1,6 @@
+name: <%= @args[0] %>
+root: ~/Documents/tssocial/<%= @args[0] %>
+
+windows:
+  - EDITOR: nvim
+  - CONSOLE: #empty
