@@ -3,6 +3,7 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
     git
+    vi-mode
     zsh-autosuggestions
 )
 
