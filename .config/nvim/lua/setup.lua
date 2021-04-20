@@ -13,12 +13,14 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use {'kaicataldo/material.vim', branch = 'main'}
   use {'neoclide/coc.nvim', branch = 'release'}
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
   use 'vim-airline/vim-airline'
   use 'psliwka/vim-smoothie'
   use 'tpope/vim-surround'
   use 'dense-analysis/ale'
   use 'akinsho/nvim-bufferline.lua'
-  use 'terrortylor/nvim-comment'
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
+  use 'tpope/vim-commentary'
+  use 'alvan/vim-closetag'
+  use '1612492/github-dark-dimed'
 end)

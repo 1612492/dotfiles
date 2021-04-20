@@ -15,37 +15,37 @@ require"bufferline".setup{
   },
   highlights = {
     background = {
-      guifg = "#a6accd",
-      guibg = "#292d3e"
+      guifg = "#adbac7",
+      guibg = "#22272e"
     },
     fill = {
       guifg = comment_fg,
-      guibg = "#292d3e"
+      guibg = "#22272e"
     },
     buffer_selected = {
-      guifg = "#a6accd",
-      guibg = "#343b51",
+      guifg = "#adbac7",
+      guibg = "#2d333b",
       gui = "bold"
     },
     separator_visible = {
-      guifg = "#292d3e",
-      guibg = "#292d3e"
+      guifg = "#22272e",
+      guibg = "#22272e"
     },
     separator_selected = {
-      guifg = "#292d3e",
-      guibg = "#292d3e"
+      guifg = "#22272e",
+      guibg = "#22272e"
     },
     separator = {
-      guifg = "#292d3e",
-      guibg = "#292d3e"
+      guifg = "#22272e",
+      guibg = "#22272e"
     },
     indicator_selected = {
-      guifg = "#292d3e",
-      guibg = "#292d3e"
+      guifg = "#22272e",
+      guibg = "#22272e"
     },
     modified_selected = {
-      guifg = "#a6accd",
-      guibg = "#343b51"
+      guifg = "#adbac7",
+      guibg = "#2d333b"
     }
   }
 }
