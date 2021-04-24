@@ -4,7 +4,7 @@ vim.api.nvim_set_keymap('n','<leader>e',':CocCommand explorer<cr>', {noremap = t
 vim.api.nvim_set_keymap('n','<leader>b',':CocList buffers<cr>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n','<leader>g',':CocList grep<cr>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n','<leader>f',':CocList files<cr>', {noremap = true, silent = true})
-
+vim.api.nvim_set_keymap('n','<leader>r',':CocListResume<cr>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
 

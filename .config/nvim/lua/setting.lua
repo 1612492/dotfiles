@@ -21,3 +21,4 @@ vim.o.foldmethod = "indent"
 vim.o.foldenable = false
 vim.o.foldnestmax = 1
 vim.o.timeoutlen = 500
+vim.o.updatetime = 300

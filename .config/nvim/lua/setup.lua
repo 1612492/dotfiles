@@ -11,16 +11,17 @@ end
 
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-  use {'kaicataldo/material.vim', branch = 'main'}
   use {'neoclide/coc.nvim', branch = 'release'}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
+  use {'rrethy/vim-hexokinase', run = 'make hexokinase'}
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
   use 'vim-airline/vim-airline'
-  use 'psliwka/vim-smoothie'
+  use 'Yggdroot/indentLine'
   use 'tpope/vim-surround'
   use 'dense-analysis/ale'
   use 'akinsho/nvim-bufferline.lua'
   use 'tpope/vim-commentary'
   use 'alvan/vim-closetag'
-  use '1612492/github-dark-dimed'
+  use 'psliwka/vim-smoothie'
+  use '1612492/github.vim'
 end)
