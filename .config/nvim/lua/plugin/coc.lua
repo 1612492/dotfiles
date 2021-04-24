@@ -1,7 +1,6 @@
 vim.g.coc_global_extensions = {
   'coc-explorer',
   'coc-git',
-  'coc-highlight',
   'coc-lists',
   'coc-marketplace',
   'coc-pairs',

@@ -2,9 +2,10 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 plugins=(
-    git
-    vi-mode
-    zsh-autosuggestions
+  asdf
+  git
+  vi-mode
+  zsh-autosuggestions
 )
 
 alias t='tmux'
