@@ -2097,5 +2097,9 @@
       "}",
       ""
     ]
+  },
+  "require": {
+    "prefix": "cre",
+    "body": "const ${2:moduleName} = require('${1:module}')$0"
   }
 }
