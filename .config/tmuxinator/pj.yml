@@ -2,5 +2,5 @@ name: <%= args[0] %>
 root: ~/Projects/<%= args[0] %>
 
 windows:
-  - editor: nvim
-  - console: #empty
+  - EDITOR: nvim
+  - CONSOLE: #empty

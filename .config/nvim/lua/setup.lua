@@ -14,12 +14,10 @@ require('packer').startup(function()
   use {'neoclide/coc.nvim', branch = 'release'}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'rrethy/vim-hexokinase', run = 'make hexokinase'}
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
   use 'vim-airline/vim-airline'
   use 'Yggdroot/indentLine'
   use 'tpope/vim-surround'
   use 'dense-analysis/ale'
-  use 'akinsho/nvim-bufferline.lua'
   use 'tpope/vim-commentary'
   use 'alvan/vim-closetag'
   use 'psliwka/vim-smoothie'
