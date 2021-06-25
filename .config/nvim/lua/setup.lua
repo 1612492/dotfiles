@@ -9,6 +9,7 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   use 'hrsh7th/nvim-compe'
   use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'norcalli/nvim-colorizer.lua'
@@ -16,4 +17,8 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
   use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
   use 'SirVer/ultisnips'
+  use 'tpope/vim-surround'
+  use 'alvan/vim-closetag'
+  use 'dense-analysis/ale'
+  use 'jiangmiao/auto-pairs'
 end)
