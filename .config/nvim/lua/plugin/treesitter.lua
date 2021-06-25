@@ -1,4 +1,5 @@
 require'nvim-treesitter.configs'.setup {
+  autopairs = {enable = true},
   ensure_installed = "maintained",
   incremental_selection = {
     enable = true,
@@ -9,10 +10,6 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = "grm",
     },
   },
-  indent = {
-    enable = true
-  },
-  highlight = {
-    enable = true
-  },
+  indent = {enable = true},
+  highlight = {enable = true},
 }

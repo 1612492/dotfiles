@@ -22,3 +22,8 @@ vim.o.foldenable = false
 vim.o.foldnestmax = 1
 vim.o.timeoutlen = 500
 vim.o.updatetime = 300
+vim.o.termguicolors = true
+vim.o.completeopt = "menuone,noselect"
+
+vim.cmd('set foldmethod=expr')
+vim.cmd('set foldexpr=nvim_treesitter#foldexpr()')
