@@ -20,3 +20,6 @@ map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 map('n', '<leader>f', '<cmd>Telescope find_files<cr>', opts)
 map('n', '<leader>g', '<cmd>Telescope live_grep<cr>', opts)
 map('n', '<leader>b', '<cmd>Telescope buffers<cr>', opts)
+
+-- nvim-bufferline
+map('n', '<leader>p', '<cmd>BufferLinePick<cr>', opts)
