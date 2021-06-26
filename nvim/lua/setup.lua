@@ -19,6 +19,8 @@ return require("packer").startup(function()
   use "glepnir/lspsaga.nvim"
   use "folke/trouble.nvim"
   use 'SirVer/ultisnips'
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
   use 'windwp/nvim-autopairs'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'windwp/nvim-ts-autotag'
