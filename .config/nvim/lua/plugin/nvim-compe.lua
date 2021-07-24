@@ -18,6 +18,6 @@ require'compe'.setup {
     buffer = true;
     calc = true;
     nvim_lsp = true;
-    ultisnips = true;
+    vsnip = true;
   };
 }
