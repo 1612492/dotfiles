@@ -1,25 +1,29 @@
 return require("packer").startup(function()
   use "wbthomason/packer.nvim"
-  use "kyazdani42/nvim-web-devicons"
+  use "folke/tokyonight.nvim"
   use "kyazdani42/nvim-tree.lua"
+  use "kyazdani42/nvim-web-devicons"
   use "hoob3rt/lualine.nvim"
+  use "nvim-lua/lsp-status.nvim"
   use "akinsho/nvim-bufferline.lua"
   use "neovim/nvim-lspconfig"
+  use "jose-elias-alvarez/nvim-lsp-ts-utils"
   use "terrortylor/nvim-comment"
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use "hrsh7th/nvim-compe"
   use "nvim-telescope/telescope.nvim"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
   use "norcalli/nvim-colorizer.lua"
   use "lewis6991/gitsigns.nvim"
-  use "folke/tokyonight.nvim"
-  use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
-  use "tpope/vim-surround"
   use "glepnir/lspsaga.nvim"
-  use "folke/trouble.nvim"
-  use 'SirVer/ultisnips'
-  use 'windwp/nvim-autopairs'
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
-  use 'windwp/nvim-ts-autotag'
+  use "windwp/nvim-autopairs"
+  use "karb94/neoscroll.nvim"
+  use "nvim-treesitter/nvim-treesitter"
+  use "nvim-treesitter/nvim-treesitter-textobjects"
+  use "hrsh7th/vim-vsnip"
+  use "iamcco/markdown-preview.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "windwp/nvim-ts-autotag"
+  use "tpope/vim-surround"
 end)

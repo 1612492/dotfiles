@@ -17,13 +17,10 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.showmode = false
 vim.wo.signcolumn = "yes"
-vim.o.foldmethod = "indent"
+vim.o.foldmethod = "manual"
 vim.o.foldenable = false
 vim.o.foldnestmax = 1
 vim.o.timeoutlen = 500
 vim.o.updatetime = 300
 vim.o.termguicolors = true
 vim.o.completeopt = "menuone,noselect"
-
-vim.cmd('set foldmethod=expr')
-vim.cmd('set foldexpr=nvim_treesitter#foldexpr()')
