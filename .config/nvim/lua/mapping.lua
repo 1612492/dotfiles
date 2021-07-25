@@ -35,3 +35,6 @@ map("n", "gR", "<cmd>Lspsaga rename<cr>", opts)
 map("n", "<leader>a", "<cmd>Lspsaga code_action<cr>", opts)
 map("n", "<leader>t", "<cmd>Lspsaga open_floaterm<cr>", opts)
 map("t", "<c-d>", "<cmd>Lspsaga close_floaterm<cr>", opts)
+
+-- vsnip
+map("i", "<c-j>", "vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'", { expr = true })
