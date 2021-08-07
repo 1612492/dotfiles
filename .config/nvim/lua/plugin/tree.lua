@@ -1,5 +1,4 @@
 vim.g.nvim_tree_follow = 1
-vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_width_allow_resize  = 1
@@ -18,8 +17,8 @@ end
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 vim.g.nvim_tree_bindings = {
-  { key = "o"                           , cb = ":lua NvimTreeOSOpen()<CR>" },
-  { key = {"<CR>", "<2-LeftMouse>"}, cb = tree_cb("edit") },
+  { key = "o",                            cb = ":lua NvimTreeOSOpen()<CR>" },
+  { key = {"<CR>", "<2-LeftMouse>"},      cb = tree_cb("edit") },
   { key = {"<2-RightMouse>", "<C-]>"},    cb = tree_cb("cd") },
   { key = "<C-v>",                        cb = tree_cb("vsplit") },
   { key = "<C-x>",                        cb = tree_cb("split") },
