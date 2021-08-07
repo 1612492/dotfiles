@@ -10,7 +10,6 @@ plugins=(
 
 alias t='tmux'
 alias v='nvim'
-alias tx='tmuxinator start'
-alias dj='tx ts dj_web'
+alias dj='tmuxinator start ts dj_web'
 
 source $ZSH/oh-my-zsh.sh

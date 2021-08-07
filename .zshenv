@@ -1,6 +1,8 @@
 export ZDOTDIR=$HOME/.config/zsh
 export EDITOR=nvim
 export TERMINAL=alacritty
+export PROMPT_EOL_MARK=''
+export LANG=en_US.UTF-8
 
 export PATH=$PATH:$HOME/Dev/flutter/bin
 export PATH=$PATH:/usr/local/go/bin
