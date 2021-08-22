@@ -24,11 +24,7 @@ font:
 
   size: 16.0
 
-  offset:
-    x: 0
-    y: 0
-
-    # TokyoNight Alacritty Colors
+  # TokyoNight Alacritty Colors
 colors:
   # Default colors
   primary:
