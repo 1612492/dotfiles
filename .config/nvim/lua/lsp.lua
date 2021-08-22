@@ -1,5 +1,20 @@
 require("null-ls").config {}
 require("lspconfig")["null-ls"].setup {}
+require('lspsaga').init_lsp_saga()
+require'compe'.setup {
+  documentation = {
+    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+  },
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    vsnip = true;
+  }
+}
+
+-- local base_path = "/Users/phatvo/.config/nvim/"
 local lspconfig = require"lspconfig"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -7,8 +22,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.html.setup { capabilities = capabilities }
 lspconfig.cssls.setup { capabilities = capabilities }
 lspconfig.jsonls.setup {}
-lspconfig.yamlls.setup{}
-lspconfig.dockerls.setup{}
+lspconfig.yamlls.setup {}
+lspconfig.dockerls.setup {}
+lspconfig.svelte.setup {}
 lspconfig.tsserver.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
@@ -22,6 +38,9 @@ lspconfig.tsserver.setup {
       eslint_show_rule_id = true,
       enable_formatting = true,
       formatter = "eslint_d",
+      formatter_config_fallback = nil,
+      -- formatter = "prettier",
+      -- formatter_config_fallback = base_path .. ".prettierrc",
     }
     ts_utils.setup_client(client)
   end
