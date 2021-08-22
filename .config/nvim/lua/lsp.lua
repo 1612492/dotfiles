@@ -1,31 +1,32 @@
 require("null-ls").config {}
 require("lspconfig")["null-ls"].setup {}
 require('lspsaga').init_lsp_saga()
-require'compe'.setup {
-  documentation = {
-    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+
+vim.g.coq_settings = {
+  auto_start = "shut-up",
+  clients = {
+    tmux = { enabled = false },
+    tree_sitter = { enabled = false },
+    tags = { enabled = false }
   },
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    vsnip = true;
+  keymap = {
+    recommended = false,
+    jump_to_mark = "<c-j>"
   }
 }
 
--- local base_path = "/Users/phatvo/.config/nvim/"
 local lspconfig = require"lspconfig"
+local coq = require "coq"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.html.setup { capabilities = capabilities }
-lspconfig.cssls.setup { capabilities = capabilities }
-lspconfig.jsonls.setup {}
-lspconfig.yamlls.setup {}
-lspconfig.dockerls.setup {}
-lspconfig.svelte.setup {}
-lspconfig.tsserver.setup {
+lspconfig.html.setup(coq.lsp_ensure_capabilities({ capabilities = capabilities }))
+lspconfig.cssls.setup(coq.lsp_ensure_capabilities({ capabilities = capabilities }))
+lspconfig.jsonls.setup(coq.lsp_ensure_capabilities({}))
+lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({})) 
+lspconfig.dockerls.setup(coq.lsp_ensure_capabilities({})) 
+lspconfig.svelte.setup(coq.lsp_ensure_capabilities({})) 
+lspconfig.tsserver.setup (coq.lsp_ensure_capabilities({
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
     local ts_utils = require("nvim-lsp-ts-utils")
@@ -39,10 +40,7 @@ lspconfig.tsserver.setup {
       enable_formatting = true,
       formatter = "eslint_d",
       formatter_config_fallback = nil,
-      -- formatter = "prettier",
-      -- formatter_config_fallback = base_path .. ".prettierrc",
     }
     ts_utils.setup_client(client)
   end
-}
-
+})) 

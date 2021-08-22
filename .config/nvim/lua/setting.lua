@@ -1,6 +1,8 @@
 vim.bo.smartindent = true
 vim.o.backup = false
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menuone,noselect,noinsert"
+vim.o.showmode = false
+vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.encoding= "UTF-8"
 vim.o.expandtab = true
 vim.o.foldenable = false

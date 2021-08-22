@@ -16,12 +16,13 @@ return require('packer').startup(function()
   use 'hoob3rt/lualine.nvim'
   use 'akinsho/nvim-bufferline.lua'
   use 'neovim/nvim-lspconfig'
+  use { 'ms-jpq/coq_nvim', branch = 'coq'}
+  use { 'ms-jpq/coq.artifacts', branch= 'artifacts'}
   use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'terrortylor/nvim-comment'
   use 'TimUntersberger/neogit'
   use 'sindrets/diffview.nvim'
-  use 'hrsh7th/nvim-compe'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
