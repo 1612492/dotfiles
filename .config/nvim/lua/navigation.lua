@@ -15,7 +15,6 @@ function NvimTreeOSOpen()
   end
 end
 
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 vim.g.nvim_tree_bindings = {{ key = "o", cb = ":lua NvimTreeOSOpen()<CR>" }}
 
 require("telescope").setup {

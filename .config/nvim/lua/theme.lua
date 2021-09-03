@@ -5,11 +5,7 @@ vim.g.tokyonight_hide_inactive_statusline = true
 vim.g.tokyonight_dark_sidebar = false
 vim.cmd[[colorscheme tokyonight]]
 
-require("bufferline").setup{ options = {
-    numbers = "ordinal",
-    offsets = {{filetype = "NvimTree", text = "Explorer", highlight = "Directory", text_align = "left"}}
-  }
-}
+require("bufferline").setup{ options = { numbers = "ordinal" }}
 
 require("lualine").setup {
   options = {

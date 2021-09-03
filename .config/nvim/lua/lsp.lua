@@ -1,32 +1,24 @@
 require("null-ls").config {}
 require("lspconfig")["null-ls"].setup {}
-require('lspsaga').init_lsp_saga()
-
-vim.g.coq_settings = {
-  auto_start = "shut-up",
-  clients = {
-    tmux = { enabled = false },
-    tree_sitter = { enabled = false },
-    tags = { enabled = false }
-  },
-  keymap = {
-    recommended = false,
-    jump_to_mark = "<c-j>"
+require'compe'.setup {
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    vsnip = true;
   }
 }
 
 local lspconfig = require"lspconfig"
-local coq = require "coq"
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.html.setup(coq.lsp_ensure_capabilities({ capabilities = capabilities }))
-lspconfig.cssls.setup(coq.lsp_ensure_capabilities({ capabilities = capabilities }))
-lspconfig.jsonls.setup(coq.lsp_ensure_capabilities({}))
-lspconfig.yamlls.setup(coq.lsp_ensure_capabilities({})) 
-lspconfig.dockerls.setup(coq.lsp_ensure_capabilities({})) 
-lspconfig.svelte.setup(coq.lsp_ensure_capabilities({})) 
-lspconfig.tsserver.setup (coq.lsp_ensure_capabilities({
+lspconfig.html.setup {} 
+lspconfig.cssls.setup {}
+lspconfig.jsonls.setup {}
+lspconfig.yamlls.setup {}
+lspconfig.dockerls.setup {}
+lspconfig.svelte.setup {}
+lspconfig.tsserver.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
     local ts_utils = require("nvim-lsp-ts-utils")
@@ -43,4 +35,5 @@ lspconfig.tsserver.setup (coq.lsp_ensure_capabilities({
     }
     ts_utils.setup_client(client)
   end
-})) 
+}
+
