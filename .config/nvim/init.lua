@@ -1,11 +1,4 @@
-require("setup")
 require("setting")
+require("setup")
+require("config")
 require("mapping")
-require("theme")
-
-require("code")
-require("git")
-require("highlight")
-require("lsp")
-require("navigation")
-require("snippet")

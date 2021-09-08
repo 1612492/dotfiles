@@ -1,3 +1,9 @@
+local utils = require("utils")
+
+if not utils.is_valid("nvim-treesitter") then
+  return
+end
+
 require'nvim-treesitter.configs'.setup {
   autopairs = {enable = true},
   autotag = {
