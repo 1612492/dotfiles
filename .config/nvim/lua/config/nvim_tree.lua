@@ -14,3 +14,5 @@ vim.g.nvim_tree_lsp_diagnostics = 1
 vim.g.nvim_tree_icon_padding = ' '
 vim.g.nvim_tree_update_cwd = 1
 vim.g.nvim_tree_special_files = {}
+
+utils.key_map("n", "<leader>e", ":NvimTreeToggle<CR>")

@@ -22,6 +22,5 @@ plugins=(
 
 alias t='tmux'
 alias v='nvim'
-alias dj='tmuxinator start ts dj_web'
 
 source $ZSH/oh-my-zsh.sh

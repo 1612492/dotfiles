@@ -1,5 +1,5 @@
 local opt = vim.opt
-
+vim.g.mapleader = " "
 opt.smartindent = true
 opt.backup = false
 opt.completeopt = "menuone,noselect"

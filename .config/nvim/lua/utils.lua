@@ -12,4 +12,9 @@ function utils.is_valid(package_name)
   return true
 end
 
+function utils.key_map(mode, key, cmd, opts)
+  opts = opts or { noremap=true, silent=true }
+  vim.api.nvim_set_keymap(mode, key, cmd, opts)
+end
+
 return utils

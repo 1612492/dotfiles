@@ -14,3 +14,5 @@ require('neogit').setup {
     diffview = true  
   },
 }
+
+utils.key_map("n", "<leader>i", "<cmd>lua require('neogit').open()<CR>")
