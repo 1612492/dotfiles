@@ -42,13 +42,12 @@ return packer.startup({
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-path"
     use "saadparwaiz1/cmp_luasnip"
-    use "tpope/vim-surround"
+    use "blackCauldron7/surround.nvim"
     use "windwp/nvim-ts-autotag"
     use "karb94/neoscroll.nvim"
     use "norcalli/nvim-colorizer.lua"
     use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
     use "sindrets/diffview.nvim"
-    use "windwp/nvim-autopairs"
   end, 
   config = {
     display = {
