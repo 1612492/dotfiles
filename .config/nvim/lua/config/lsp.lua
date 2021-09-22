@@ -4,10 +4,8 @@ if not utils.is_valid("nvim-lspconfig") then
   return
 end
 
-require("null-ls").config {}
-
-local nvim_lsp = require"lspconfig"
-nvim_lsp["null-ls"].setup {}
+local nvim_lsp = require("lspconfig")
+local null_ls = require("config.null_ls")
 
 local sign_define = vim.fn.sign_define
 sign_define("LspDiagnosticsSignError", {text = " "})
@@ -45,33 +43,23 @@ end
 
 local servers = { "html", "cssls", "jsonls", "yamlls", "dockerls", "svelte", "tsserver" }
 
+null_ls.setup(nvim_lsp, on_attach)
+
 for _, lsp in ipairs(servers) do
   if lsp == 'tsserver' then
-    nvim_lsp.tsserver.setup {
+    nvim_lsp.tsserver.setup ({
       init_options = { plugins = {{name = "typescript-styled-plugin"}}},
       capabilities = capabilities,
       on_attach = function(client, buf)
-        on_attach(client, buf)
         client.resolved_capabilities.document_formatting = false
-        local ts_utils = require("nvim-lsp-ts-utils")
-        ts_utils.setup {
-          eslint_enable_code_actions = true,
-          eslint_enable_disable_comments = true,
-          eslint_bin = "eslint_d",
-          eslint_config_fallback = nil,
-          eslint_enable_diagnostics = true,
-          eslint_show_rule_id = true,
-          enable_formatting = true,
-          formatter = "eslint_d",
-          formatter_config_fallback = nil,
-        }
-        ts_utils.setup_client(client)
+        client.resolved_capabilities.document_range_formatting = false
+        on_attach(client, buf)
       end
-    }
+    })
   else
-    nvim_lsp[lsp].setup {
+    nvim_lsp[lsp].setup ({
       capabilities = capabilities,
       on_attach = on_attach,
-    }
+    })
   end
 end

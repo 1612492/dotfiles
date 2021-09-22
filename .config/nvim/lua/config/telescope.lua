@@ -6,8 +6,26 @@ end
 
 require("telescope").setup {
   defaults = {
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
     prompt_prefix = "   ",
     selection_caret = "  ",
+    layout_config = {
+      horizontal = {
+        preview_width = 0.55
+      },
+      width = 0.95,
+      height = 0.95,
+      preview_cutoff = 120,
+      vertical = { mirror = false },
+    },
     mappings = {
       i = {
         ["<C-f>"] = require("telescope.actions").cycle_history_next,
@@ -18,7 +36,7 @@ require("telescope").setup {
   extensions = {
     fzf = {
       fuzzy = true,
-      override_generic_sorter = false,
+      override_generic_sorter = true,
       override_file_sorter = true,
       case_mode = "smart_case",
     },

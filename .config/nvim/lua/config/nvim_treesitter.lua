@@ -9,6 +9,7 @@ require'nvim-treesitter.configs'.setup {
   autotag = {enable = true},
   context_commentstring = {
     enable = true,
+    enable_autocmd = false,
     config = {
       javascript = {
         __default = '// %s',
@@ -20,15 +21,17 @@ require'nvim-treesitter.configs'.setup {
     }
   },
   ensure_installed = "maintained",
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
   indent = {enable = true},
-  highlight = {enable = true}
+  highlight = {enable = true},
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner"
+      }
+    }
+  }
 }

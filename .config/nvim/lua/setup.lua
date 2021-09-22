@@ -25,7 +25,7 @@ return packer.startup({
     use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
     use "lukas-reineke/indent-blankline.nvim"
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-    use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim"}
+    use "nvim-treesitter/nvim-treesitter-textobjects"
     use "terrortylor/nvim-comment"
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use {"nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim"}
@@ -35,19 +35,18 @@ return packer.startup({
     use "L3MON4D3/LuaSnip"
     use "rafamadriz/friendly-snippets"
     use "jose-elias-alvarez/null-ls.nvim"
-    use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use "neovim/nvim-lspconfig"
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-path"
     use "saadparwaiz1/cmp_luasnip"
-    use "blackCauldron7/surround.nvim"
+    use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
     use "karb94/neoscroll.nvim"
     use "norcalli/nvim-colorizer.lua"
     use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
-    use "sindrets/diffview.nvim"
+    use "tpope/vim-surround"
   end, 
   config = {
     display = {

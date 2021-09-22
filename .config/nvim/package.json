@@ -17,6 +17,10 @@
       {
         "language": "typescriptreact",
         "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "svelte",
+        "path": "./snippets/javascript.json"
       }
     ]
   }
