@@ -16,11 +16,12 @@ telescope.setup({
       "--column",
       "--smart-case",
     },
+    file_ignore_patterns = { "^.git/", "^node_modules/" },
     prompt_prefix = "   ",
     selection_caret = "  ",
     layout_config = {
       horizontal = {
-        preview_width = 0.55
+        preview_width = 0.55,
       },
       width = 0.95,
       height = 0.95,
@@ -31,8 +32,8 @@ telescope.setup({
       i = {
         ["<C-f>"] = require("telescope.actions").cycle_history_next,
         ["<C-b>"] = require("telescope.actions").cycle_history_prev,
-      }
-    }
+      },
+    },
   },
   extensions = {
     fzf = {
@@ -43,15 +44,15 @@ telescope.setup({
     },
     project = {
       base_dirs = {
-        '~/Documents/tssocial',
-        '~/Projects',
-      }
-    }
-  }
+        "~/Documents/tssocial",
+        "~/Projects",
+      },
+    },
+  },
 })
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('project')
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("project")
 
-utils.set_key_map("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
+utils.set_key_map("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>")
 utils.set_key_map("n", "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 utils.set_key_map("n", "<leader>p", "<cmd>lua require('telescope').extensions.project.project{}<CR>")

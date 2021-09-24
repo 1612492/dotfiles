@@ -2,8 +2,8 @@ pcall(require, "impatient")
 local compiled, _ = pcall(require, "packer_compiled")
 
 if not compiled then
-  require("setup")
+  require("packer_init")
 end
 
-require("setting")
-require("config")
+require("option")
+require("plugin")

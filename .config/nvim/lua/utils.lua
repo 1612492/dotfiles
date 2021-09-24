@@ -1,5 +1,5 @@
 local M = {}
-local default_opts = { noremap=true, silent=true }
+local default_opts = { noremap = true, silent = true }
 
 function M.set_key_map(mode, key, cmd, opts)
   opts = opts or default_opts

@@ -5,8 +5,8 @@ if not existed then
   return
 end
 
-require("config.lspsaga")
-local null_ls = require("config.null_ls")
+require("plugin.lspsaga")
+local null_ls = require("plugin.null_ls")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -31,13 +31,13 @@ null_ls.setup(lspconfig, on_attach)
 for _, lsp in ipairs(servers) do
   if lsp == "tsserver" then
     lspconfig.tsserver.setup({
-      init_options = { plugins = {{name = "typescript-styled-plugin"}}},
+      init_options = { plugins = { { name = "typescript-styled-plugin" } } },
       capabilities = capabilities,
       on_attach = function(client, buf)
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
         on_attach(client, buf)
-      end
+      end,
     })
   else
     lspconfig[lsp].setup({

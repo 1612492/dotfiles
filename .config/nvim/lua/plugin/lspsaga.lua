@@ -6,10 +6,10 @@ if not existed then
 end
 
 lspsaga.init_lsp_saga({
-  error_sign = ' ',
-  warn_sign = ' ',
-  hint_sign = ' ',
-  infor_sign = ' ',
+  error_sign = " ",
+  warn_sign = " ",
+  hint_sign = " ",
+  infor_sign = " ",
 })
 
 utils.set_key_map("n", "<leader>t", "<cmd>lua require('lspsaga.floaterm').open_float_terminal()<cr>")

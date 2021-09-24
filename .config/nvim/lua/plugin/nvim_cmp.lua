@@ -33,10 +33,6 @@ local icons = {
 }
 
 cmp.setup({
-  documentation = {
-    border = 'single',
-    winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
-  },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
@@ -44,7 +40,7 @@ cmp.setup({
   },
   formatting = {
     format = function(entry, vim_item)
-      vim_item.kind = string.format( "%s %s", icons[vim_item.kind], vim_item.kind )
+      vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
       vim_item.menu = ({
         path = "[PATH]",
         luasnip = "[SNIP]",
@@ -59,7 +55,7 @@ cmp.setup({
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-e>"] = cmp.mapping.close(),
-    ["<CR>"] = cmp.mapping.confirm ({ 
+    ["<CR>"] = cmp.mapping.confirm({
       select = true,
       behavior = cmp.ConfirmBehavior.Replace,
     }),
@@ -86,13 +82,13 @@ cmp.setup({
     { name = "path" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { 
+    {
       name = "buffer",
       opts = {
         get_bufnrs = function()
           return vim.api.nvim_list_bufs()
-        end
-      }
-    }
-  }
+        end,
+      },
+    },
+  },
 })
