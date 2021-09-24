@@ -1,7 +1,7 @@
-local utils = require("utils")
+local existed, gitsigns = pcall(require, "gitsigns")
 
-if not utils.is_valid("gitsigns.nvim") then
+if not existed then
   return
 end
 
-require("gitsigns").setup()
+gitsigns.setup()

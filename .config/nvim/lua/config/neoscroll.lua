@@ -1,7 +1,7 @@
-local utils = require("utils")
+local existed, neoscroll = pcall(require, "neoscroll")
 
-if not utils.is_valid("neoscroll.nvim") then
+if not existed then
   return
 end
 
-require("neoscroll").setup()
+neoscroll.setup()

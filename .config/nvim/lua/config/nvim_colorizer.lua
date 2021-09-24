@@ -1,7 +1,7 @@
-local utils = require("utils")
+local existed, colorizer = pcall(require, "colorizer")
 
-if not utils.is_valid("nvim-colorizer.lua") then
+if not existed then
   return
 end
 
-require("colorizer").setup()
+colorizer.setup()

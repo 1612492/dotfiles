@@ -1,10 +1,10 @@
-local utils = require("utils")
+local existed, lualine = pcall(require, "lualine")
 
-if not utils.is_valid("lualine.nvim") then
+if not existed then
   return
 end
 
-require("lualine").setup {
+lualine.setup({
   options = {
     theme = "tokyonight",
     component_separators = {'', ''},
@@ -18,4 +18,4 @@ require("lualine").setup {
     lualine_z = {'location'}
   },
   extensions = {"nvim-tree", "quickfix"}
-}
+})

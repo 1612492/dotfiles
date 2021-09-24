@@ -1,10 +1,10 @@
-local utils = require("utils")
+local existed, indent_blankline = pcall(require, "indent_blankline")
 
-if not utils.is_valid("indent-blankline.nvim") then
+if not existed then
   return
 end
 
-require("indent_blankline").setup {
+indent_blankline.setup({
   char = "│",
   buftype_exclude = {"terminal"},
   filetype_exclude = {
@@ -21,4 +21,4 @@ require("indent_blankline").setup {
   show_trailing_blankline_indent = false,
   show_current_context = true,
   show_first_indent_level = false,
-}
+})

@@ -1,9 +1,9 @@
 local utils = require("utils")
+local existed, _ = pcall(require, "nvim-tree.config")
 
-if not utils.is_valid("nvim-tree.lua") then
+if not existed then
   return
 end
-
 
 vim.g.nvim_tree_follow = 1
 vim.g.nvim_tree_indent_markers = 1
@@ -15,4 +15,4 @@ vim.g.nvim_tree_icon_padding = ' '
 vim.g.nvim_tree_update_cwd = 1
 vim.g.nvim_tree_special_files = {}
 
-utils.key_map("n", "<leader>e", ":NvimTreeToggle<CR>")
+utils.set_key_map("n", "<leader>e", ":NvimTreeToggle<CR>")

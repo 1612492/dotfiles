@@ -1,6 +1,6 @@
-local utils = require("utils")
+local existed, cmp = pcall(require, "cmp")
 
-if not utils.is_valid("nvim-cmp") then
+if not existed then
   return
 end
 
@@ -32,8 +32,7 @@ local icons = {
   TypeParameter = "",
 }
 
-local cmp = require("cmp")
-cmp.setup {
+cmp.setup({
   documentation = {
     border = 'single',
     winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
@@ -96,4 +95,4 @@ cmp.setup {
       }
     }
   }
-}
+})

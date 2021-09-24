@@ -1,10 +1,10 @@
-local utils = require("utils")
+local existed, _ = pcall(require, "nvim-treesitter")
 
-if not utils.is_valid("nvim-treesitter") then
+if not existed then
   return
 end
 
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
   autopairs = {enable = true},
   autotag = {enable = true},
   context_commentstring = {
@@ -34,4 +34,4 @@ require'nvim-treesitter.configs'.setup {
       }
     }
   }
-}
+})

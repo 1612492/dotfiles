@@ -1,7 +1,7 @@
-local utils = require("utils")
+local existed, nvim_autopairs = pcall(require, "nvim-autopairs")
 
-if not utils.is_valid("nvim-autopairs") then
+if not existed then
   return
 end
 
-require("nvim-autopairs").setup()
+nvim_autopairs.setup()

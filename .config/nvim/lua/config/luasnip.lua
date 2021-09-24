@@ -1,6 +1,6 @@
-local utils = require("utils")
+local existed, _ = pcall(require, "luasnip")
 
-if not utils.is_valid("LuaSnip") then
+if not existed then
   return
 end
 

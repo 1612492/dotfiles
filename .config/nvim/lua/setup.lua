@@ -1,41 +1,39 @@
-local cmd = vim.cmd
-local fn = vim.fn
-local ok, packer = pcall(require, "packer")
+local existed, packer = pcall(require, "packer")
 
-if not ok then
-  local packer_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+if not existed then
+  local packer_path = vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
 
   print("Cloning packer...")
-  fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", packer_path})
-  cmd "packadd packer.nvim"
+  vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", packer_path })
+  vim.cmd "packadd packer.nvim"
 
-  ok, packer = pcall(require, "packer")
-
-  if ok then
-    print("Successfully")
-  end 
+  _, packer = pcall(require, "packer")
+  print("Success")
 end
 
-return packer.startup({
+packer.startup({
   function()
     use "wbthomason/packer.nvim"
+    use "lewis6991/impatient.nvim"
     use "folke/tokyonight.nvim"
-    use {"romgrk/barbar.nvim", requires = "kyazdani42/nvim-web-devicons"}
-    use {"hoob3rt/lualine.nvim", requires = "kyazdani42/nvim-web-devicons"}
-    use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
+    use "kyazdani42/nvim-web-devicons"
+    use "romgrk/barbar.nvim"
+    use "hoob3rt/lualine.nvim"
+    use "kyazdani42/nvim-tree.lua"
     use "lukas-reineke/indent-blankline.nvim"
-    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     use "nvim-treesitter/nvim-treesitter-textobjects"
     use "terrortylor/nvim-comment"
     use "JoosepAlviste/nvim-ts-context-commentstring"
-    use {"nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim"}
+    use "nvim-lua/plenary.nvim"
+    use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-project.nvim"
-    use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
-    use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install"}
+    use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+    use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" }
     use "L3MON4D3/LuaSnip"
-    use "rafamadriz/friendly-snippets"
     use "jose-elias-alvarez/null-ls.nvim"
     use "neovim/nvim-lspconfig"
+    use "glepnir/lspsaga.nvim"
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-nvim-lsp"
@@ -45,16 +43,17 @@ return packer.startup({
     use "windwp/nvim-ts-autotag"
     use "karb94/neoscroll.nvim"
     use "norcalli/nvim-colorizer.lua"
-    use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
+    use "lewis6991/gitsigns.nvim"
     use "tpope/vim-surround"
   end, 
   config = {
-    display = {
-      open_fn = function()
-        return require("packer.util").float { border = "single" }
-      end,
-      prompt_border = "single",
-    },
-    git = { clone_timeout = 600 }
+    git = { clone_timeout = 1000 },
+    compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
   }
 })
+
+if not existed then
+  vim.cmd "PackerSync"
+end
+
+return packer

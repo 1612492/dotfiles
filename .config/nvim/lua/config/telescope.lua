@@ -1,10 +1,11 @@
 local utils = require("utils")
+local existed, telescope = pcall(require, "telescope")
 
-if not utils.is_valid("telescope.nvim") then
+if not existed then
   return
 end
 
-require("telescope").setup {
+telescope.setup({
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -47,10 +48,10 @@ require("telescope").setup {
       }
     }
   }
-}
+})
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('project')
 
-utils.key_map("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
-utils.key_map("n", "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
-utils.key_map("n", "<leader>p", "<cmd>lua require('telescope').extensions.project.project{}<CR>")
+utils.set_key_map("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
+utils.set_key_map("n", "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
+utils.set_key_map("n", "<leader>p", "<cmd>lua require('telescope').extensions.project.project{}<CR>")
