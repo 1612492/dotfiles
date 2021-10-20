@@ -5,8 +5,21 @@ if not existed then
   return
 end
 
-require("plugin.lspsaga")
 local null_ls = require("plugin.null_ls")
+
+local sign_define = vim.fn.sign_define
+sign_define("LspDiagnosticsSignError", { text = " " })
+sign_define("LspDiagnosticsSignWarning", { text = " " })
+sign_define("LspDiagnosticsSignInformation", { text = " " })
+sign_define("LspDiagnosticsSignHint", { text = " " })
+
+local handlers = vim.lsp.handlers
+handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  { underline = false }
+)
+handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -18,9 +31,10 @@ local on_attach = function(client, buf)
   utils.buf_set_key_map(buf, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
   utils.buf_set_key_map(buf, "n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
   utils.buf_set_key_map(buf, "n", "gf", "<cmd>lua vim.lsp.buf.formatting()<cr>")
-  utils.buf_set_key_map(buf, "n", "[d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<cr>")
-  utils.buf_set_key_map(buf, "n", "]d", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<cr>")
-  utils.buf_set_key_map(buf, "n", "<leader>a", "<cmd>lua require('lspsaga.codeaction').code_action()<cr>")
+  utils.buf_set_key_map(buf, "n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = 'single' } })<CR>")
+  utils.buf_set_key_map(buf, "n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = 'single' } })<CR>")
+  utils.buf_set_key_map(buf, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
+  utils.buf_set_key_map(buf, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>")
   utils.buf_set_key_map(buf, "n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>")
 end
 

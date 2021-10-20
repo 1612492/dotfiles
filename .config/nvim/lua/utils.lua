@@ -15,4 +15,10 @@ function M.buf_set_option(buf, key, value)
   vim.api.nvim_buf_set_option(buf, key, value)
 end
 
+function M.disable_builtins(plugins)
+  for _, plugin in pairs(plugins) do
+    vim.g["loaded_" .. plugin] = 1
+  end
+end
+
 return M

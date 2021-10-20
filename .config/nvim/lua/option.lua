@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 vim.g.mapleader = " "
 vim.opt.smartindent = true
 vim.opt.backup = false
@@ -24,7 +26,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 
-local disabled_built_ins = {
+utils.disable_builtins({
   "2html_plugin",
   "getscript",
   "getscriptPlugin",
@@ -43,8 +45,4 @@ local disabled_built_ins = {
   "vimballPlugin",
   "zip",
   "zipPlugin",
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-  vim.g["loaded_" .. plugin] = 1
-end
+})
