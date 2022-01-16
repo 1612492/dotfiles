@@ -42,17 +42,9 @@ telescope.setup({
       override_file_sorter = true,
       case_mode = "smart_case",
     },
-    project = {
-      base_dirs = {
-        "~/Documents/tssocial",
-        "~/Projects",
-      },
-    },
   },
 })
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("project")
 
-utils.set_key_map("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>")
+utils.set_key_map("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
 utils.set_key_map("n", "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
-utils.set_key_map("n", "<leader>p", "<cmd>lua require('telescope').extensions.project.project{}<CR>")

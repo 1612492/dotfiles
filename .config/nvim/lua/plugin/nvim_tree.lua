@@ -8,23 +8,29 @@ end
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_width_allow_resize = 1
 vim.g.nvim_tree_icon_padding = " "
 vim.g.nvim_tree_special_files = {}
-vim.g.nvim_tree_icons = {
-  lsp = {
-    hint = " ",
-    info = " ",
-    warning = " ",
-    error = " ",
-  },
-}
 
 require("nvim-tree").setup({
   update_cwd = true,
   update_focused_file = {
     enable = true,
     update_cwd = true,
+  },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = " ",
+      info = " ",
+      warning = " ",
+      error = " ",
+    }
+  },
+  view = {
+    hide_root_folder = false,
+    auto_resize = true,
+    number = true,
+    relativenumber = true
   },
 })
 
