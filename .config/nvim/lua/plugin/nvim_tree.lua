@@ -24,13 +24,13 @@ require("nvim-tree").setup({
       info = " ",
       warning = " ",
       error = " ",
-    }
+    },
   },
   view = {
     hide_root_folder = false,
     auto_resize = true,
     number = true,
-    relativenumber = true
+    relativenumber = true,
   },
 })
 

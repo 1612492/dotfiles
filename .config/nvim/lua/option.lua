@@ -25,8 +25,6 @@ vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.list = true
-vim.opt.listchars:append("eol:.")
 
 utils.disable_builtins({
   "2html_plugin",

@@ -7,3 +7,4 @@ end
 
 require("option")
 require("plugin")
+require("lsp")
