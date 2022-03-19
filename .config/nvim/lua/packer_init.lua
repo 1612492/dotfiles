@@ -23,6 +23,7 @@ packer.startup({
     use("lukas-reineke/indent-blankline.nvim")
     use("numToStr/Comment.nvim")
     use("nvim-treesitter/nvim-treesitter")
+    use("nvim-treesitter/nvim-treesitter-textobjects")
     use("windwp/nvim-autopairs")
     use("windwp/nvim-ts-autotag")
     use("JoosepAlviste/nvim-ts-context-commentstring")
@@ -34,6 +35,7 @@ packer.startup({
     use("jose-elias-alvarez/null-ls.nvim")
     use("jose-elias-alvarez/nvim-lsp-ts-utils")
     use("neovim/nvim-lspconfig")
+    use("williamboman/nvim-lsp-installer")
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-nvim-lsp")
@@ -43,9 +45,8 @@ packer.startup({
     use("norcalli/nvim-colorizer.lua")
     use("lewis6991/gitsigns.nvim")
     use("tpope/vim-surround")
-    use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
-    use("leoluz/nvim-dap-go")
+    use("b0o/schemastore.nvim")
+    use("nathom/filetype.nvim")
   end,
   config = {
     compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",

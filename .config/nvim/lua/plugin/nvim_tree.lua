@@ -26,6 +26,11 @@ require("nvim-tree").setup({
       error = " ",
     },
   },
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 400,
+  },
   view = {
     hide_root_folder = false,
     auto_resize = true,

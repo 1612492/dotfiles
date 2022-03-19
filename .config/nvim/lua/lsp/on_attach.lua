@@ -11,6 +11,7 @@ local on_attach = function(client, buf)
   utils.buf_set_key_map(buf, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
   utils.buf_set_key_map(buf, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
   utils.buf_set_key_map(buf, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
+  utils.buf_set_key_map(buf, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
   utils.buf_set_key_map(buf, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>")
   utils.buf_set_key_map(buf, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<cr>")
 end

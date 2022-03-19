@@ -1,8 +1,8 @@
-local lspconfig = require("lspconfig")
-local capabilities = require("lsp.capabilities")
-local on_attach = require("lsp.on_attach")
+function extend_options(on_attach, capabilities)
+  return {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+end
 
-lspconfig.gopls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+return extend_options

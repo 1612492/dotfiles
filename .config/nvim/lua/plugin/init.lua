@@ -1,5 +1,6 @@
 require("plugin.barbar")
 require("plugin.comment")
+require("plugin.filetype")
 require("plugin.gitsigns")
 require("plugin.indent_blankline")
 require("plugin.lualine")

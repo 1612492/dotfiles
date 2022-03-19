@@ -1,24 +1,17 @@
-local lspconfig = require("lspconfig")
-local capabilities = require("lsp.capabilities")
-local on_attach = require("lsp.on_attach")
-
-lspconfig.jsonls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    json = {
-      schemas = {
-        {
-          description = "NPM package.json files",
-          fileMatch = { "package.json" },
-          url = "https://json.schemastore.org/package.json",
-        },
-        {
-          description = "TypeScript compiler's configuration file",
-          fileMatch = { "tsconfig.json" },
-          url = "http://json.schemastore.org/tsconfig",
-        },
+function extend_options(on_attach, capabilities)
+  return {
+    capabilities = capabilities,
+    on_attach = function(client, buf)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+      on_attach(client, buf)
+    end,
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
       },
     },
-  },
-})
+  }
+end
+
+return extend_options

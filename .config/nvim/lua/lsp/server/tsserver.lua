@@ -1,21 +1,22 @@
-local lspconfig = require("lspconfig")
-local capabilities = require("lsp.capabilities")
-local on_attach = require("lsp.on_attach")
+function extend_options(on_attach, capabilities)
+  return {
+    init_options = {
+      plugins = { { name = "typescript-styled-plugin" } },
+    },
+    capabilities = capabilities,
+    on_attach = function(client, buf)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
 
-local init_options = require("nvim-lsp-ts-utils").init_options
-init_options.plugins = { { name = "typescript-styled-plugin" } }
+      local ts_utils = require("nvim-lsp-ts-utils")
+      ts_utils.setup({
+        auto_inlay_hints = false,
+      })
+      ts_utils.setup_client(client)
 
-lspconfig.tsserver.setup({
-  init_options = init_options,
-  capabilities = capabilities,
-  on_attach = function(client, buf)
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+      on_attach(client, buf)
+    end,
+  }
+end
 
-    local ts_utils = require("nvim-lsp-ts-utils")
-    ts_utils.setup({})
-    ts_utils.setup_client(client)
-
-    on_attach(client, buf)
-  end,
-})
+return extend_options
