@@ -1,11 +1,3 @@
-export ZSH=$HOME/.oh-my-zsh
-export EDITOR=nvim
-export CARGO_HOME=$HOME/.cargo
-export CARGO_INSTALL_ROOT=$HOME/.asdf/installs/rust/stable
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$CARGO_INSTALL_ROOT/bin
-
 ZSH_THEME="robbyrussell"
 plugins=(
   asdf
