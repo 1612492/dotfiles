@@ -5,5 +5,6 @@ if not existed then
 end
 
 require("lsp.signs")
+require("lsp.handlers")
 require("lsp.installer")
 require("lsp.server.null_ls")

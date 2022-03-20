@@ -41,12 +41,14 @@ packer.startup({
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-path")
     use("saadparwaiz1/cmp_luasnip")
+    use("rafamadriz/friendly-snippets")
     use("karb94/neoscroll.nvim")
     use("norcalli/nvim-colorizer.lua")
     use("lewis6991/gitsigns.nvim")
     use("tpope/vim-surround")
     use("b0o/schemastore.nvim")
     use("nathom/filetype.nvim")
+    use("j-hui/fidget.nvim")
   end,
   config = {
     compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
