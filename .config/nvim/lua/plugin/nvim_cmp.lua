@@ -51,6 +51,16 @@ cmp.setup({
       return vim_item
     end,
   },
+  window = {
+    completion = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+    },
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+    },
+  },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -82,6 +92,7 @@ cmp.setup({
     { name = "path" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
+    { name = "nvim_lsp_signature_help" },
     {
       name = "buffer",
       option = {

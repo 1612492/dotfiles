@@ -5,8 +5,10 @@ if not existed then
 end
 
 require("nvim-treesitter.configs").setup({
-  autopairs = { enable = true },
-  autotag = { enable = true },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
   ensure_installed = "maintained",
   indent = { enable = true },
   highlight = { enable = true },

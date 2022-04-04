@@ -2,6 +2,24 @@ local lsp_installer = require("nvim-lsp-installer")
 local capabilities = require("lsp.capabilities")
 local on_attach = require("lsp.on_attach")
 
+local servers = {
+  "cssls",
+  "emmet_ls",
+  "gopls",
+  "jsonls",
+  "solidity_ls",
+  "tsserver",
+  "yamlls",
+}
+
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
+  end
+end
+
 local extend_options = {
   ["cssls"] = require("lsp.server.cssls"),
   ["emmet_ls"] = require("lsp.server.emmet_ls"),

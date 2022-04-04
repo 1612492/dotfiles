@@ -10,6 +10,7 @@ vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_icon_padding = " "
 vim.g.nvim_tree_special_files = {}
+vim.g.nvim_tree_respect_buf_cwd = 1
 
 require("nvim-tree").setup({
   update_cwd = true,
@@ -30,6 +31,10 @@ require("nvim-tree").setup({
     enable = true,
     ignore = false,
     timeout = 400,
+  },
+  system_open = {
+    cmd = "wsl-open",
+    args = {},
   },
   view = {
     hide_root_folder = false,

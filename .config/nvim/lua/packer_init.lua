@@ -24,8 +24,7 @@ packer.startup({
     use("numToStr/Comment.nvim")
     use("nvim-treesitter/nvim-treesitter")
     use("nvim-treesitter/nvim-treesitter-textobjects")
-    use("windwp/nvim-autopairs")
-    use("windwp/nvim-ts-autotag")
+    use("steelsojka/pears.nvim")
     use("JoosepAlviste/nvim-ts-context-commentstring")
     use("nvim-lua/plenary.nvim")
     use("nvim-telescope/telescope.nvim")
@@ -36,10 +35,11 @@ packer.startup({
     use("jose-elias-alvarez/nvim-lsp-ts-utils")
     use("neovim/nvim-lspconfig")
     use("williamboman/nvim-lsp-installer")
-    use("hrsh7th/nvim-cmp")
+    use({ "hrsh7th/nvim-cmp", branch = "dev" })
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-path")
+    use("hrsh7th/cmp-nvim-lsp-signature-help")
     use("saadparwaiz1/cmp_luasnip")
     use("rafamadriz/friendly-snippets")
     use("karb94/neoscroll.nvim")
@@ -49,9 +49,15 @@ packer.startup({
     use("b0o/schemastore.nvim")
     use("nathom/filetype.nvim")
     use("j-hui/fidget.nvim")
+    use("antoinemadec/FixCursorHold.nvim")
   end,
   config = {
     compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
+    display = {
+      open_fn = function()
+        return require("packer.util").float({ border = "rounded" })
+      end,
+    },
   },
 })
 
