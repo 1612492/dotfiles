@@ -4,10 +4,13 @@ local on_attach = require("lsp.on_attach")
 
 local servers = {
   "cssls",
+  "dockerls",
   "emmet_ls",
   "gopls",
   "jsonls",
+  "pyright",
   "solidity_ls",
+  "sumneko_lua",
   "tsserver",
   "yamlls",
 }
@@ -22,11 +25,14 @@ end
 
 local extend_options = {
   ["cssls"] = require("lsp.server.cssls"),
+  ["dockerls"] = require("lsp.server.dockerls"),
   ["emmet_ls"] = require("lsp.server.emmet_ls"),
   ["gopls"] = require("lsp.server.gopls"),
   ["html"] = require("lsp.server.html"),
   ["jsonls"] = require("lsp.server.jsonls"),
+  ["pyright"] = require("lsp.server.pyright"),
   ["solidity_ls"] = require("lsp.server.solidity_ls"),
+  ["sumneko_lua"] = require("lsp.server.sumneko_lua"),
   ["tsserver"] = require("lsp.server.tsserver"),
   ["yamlls"] = require("lsp.server.yamlls"),
 }

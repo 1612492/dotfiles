@@ -5,8 +5,8 @@ function extend_options(on_attach, capabilities)
     },
     capabilities = capabilities,
     on_attach = function(client, buf)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
 
       local ts_utils = require("nvim-lsp-ts-utils")
       ts_utils.setup({

@@ -5,17 +5,31 @@ if not existed then
 end
 
 require("nvim-treesitter.configs").setup({
+  autotag = {
+    enable = true,
+  },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
   },
-  ensure_installed = "maintained",
+  ensure_installed = {
+    "css",
+    "dockerfile",
+    "go",
+    "gomod",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "python",
+    "scss",
+    "solidity",
+    "toml",
+    "tsx",
+    "typescript",
+    "yaml",
+  },
+  sync_install = true,
   indent = { enable = true },
   highlight = { enable = true },
-  keymaps = {
-    ["af"] = "@function.outer",
-    ["if"] = "@function.inner",
-    ["ac"] = "@class.outer",
-    ["ic"] = "@class.inner",
-  },
 })

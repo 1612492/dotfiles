@@ -32,6 +32,17 @@ local icons = {
   TypeParameter = "",
 }
 
+local border = {
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
+}
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -53,12 +64,10 @@ cmp.setup({
   },
   window = {
     completion = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+      border = border,
     },
     documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+      border = border,
     },
   },
   mapping = {

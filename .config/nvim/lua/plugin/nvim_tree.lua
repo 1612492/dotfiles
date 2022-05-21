@@ -5,7 +5,6 @@ if not existed then
   return
 end
 
-vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
 vim.g.nvim_tree_icon_padding = " "
@@ -32,13 +31,18 @@ require("nvim-tree").setup({
     ignore = false,
     timeout = 400,
   },
-  system_open = {
-    cmd = "wsl-open",
-    args = {},
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
   },
   view = {
     hide_root_folder = false,
-    auto_resize = true,
     number = true,
     relativenumber = true,
   },
