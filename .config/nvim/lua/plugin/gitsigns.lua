@@ -12,7 +12,7 @@ gitsigns.setup({
     utils.set_key_map("n", "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>")
     utils.set_key_map("n", "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>")
     utils.set_key_map("n", "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<CR>")
-    utils.set_key_map("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>")
+    utils.set_key_map("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>")
     utils.set_key_map("n", "<leader>hb", "<cmd>Gitsigns blame_line<CR>")
   end,
 })

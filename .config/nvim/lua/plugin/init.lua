@@ -1,4 +1,3 @@
-require("plugin.aerial")
 require("plugin.barbar")
 require("plugin.comment")
 require("plugin.fidget")

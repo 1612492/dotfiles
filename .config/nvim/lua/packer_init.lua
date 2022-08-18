@@ -35,7 +35,6 @@ packer.startup({
     use("jose-elias-alvarez/nvim-lsp-ts-utils")
     use("neovim/nvim-lspconfig")
     use("williamboman/nvim-lsp-installer")
-    use("stevearc/aerial.nvim")
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-nvim-lsp")

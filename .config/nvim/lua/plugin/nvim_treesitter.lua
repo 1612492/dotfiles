@@ -5,6 +5,7 @@ if not existed then
 end
 
 require("nvim-treesitter.configs").setup({
+  auto_install = true,
   autotag = {
     enable = true,
   },

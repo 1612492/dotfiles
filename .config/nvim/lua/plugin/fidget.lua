@@ -9,8 +9,3 @@ fidget.setup({
     blend = 0,
   },
 })
-
-vim.cmd([[
-hi! FidgetTitle ctermbg=NONE guibg=NONE
-hi! FidgetTask ctermbg=NONE guibg=NONE
-]])

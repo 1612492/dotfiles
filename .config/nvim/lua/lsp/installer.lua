@@ -11,6 +11,7 @@ local servers = {
   "pyright",
   "solidity_ls",
   "sumneko_lua",
+  "tailwindcss",
   "tsserver",
   "yamlls",
 }
@@ -34,6 +35,7 @@ local extend_options = {
   ["solidity_ls"] = require("lsp.server.solidity_ls"),
   ["sumneko_lua"] = require("lsp.server.sumneko_lua"),
   ["tsserver"] = require("lsp.server.tsserver"),
+  ["tailwindcss"] = require("lsp.server.tailwindcss"),
   ["yamlls"] = require("lsp.server.yamlls"),
 }
 

@@ -15,6 +15,7 @@ telescope.setup({
       "--line-number",
       "--column",
       "--smart-case",
+      "--trim",
     },
     file_ignore_patterns = { "^.git/", "^node_modules/" },
     prompt_prefix = "   ",

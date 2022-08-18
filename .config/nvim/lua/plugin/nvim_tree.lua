@@ -5,17 +5,11 @@ if not existed then
   return
 end
 
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_icon_padding = " "
-vim.g.nvim_tree_special_files = {}
-vim.g.nvim_tree_respect_buf_cwd = 1
-
 require("nvim-tree").setup({
   update_cwd = true,
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_root = true,
   },
   diagnostics = {
     enable = true,
@@ -26,26 +20,19 @@ require("nvim-tree").setup({
       error = " ",
     },
   },
-  git = {
-    enable = true,
-    ignore = false,
-    timeout = 400,
-  },
   renderer = {
     indent_markers = {
       enable = true,
-      icons = {
-        corner = "└ ",
-        edge = "│ ",
-        none = "  ",
-      },
     },
+    highlight_git = true,
+    highlight_opened_files = "all",
+    special_files = {},
   },
   view = {
-    hide_root_folder = false,
     number = true,
     relativenumber = true,
   },
+  respect_buf_cwd = true,
 })
 
 utils.set_key_map("n", "<leader>e", ":NvimTreeToggle<CR>")
