@@ -1,45 +1,21 @@
-local lsp_installer = require("nvim-lsp-installer")
-local capabilities = require("lsp.capabilities")
-local on_attach = require("lsp.on_attach")
+local existed, _ = pcall(require, "mason")
 
-local servers = {
-  "cssls",
-  "dockerls",
-  "emmet_ls",
-  "gopls",
-  "jsonls",
-  "pyright",
-  "solidity_ls",
-  "sumneko_lua",
-  "tailwindcss",
-  "tsserver",
-  "yamlls",
-}
-
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    print("Installing " .. name)
-    server:install()
-  end
+if not existed then
+  return
 end
 
-local extend_options = {
-  ["cssls"] = require("lsp.server.cssls"),
-  ["dockerls"] = require("lsp.server.dockerls"),
-  ["emmet_ls"] = require("lsp.server.emmet_ls"),
-  ["gopls"] = require("lsp.server.gopls"),
-  ["html"] = require("lsp.server.html"),
-  ["jsonls"] = require("lsp.server.jsonls"),
-  ["pyright"] = require("lsp.server.pyright"),
-  ["solidity_ls"] = require("lsp.server.solidity_ls"),
-  ["sumneko_lua"] = require("lsp.server.sumneko_lua"),
-  ["tsserver"] = require("lsp.server.tsserver"),
-  ["tailwindcss"] = require("lsp.server.tailwindcss"),
-  ["yamlls"] = require("lsp.server.yamlls"),
-}
+require("mason").setup()
 
-lsp_installer.on_server_ready(function(server)
-  local options = extend_options[server.name](on_attach, capabilities)
-  server:setup(options)
-end)
+require("mason-lspconfig").setup({
+  ensure_installed = { "cssls", "dockerls", "jsonls", "tsserver" },
+})
+
+require("mason-null-ls").setup({
+  ensure_installed = { "eslint_d", "prettierd", "stylua" },
+})
+
+require("lsp.server.cssls")
+require("lsp.server.dockerls")
+require("lsp.server.html")
+require("lsp.server.jsonls")
+require("lsp.server.tsserver")

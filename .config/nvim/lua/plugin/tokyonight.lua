@@ -1,16 +1,22 @@
-local existed, _ = pcall(require, "tokyonight")
+local existed, theme = pcall(require, "tokyonight")
 
 if not existed then
   return
 end
 
-vim.g.tokyonight_style = "storm"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_italic_variables = true
-vim.g.tokyonight_transparent = true
-vim.g.tokyonight_hide_inactive_statusline = true
-vim.g.tokyonight_transparent_sidebar = true
-vim.g.tokyonight_dark_sidebar = false
-vim.g.tokyonight_dark_float = false
-vim.g.tokyonight_lualine_bold = true
+require("tokyonight").setup({
+  style = "storm",
+  light_style = "day",
+  transparent = false,
+  terminal_colors = true,
+  styles = {
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = { italic = true },
+    variables = { italic = true },
+    sidebars = "normal",
+    floats = "normal",
+  },
+})
+
 vim.cmd([[colorscheme tokyonight]])

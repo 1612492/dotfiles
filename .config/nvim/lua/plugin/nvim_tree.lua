@@ -1,11 +1,11 @@
 local utils = require("utils")
-local existed, _ = pcall(require, "nvim-tree.config")
+local existed, tree = pcall(require, "nvim-tree")
 
 if not existed then
   return
 end
 
-require("nvim-tree").setup({
+tree.setup({
   update_cwd = true,
   update_focused_file = {
     enable = true,
@@ -35,4 +35,4 @@ require("nvim-tree").setup({
   respect_buf_cwd = true,
 })
 
-utils.set_key_map("n", "<leader>e", ":NvimTreeToggle<CR>")
+utils.set_key_map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
