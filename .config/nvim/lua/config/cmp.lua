@@ -1,6 +1,6 @@
-local existed, cmp = pcall(require, "cmp")
+local status_ok, cmp = pcall(require, "cmp")
 
-if not existed then
+if not status_ok then
   return
 end
 
@@ -32,17 +32,6 @@ local icons = {
   TypeParameter = "",
 }
 
-local border = {
-  { "╭", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╮", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "╯", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╰", "FloatBorder" },
-  { "│", "FloatBorder" },
-}
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -63,12 +52,8 @@ cmp.setup({
     end,
   },
   window = {
-    completion = {
-      border = border,
-    },
-    documentation = {
-      border = border,
-    },
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -101,7 +86,6 @@ cmp.setup({
     { name = "path" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "nvim_lsp_signature_help" },
     {
       name = "buffer",
       option = {

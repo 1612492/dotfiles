@@ -2,6 +2,12 @@ local capabilities = require("lsp.capabilities")
 local on_attach = require("lsp.on_attach")
 
 require("lspconfig").tsserver.setup({
+  init_options = {
+    plugins = {
+      { name = "typescript-styled-plugin" },
+      { name = "typescript-plugin-css-modules" },
+    },
+  },
   capabilities = capabilities,
   on_attach = function(client, buf)
     client.server_capabilities.documentFormattingProvider = false

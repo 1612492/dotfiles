@@ -1,7 +1,6 @@
-local utils = require("utils")
-local existed, tree = pcall(require, "nvim-tree")
+local status_ok, tree = pcall(require, "nvim-tree")
 
-if not existed then
+if not status_ok then
   return
 end
 
@@ -13,12 +12,6 @@ tree.setup({
   },
   diagnostics = {
     enable = true,
-    icons = {
-      hint = " ",
-      info = " ",
-      warning = " ",
-      error = " ",
-    },
   },
   renderer = {
     indent_markers = {
@@ -34,5 +27,3 @@ tree.setup({
   },
   respect_buf_cwd = true,
 })
-
-utils.set_key_map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")

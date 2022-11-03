@@ -1,10 +1,10 @@
-local existed, Comment = pcall(require, "Comment")
+local status_ok, comment = pcall(require, "Comment")
 
-if not existed then
+if not status_ok then
   return
 end
 
-Comment.setup({
+comment.setup({
   pre_hook = function(ctx)
     local U = require("Comment.utils")
 

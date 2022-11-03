@@ -1,32 +1,41 @@
 local utils = require("utils")
 
 vim.g.mapleader = " "
-vim.opt.smartindent = true
-vim.opt.backup = false
-vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.encoding = "UTF-8"
-vim.opt.expandtab = true
-vim.opt.foldenable = false
-vim.opt.foldmethod = "manual"
-vim.opt.foldnestmax = 1
-vim.opt.hidden = true
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.mouse = "a"
-vim.opt.shiftwidth = 2
-vim.opt.showmode = false
-vim.opt.smartcase = true
-vim.opt.softtabstop = 2
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.termguicolors = true
-vim.opt.writebackup = false
-vim.opt.cursorline = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.signcolumn = "yes"
 
-utils.disable_builtins({
+local options = {
+  backup = false,
+  completeopt = "menu,menuone,noselect",
+  conceallevel = 0,
+  cursorline = true,
+  encoding = "utf-8",
+  expandtab = true,
+  fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
+  foldcolumn = "1",
+  foldenable = true,
+  foldlevel = 99,
+  foldlevelstart = 99,
+  hidden = true,
+  hlsearch = true,
+  ignorecase = true,
+  incsearch = true,
+  mouse = "a",
+  number = true,
+  pumheight = 10,
+  relativenumber = true,
+  shiftwidth = 2,
+  showmode = false,
+  signcolumn = "yes",
+  smartcase = true,
+  smartindent = true,
+  softtabstop = 2,
+  splitbelow = true,
+  splitright = true,
+  swapfile = false,
+  termguicolors = true,
+  writebackup = false,
+}
+
+local builtins = {
   "2html_plugin",
   "getscript",
   "getscriptPlugin",
@@ -45,4 +54,12 @@ utils.disable_builtins({
   "vimballPlugin",
   "zip",
   "zipPlugin",
-})
+}
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
+
+for _, builtin in pairs(builtins) do
+  vim.g["loaded_" .. builtin] = 1
+end

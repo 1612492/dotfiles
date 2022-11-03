@@ -1,8 +1,10 @@
-local existed, _ = pcall(require, "lspconfig")
+local status_ok, _ = pcall(require, "lspconfig")
 
-if not existed then
+if not status_ok then
   return
 end
+
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 require("lsp.signs")
 require("lsp.handlers")

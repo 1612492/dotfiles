@@ -1,6 +1,6 @@
-local existed, _ = pcall(require, "nvim-treesitter")
+local status_ok, _ = pcall(require, "nvim-treesitter")
 
-if not existed then
+if not status_ok then
   return
 end
 
@@ -15,17 +15,14 @@ require("nvim-treesitter.configs").setup({
   },
   ensure_installed = {
     "css",
+    "dart",
     "dockerfile",
     "go",
-    "gomod",
     "html",
     "javascript",
     "json",
     "lua",
-    "python",
-    "scss",
-    "solidity",
-    "toml",
+    "markdown",
     "tsx",
     "typescript",
     "yaml",
@@ -33,4 +30,17 @@ require("nvim-treesitter.configs").setup({
   sync_install = true,
   indent = { enable = true },
   highlight = { enable = true },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
 })
+
+require("treesitter-context").setup({})

@@ -1,5 +1,8 @@
-local utils = require("utils")
-local existed, fzf = pcall(require, "fzf-lua")
+local status_ok, fzf = pcall(require, "fzf-lua")
+
+if not status_ok then
+  return
+end
 
 fzf.setup({
   winopts = {
@@ -19,7 +22,12 @@ fzf.setup({
       scrollborder_f = "FloatBorder",
     },
   },
+  previewers = {
+    builtin = {
+      extensions = {
+        ["png"] = { "viu", "-b" },
+        ["jpg"] = { "viu", "-b" },
+      },
+    },
+  },
 })
-
-utils.set_key_map("n", "<leader>f", "<cmd>lua require('fzf-lua').files()<cr>")
-utils.set_key_map("n", "<leader>g", "<cmd>lua require('fzf-lua').live_grep()<cr>")

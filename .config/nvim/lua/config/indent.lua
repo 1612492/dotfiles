@@ -1,10 +1,10 @@
-local existed, indent_blankline = pcall(require, "indent_blankline")
+local status_ok, indent = pcall(require, "indent_blankline")
 
-if not existed then
+if not status_ok then
   return
 end
 
-indent_blankline.setup({
+indent.setup({
   char = "│",
   buftype_exclude = { "terminal", "help", "nofile", "nowrite", "quickfix", "prompt" },
   filetype_exclude = { "markdown", "help" },

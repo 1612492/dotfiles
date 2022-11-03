@@ -1,13 +1,13 @@
-local existed, lualine = pcall(require, "lualine")
+local status_ok, lualine = pcall(require, "lualine")
 
-if not existed then
+if not status_ok then
   return
 end
 
 lualine.setup({
   options = {
-    theme = "tokyonight",
-    component_separators = { "", "" },
+    theme = "base16",
+    component_separators = { left = "", right = "" },
   },
   sections = {
     lualine_a = { "mode" },
