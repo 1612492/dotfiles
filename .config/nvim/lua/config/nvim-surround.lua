@@ -1,4 +1,4 @@
 return {
-  "karb94/neoscroll.nvim",
+  "kylechui/nvim-surround",
   config = true,
 }

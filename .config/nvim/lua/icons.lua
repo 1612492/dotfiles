@@ -43,12 +43,9 @@ local icons = {
   Failure = "✗",
   Pending = "⟳",
 
-  Dot = "●",
-
   Added = " ",
   Modified = " ",
   Removed = " ",
-  Deleted = " ",
 }
 
 return icons
