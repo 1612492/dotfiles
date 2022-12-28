@@ -1,5 +1,3 @@
-local utils = require("utils")
-
 vim.g.mapleader = " "
 
 local options = {
@@ -35,31 +33,6 @@ local options = {
   writebackup = false,
 }
 
-local builtins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-}
-
 for k, v in pairs(options) do
   vim.opt[k] = v
-end
-
-for _, builtin in pairs(builtins) do
-  vim.g["loaded_" .. builtin] = 1
 end

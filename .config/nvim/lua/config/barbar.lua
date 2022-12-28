@@ -4,6 +4,8 @@ if not status_ok then
   return
 end
 
+local icons = require("icons")
+
 bufferline.setup({
   animation = true,
   auto_hide = false,
@@ -13,6 +15,6 @@ bufferline.setup({
   icons = "numbers",
   icon_separator_active = "",
   icon_separator_inactive = "",
-  icon_close_tab_modified = "●",
+  icon_close_tab_modified = icons.Dot,
   insert_at_end = true,
 })

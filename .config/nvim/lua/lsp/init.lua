@@ -8,5 +8,5 @@ require("lspconfig.ui.windows").default_options.border = "rounded"
 
 require("lsp.signs")
 require("lsp.handlers")
-require("lsp.installer")
+require("lsp.mason")
 require("lsp.server.null_ls")

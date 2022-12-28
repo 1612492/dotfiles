@@ -1,5 +1,7 @@
 local status_ok, packer = pcall(require, "packer")
 
+local icons = require("icons")
+
 if not status_ok then
   local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
@@ -15,13 +17,17 @@ packer.startup({
   function()
     use("wbthomason/packer.nvim")
     use({
-      "RRethy/nvim-base16",
+      "catppuccin/nvim",
+      as = "catppuccin",
       config = function()
-        require("config.base16")
+        require("config.catppuccin")
       end,
-      requires = {
-        "kyazdani42/nvim-web-devicons",
-      },
+    })
+    use({
+      "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("config.devicons")
+      end,
     })
     use({
       "neovim/nvim-lspconfig",
@@ -66,7 +72,7 @@ packer.startup({
       end,
     })
     use({
-      "numToStr/Comment.nvim",
+      "echasnovski/mini.comment",
       config = function()
         require("config.comment")
       end,
@@ -87,13 +93,6 @@ packer.startup({
       "lukas-reineke/indent-blankline.nvim",
       config = function()
         require("config.indent")
-      end,
-    })
-    use({
-      "glepnir/lspsaga.nvim",
-      branch = "main",
-      config = function()
-        require("config.lspsaga")
       end,
     })
     use({
@@ -118,16 +117,6 @@ packer.startup({
       end,
     })
     use({
-      "folke/noice.nvim",
-      config = function()
-        require("config.noice")
-      end,
-      requires = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
-      },
-    })
-    use({
       "kylechui/nvim-surround",
       config = function()
         require("config.surround")
@@ -149,11 +138,9 @@ packer.startup({
       requires = {
         "windwp/nvim-ts-autotag",
         "JoosepAlviste/nvim-ts-context-commentstring",
-        "nvim-treesitter/nvim-treesitter-context",
         "nvim-treesitter/nvim-treesitter-textobjects",
       },
     })
-    use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
     use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install" })
     use("lewis6991/impatient.nvim")
     use("antoinemadec/FixCursorHold.nvim")
@@ -164,6 +151,9 @@ packer.startup({
       open_fn = function()
         return require("packer.util").float({ border = "rounded" })
       end,
+      working_sym = icons.Pending,
+      error_sym = icons.Failure,
+      done_sym = icons.Success,
     },
   },
 })

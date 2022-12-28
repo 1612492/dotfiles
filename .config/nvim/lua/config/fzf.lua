@@ -22,12 +22,4 @@ fzf.setup({
       scrollborder_f = "FloatBorder",
     },
   },
-  previewers = {
-    builtin = {
-      extensions = {
-        ["png"] = { "viu", "-b" },
-        ["jpg"] = { "viu", "-b" },
-      },
-    },
-  },
 })

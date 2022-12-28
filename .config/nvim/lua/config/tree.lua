@@ -4,26 +4,44 @@ if not status_ok then
   return
 end
 
+local icons = require("icons")
+
 tree.setup({
-  update_cwd = true,
+  disable_netrw = true,
+  open_on_setup = true,
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
   update_focused_file = {
     enable = true,
     update_root = true,
   },
   diagnostics = {
     enable = true,
+    icons = {
+      error = icons.Error,
+      warning = icons.Warn,
+      info = icons.Info,
+      hint = icons.Hint,
+    },
+  },
+  view = {
+    adaptive_size = true,
   },
   renderer = {
+    add_trailing = true,
+    highlight_git = true,
+    highlight_opened_files = "all",
     indent_markers = {
       enable = true,
     },
-    highlight_git = true,
-    highlight_opened_files = "all",
     special_files = {},
   },
-  view = {
-    number = true,
-    relativenumber = true,
+  trash = {
+    cmd = "trash",
   },
-  respect_buf_cwd = true,
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
+  },
 })

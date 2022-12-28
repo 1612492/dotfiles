@@ -4,10 +4,20 @@ if not status_ok then
   return
 end
 
-mason.setup()
+local icons = require("icons")
+
+mason.setup({
+  ui = {
+    icons = {
+      package_installed = icons.Success,
+      package_uninstalled = icons.Failure,
+      package_pending = icons.Pending,
+    },
+  },
+})
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "cssls", "dockerls", "jsonls", "tsserver" },
+  ensure_installed = { "cssls", "dockerls", "html", "jsonls", "tsserver", "volar" },
 })
 
 require("mason-null-ls").setup({
@@ -20,3 +30,4 @@ require("lsp.server.dockerls")
 require("lsp.server.html")
 require("lsp.server.jsonls")
 require("lsp.server.tsserver")
+require("lsp.server.volar")
