@@ -1,6 +1,10 @@
 function config()
   require("barbecue").setup({
-    theme = "catppuccin",
+    theme = {
+      normal = {
+        background = "NONE",
+      },
+    },
   })
 end
 
