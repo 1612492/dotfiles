@@ -1,16 +1,16 @@
-return {
-  "neovim/nvim-lspconfig",
-  dependencies = {
-    "jose-elias-alvarez/null-ls.nvim",
-    "jose-elias-alvarez/nvim-lsp-ts-utils",
-    "nvim-lua/plenary.nvim",
-    "b0o/schemastore.nvim",
-    require("config.mason"),
-  },
-  config = function()
-    require("lspconfig.ui.windows").default_options.border = "rounded"
-    require("lsp.signs")
-    require("lsp.handlers")
-    require("lsp.server")
-  end,
-}
+function config()
+  require("lspconfig.ui.windows").default_options.border = "rounded"
+
+  require("lsp.signs")
+  require("lsp.handlers")
+  require("lsp.server.cssls")
+  require("lsp.server.dartls")
+  require("lsp.server.dockerls")
+  require("lsp.server.html")
+  require("lsp.server.jsonls")
+  require("lsp.server.null-ls")
+  require("lsp.server.tsserver")
+  require("lsp.server.volar")
+end
+
+return config
