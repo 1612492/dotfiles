@@ -19,9 +19,13 @@ function config()
     },
     view = {
       adaptive_size = true,
+      mappings = {
+        list = {
+          { key = "d", action = "trash" },
+        },
+      },
     },
     renderer = {
-      add_trailing = true,
       highlight_git = true,
       highlight_opened_files = "all",
       indent_markers = {
@@ -31,11 +35,6 @@ function config()
     },
     trash = {
       cmd = "trash",
-    },
-    actions = {
-      open_file = {
-        quit_on_open = false,
-      },
     },
   })
 end
