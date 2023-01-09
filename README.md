@@ -1,0 +1,8 @@
+# My working environment
+
+- Shell: ZSH
+- Terminal: Kitty, Tmux
+- Editor: Neovim
+
+<img width="1680" alt="image" src="https://user-images.githubusercontent.com/39008689/211294964-06a078b7-6fdd-4bc1-b30e-920a3bdf4b21.png">
+<img width="1680" alt="image" src="https://user-images.githubusercontent.com/39008689/211295542-c37440fd-c726-480c-b3aa-6d8d2e72bec8.png">

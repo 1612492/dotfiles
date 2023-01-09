@@ -5,6 +5,7 @@ function config()
     integrations = {
       barbar = true,
       cmp = true,
+      fidget = true,
       gitsigns = true,
       markdown = true,
       mason = true,

@@ -13,6 +13,7 @@ function config()
     ensure_installed = {
       "cssls",
       "dockerls",
+      "emmet_ls",
       "html",
       "jsonls",
       "tsserver",

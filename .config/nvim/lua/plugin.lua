@@ -18,7 +18,6 @@ require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin", config = require("config.catppuccin") },
   { "sindrets/diffview.nvim" },
   { "j-hui/fidget.nvim", config = require("config.fidget") },
-  { "ibhagwan/fzf-lua", config = require("config.fzf-lua") },
   { "lewis6991/gitsigns.nvim", config = true },
   { "lukas-reineke/indent-blankline.nvim", config = require("config.indent-blankline") },
   { "hoob3rt/lualine.nvim", config = require("config.lualine") },
@@ -83,4 +82,9 @@ require("lazy").setup({
   },
   { "kyazdani42/nvim-web-devicons", config = require("config.nvim-web-devicons") },
   { "nvim-lua/plenary.nvim" },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    config = require("config.telescope")
+  },
 })
