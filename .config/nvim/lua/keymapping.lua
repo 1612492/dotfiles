@@ -20,4 +20,5 @@ keymap("n", "<leader>hu", "<cmd>lua require('gitsigns').undo_stage_hunk()<cr>", 
 keymap("n", "<leader>hp", "<cmd>lua require('gitsigns').preview_hunk()<cr>", opts)
 keymap("n", "<leader>hb", "<cmd>lua require('gitsigns').blame_line()<cr>", opts)
 
-keymap("n", "<leader>e", "<cmd>NvimTreeFocus<cr>")
+keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
+keymap("n", "<leader>d", "<cmd>DiffviewOpen<cr>")

@@ -21,6 +21,15 @@ require("lazy").setup({
   { "lewis6991/gitsigns.nvim", config = true },
   { "lukas-reineke/indent-blankline.nvim", config = require("config.indent-blankline") },
   { "hoob3rt/lualine.nvim", config = require("config.lualine") },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+    },
+    config = true,
+  },
   { "iamcco/markdown-preview.nvim", build = "cd app && yarn install" },
   { "echasnovski/mini.comment", config = require("config.mini.comment") },
   { "karb94/neoscroll.nvim", config = true },
@@ -41,12 +50,13 @@ require("lazy").setup({
           {
             "saadparwaiz1/cmp_luasnip",
             dependencies = {
-              "L3MON4D3/LuaSnip",
-              "rafamadriz/friendly-snippets",
+              {
+                "L3MON4D3/LuaSnip",
+                build = "make install_jsregexp",
+              },
+              "1612492/friendly-snippets",
             },
-            config = function()
-              require("luasnip.loaders.from_vscode").lazy_load()
-            end,
+            config = require("config.luasnip"),
           },
         },
         config = require("config.nvim-cmp"),
@@ -63,7 +73,7 @@ require("lazy").setup({
     },
     config = require("config.nvim-lspconfig"),
   },
-  { "kylechui/nvim-surround", config = true },
+  { "tpope/vim-surround" },
   { "nvim-tree/nvim-tree.lua", tag = "nightly", config = require("config.nvim-tree") },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -85,6 +95,6 @@ require("lazy").setup({
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    config = require("config.telescope")
+    config = require("config.telescope"),
   },
 })

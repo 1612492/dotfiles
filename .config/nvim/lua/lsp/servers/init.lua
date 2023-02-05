@@ -17,7 +17,7 @@ local on_attach = function(client, buf)
   keymap("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
   keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<cr>", opts)
 end
-local servers = { "cssls", "dartls", "dockerls", "emmet_ls", "html", "jsonls", "null-ls", "tsserver", "volar" }
+local servers = { "cssls", "dartls", "dockerls", "html", "jsonls", "null-ls", "tsserver", "volar" }
 
 for _, name in ipairs(servers) do
   require("lsp.servers." .. name)(on_attach, capabilities)
