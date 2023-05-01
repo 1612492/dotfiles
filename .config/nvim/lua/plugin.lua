@@ -42,6 +42,11 @@ require("lazy").setup({
       "jose-elias-alvarez/nvim-lsp-ts-utils",
       "b0o/schemastore.nvim",
       {
+        "glepnir/lspsaga.nvim",
+        event = "LspAttach",
+        config = require("config.lspsaga"),
+      },
+      {
         "hrsh7th/nvim-cmp",
         dependencies = {
           "hrsh7th/cmp-nvim-lsp",
@@ -74,7 +79,6 @@ require("lazy").setup({
     config = require("config.nvim-lspconfig"),
   },
   { "tpope/vim-surround" },
-  { "nvim-tree/nvim-tree.lua", tag = "nightly", config = require("config.nvim-tree") },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -90,11 +94,14 @@ require("lazy").setup({
     dependencies = "kevinhwang91/promise-async",
     config = require("config.nvim-ufo"),
   },
-  { "kyazdani42/nvim-web-devicons", config = require("config.nvim-web-devicons") },
+  { "kyazdani42/nvim-web-devicons" },
   { "nvim-lua/plenary.nvim" },
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-file-browser.nvim" },
+    },
     config = require("config.telescope"),
   },
 })

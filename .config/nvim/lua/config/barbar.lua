@@ -1,14 +1,19 @@
 function config()
-  require("bufferline").setup({
+  vim.g.barbar_auto_setup = false
+
+  require("barbar").setup({
     animation = true,
     auto_hide = false,
     tabpages = true,
     closable = true,
     clickable = true,
-    icons = "numbers",
-    icon_separator_active = "",
-    icon_separator_inactive = "",
-    icon_close_tab_modified = "●",
+    icons = {
+      buffer_index = true,
+      filetype = { enabled = false },
+      separator = { left = "", right = "" },
+      modified = { button = "●" },
+      inactive = { separator = { left = "", right = "" } },
+    },
     insert_at_end = true,
   })
 end

@@ -3,6 +3,7 @@ local nls = require("null-ls")
 return function(on_attach, capabilities)
   nls.setup({
     sources = {
+      nls.builtins.code_actions.eslint_d,
       nls.builtins.diagnostics.eslint_d.with({
         condition = function(utils)
           return utils.root_has_file({ ".eslintrc.json", ".eslintrc.js" })

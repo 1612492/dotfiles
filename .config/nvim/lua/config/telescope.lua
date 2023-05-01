@@ -1,4 +1,6 @@
 function config()
+  local fb_actions = require("telescope._extensions.file_browser.actions")
+
   require("telescope").setup({
     defaults = {
       vimgrep_arguments = {
@@ -36,10 +38,32 @@ function config()
         override_file_sorter = true,
         case_mode = "smart_case",
       },
+      file_browser = {
+        path = "%:p:h",
+        initial_mode = "normal",
+        select_buffer = true,
+        grouped = true,
+        hidden = true,
+        hijack_netrw = true,
+        respect_gitignore = false,
+        mappings = {
+          ["i"] = {
+            ["<C-a>"] = fb_actions.create,
+            ["<C-r>"] = fb_actions.rename,
+            ["<C-m>"] = fb_actions.move,
+            ["<C-y>"] = fb_actions.copy,
+            ["<C-d>"] = fb_actions.remove,
+          },
+          ["n"] = {
+            ["a"] = fb_actions.create,
+          },
+        },
+      },
     },
   })
 
   require("telescope").load_extension("fzf")
+  require("telescope").load_extension("file_browser")
 end
 
 return config
