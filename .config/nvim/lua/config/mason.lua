@@ -16,7 +16,6 @@ function config()
       "html",
       "jsonls",
       "tsserver",
-      "volar",
     },
   })
   require("mason-null-ls").setup({

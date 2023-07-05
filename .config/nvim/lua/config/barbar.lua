@@ -4,17 +4,19 @@ function config()
   require("barbar").setup({
     animation = true,
     auto_hide = false,
-    tabpages = true,
-    closable = true,
+    tabpages = false,
     clickable = true,
     icons = {
       buffer_index = true,
+      button = "",
       filetype = { enabled = false },
       separator = { left = "", right = "" },
-      modified = { button = "●" },
+      modified = { button = "" },
       inactive = { separator = { left = "", right = "" } },
     },
+    semantic_letters = true,
     insert_at_end = true,
+    no_name_title = "NO NAME",
   })
 end
 

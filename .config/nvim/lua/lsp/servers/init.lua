@@ -21,7 +21,7 @@ local on_attach = function(client, buf)
   keymap("n", "<leader>sw", "<cmd>Lspsaga show_workspace_diagnostics<cr>", opts)
   keymap("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<cr>", opts)
 end
-local servers = { "cssls", "dartls", "dockerls", "html", "jsonls", "null-ls", "tsserver", "volar" }
+local servers = { "astro", "cssls", "dockerls", "html", "jsonls", "null-ls", "tailwindcss", "tsserver" }
 
 for _, name in ipairs(servers) do
   require("lsp.servers." .. name)(on_attach, capabilities)

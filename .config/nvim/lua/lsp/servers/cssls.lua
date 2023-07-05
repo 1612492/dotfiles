@@ -1,10 +1,5 @@
 return function(on_attach, capabilities)
   require("lspconfig").cssls.setup({
-    settings = {
-      css = {
-        lint = { validProperties = { "composes" } },
-      },
-    },
     capabilities = capabilities,
     on_attach = function(client, buf)
       client.server_capabilities.documentFormattingProvider = false

@@ -2,7 +2,16 @@ function config()
   require("indent_blankline").setup({
     char = "│",
     buftype_exclude = { "terminal", "help", "nofile", "nowrite", "quickfix", "prompt" },
-    filetype_exclude = { "markdown", "help", "packer", "NvimTree" },
+    filetype_exclude = {
+      "markdown",
+      "help",
+      "terminal",
+      "lazy",
+      "lspinfo",
+      "TelescopePrompt",
+      "TelescopeResults",
+      "mason",
+    },
     context_patterns = {
       "class",
       "return",

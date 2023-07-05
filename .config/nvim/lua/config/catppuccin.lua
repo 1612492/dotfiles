@@ -9,7 +9,6 @@ function config()
       gitsigns = true,
       markdown = true,
       mason = true,
-      nvimtree = true,
       treesitter = true,
       indent_blankline = {
         enabled = true,

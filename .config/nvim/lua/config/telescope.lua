@@ -1,10 +1,9 @@
 function config()
-  local fb_actions = require("telescope._extensions.file_browser.actions")
-
   require("telescope").setup({
     defaults = {
       vimgrep_arguments = {
         "rg",
+        "-L",
         "--color=never",
         "--no-heading",
         "--with-filename",
@@ -12,18 +11,29 @@ function config()
         "--column",
         "--smart-case",
       },
-      file_ignore_patterns = { "^.git/", "^node_modules/" },
       prompt_prefix = "   ",
       selection_caret = "  ",
+      initial_mode = "insert",
+      selection_strategy = "reset",
+      sorting_strategy = "ascending",
+      layout_strategy = "horizontal",
       layout_config = {
         horizontal = {
+          prompt_position = "top",
           preview_width = 0.55,
+          results_width = 0.8,
         },
-        width = 0.95,
-        height = 0.95,
+        vertical = {
+          mirror = false,
+        },
+        width = 0.87,
+        height = 0.80,
         preview_cutoff = 120,
-        vertical = { mirror = false },
       },
+      file_sorter = require("telescope.sorters").get_fuzzy_file,
+      file_ignore_patterns = { "node_modules" },
+      generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+      path_display = { "truncate" },
       mappings = {
         i = {
           ["<C-f>"] = require("telescope.actions").cycle_history_next,
@@ -38,32 +48,10 @@ function config()
         override_file_sorter = true,
         case_mode = "smart_case",
       },
-      file_browser = {
-        path = "%:p:h",
-        initial_mode = "normal",
-        select_buffer = true,
-        grouped = true,
-        hidden = true,
-        hijack_netrw = true,
-        respect_gitignore = false,
-        mappings = {
-          ["i"] = {
-            ["<C-a>"] = fb_actions.create,
-            ["<C-r>"] = fb_actions.rename,
-            ["<C-m>"] = fb_actions.move,
-            ["<C-y>"] = fb_actions.copy,
-            ["<C-d>"] = fb_actions.remove,
-          },
-          ["n"] = {
-            ["a"] = fb_actions.create,
-          },
-        },
-      },
     },
   })
 
   require("telescope").load_extension("fzf")
-  require("telescope").load_extension("file_browser")
 end
 
 return config

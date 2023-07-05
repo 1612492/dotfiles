@@ -1,6 +1,9 @@
 return function(on_attach, capabilities)
   require("lspconfig").tsserver.setup({
     init_options = {
+      preferences = {
+        disableSuggestions = true,
+      },
       plugins = {
         { name = "typescript-styled-plugin" },
         { name = "typescript-plugin-css-modules" },

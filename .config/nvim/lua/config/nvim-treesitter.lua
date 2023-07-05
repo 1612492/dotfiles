@@ -1,6 +1,5 @@
 function config()
   require("nvim-treesitter.configs").setup({
-    auto_install = true,
     autotag = {
       enable = true,
     },
@@ -8,23 +7,9 @@ function config()
       enable = true,
       enable_autocmd = false,
     },
-    ensure_installed = {
-      "css",
-      "dart",
-      "dockerfile",
-      "go",
-      "html",
-      "javascript",
-      "json",
-      "lua",
-      "markdown",
-      "tsx",
-      "typescript",
-      "yaml",
-    },
-    sync_install = true,
+    ensure_installed = {},
     indent = { enable = true },
-    highlight = { enable = true },
+    highlight = { enable = true, use_languagetree = true },
     textobjects = {
       select = {
         enable = true,

@@ -52,12 +52,6 @@ function config()
     formatting = {
       format = function(entry, vim_item)
         vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-        vim_item.menu = ({
-          path = "[PATH]",
-          luasnip = "[SNIP]",
-          nvim_lsp = "[LSP]",
-          buffer = "[BUF]",
-        })[entry.source.name]
 
         return vim_item
       end,
@@ -65,6 +59,7 @@ function config()
     window = {
       completion = cmp.config.window.bordered({
         winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+        scrollbar = false,
       }),
       documentation = cmp.config.window.bordered({
         winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",

@@ -14,11 +14,11 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
+  { "catppuccin/nvim", priority = 1000, name = "catppuccin", config = require("config.catppuccin") },
   { "romgrk/barbar.nvim", config = require("config.barbar") },
-  { "catppuccin/nvim", name = "catppuccin", config = require("config.catppuccin") },
   { "sindrets/diffview.nvim" },
-  { "j-hui/fidget.nvim", config = require("config.fidget") },
-  { "lewis6991/gitsigns.nvim", config = true },
+  { "j-hui/fidget.nvim", tag = "legacy", config = require("config.fidget") },
+  { "lewis6991/gitsigns.nvim", config = require("config.gitsigns") },
   { "lukas-reineke/indent-blankline.nvim", config = require("config.indent-blankline") },
   { "hoob3rt/lualine.nvim", config = require("config.lualine") },
   {
@@ -31,7 +31,7 @@ require("lazy").setup({
     config = true,
   },
   { "iamcco/markdown-preview.nvim", build = "cd app && yarn install" },
-  { "echasnovski/mini.comment", config = require("config.mini.comment") },
+  { "numToStr/Comment.nvim", config = require("config.comment") },
   { "karb94/neoscroll.nvim", config = true },
   { "windwp/nvim-autopairs", config = require("config.nvim-autopairs") },
   { "norcalli/nvim-colorizer.lua", config = require("config.nvim-colorizer") },
@@ -48,6 +48,7 @@ require("lazy").setup({
       },
       {
         "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
         dependencies = {
           "hrsh7th/cmp-nvim-lsp",
           "hrsh7th/cmp-buffer",
@@ -68,6 +69,7 @@ require("lazy").setup({
       },
       {
         "williamboman/mason.nvim",
+        build = ":MasonUpdate",
         dependencies = {
           "williamboman/mason-lspconfig.nvim",
           "jayp0521/mason-null-ls.nvim",
@@ -100,8 +102,43 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      { "nvim-telescope/telescope-file-browser.nvim" },
     },
     config = require("config.telescope"),
+  },
+  { "stevearc/oil.nvim", config = require("config.oil") },
+}, {
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "2html_plugin",
+        "tohtml",
+        "getscript",
+        "getscriptPlugin",
+        "gzip",
+        "logipat",
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+        "matchit",
+        "tar",
+        "tarPlugin",
+        "rrhelper",
+        "spellfile_plugin",
+        "vimball",
+        "vimballPlugin",
+        "zip",
+        "zipPlugin",
+        "tutor",
+        "rplugin",
+        "syntax",
+        "synmenu",
+        "optwin",
+        "compiler",
+        "bugreport",
+        "ftplugin",
+        "editorconfig",
+      },
+    },
   },
 })

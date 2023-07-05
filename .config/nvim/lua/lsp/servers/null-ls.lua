@@ -2,6 +2,7 @@ local nls = require("null-ls")
 
 return function(on_attach, capabilities)
   nls.setup({
+    border = "rounded",
     sources = {
       nls.builtins.code_actions.eslint_d,
       nls.builtins.diagnostics.eslint_d.with({
@@ -10,6 +11,20 @@ return function(on_attach, capabilities)
         end,
       }),
       nls.builtins.formatting.prettierd.with({
+        filetypes = {
+          "astro",
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "css",
+          "html",
+          "json",
+          "jsonc",
+          "markdown",
+          "solidity",
+          "svg",
+        },
         env = {
           PRETTIERD_DEFAULT_CONFIG = vim.fn.stdpath("config") .. "/.prettierrc.json",
         },

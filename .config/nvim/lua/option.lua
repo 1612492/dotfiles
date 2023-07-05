@@ -1,32 +1,41 @@
+local opt = vim.opt
+
 vim.g.mapleader = " "
 
-vim.opt.backup = false
-vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.conceallevel = 0
-vim.opt.cursorline = true
-vim.opt.encoding = "utf-8"
-vim.opt.expandtab = true
-vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.opt.foldcolumn = "1"
-vim.opt.foldenable = true
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-vim.opt.hidden = true
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.mouse = "a"
-vim.opt.number = true
-vim.opt.pumheight = 10
-vim.opt.relativenumber = true
-vim.opt.shiftwidth = 2
-vim.opt.showmode = false
-vim.opt.signcolumn = "yes"
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.softtabstop = 2
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.swapfile = false
-vim.opt.termguicolors = true
-vim.opt.writebackup = false
+opt.encoding = "utf-8"
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
+
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+opt.hlsearch = true
+opt.incsearch = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.mouse = "a"
+
+opt.cursorline = true
+opt.signcolumn = "yes"
+opt.number = true
+opt.relativenumber = true
+opt.splitbelow = true
+opt.splitright = true
+opt.pumheight = 10
+opt.showmode = false
+opt.termguicolors = true
+
+opt.completeopt = "menu,menuone,noselect"
+opt.conceallevel = 0
+
+opt.foldcolumn = "1"
+opt.foldenable = true
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+
+opt.updatetime = 250
+opt.hidden = true
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
