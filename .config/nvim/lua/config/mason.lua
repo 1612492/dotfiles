@@ -1,20 +1,14 @@
 function config()
-  require("mason").setup({
-    ui = {
-      icons = {
-        package_installed = "✓",
-        package_uninstalled = "✗",
-        package_pending = "⟳",
-      },
-    },
-  })
+  require("mason").setup()
 
   require("mason-lspconfig").setup({
     ensure_installed = {
+      "astro",
       "cssls",
       "dockerls",
       "html",
       "jsonls",
+      "tailwindcss",
       "tsserver",
     },
   })
