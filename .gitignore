@@ -3,4 +3,3 @@
 .config/zsh/.zsh_history
 .config/tmux/plugins
 .config/tmux/sessions
-plugin_compiled.lua

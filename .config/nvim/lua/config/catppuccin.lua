@@ -1,11 +1,10 @@
-function config()
+return function()
   require("catppuccin").setup({
     flavour = "mocha",
     transparent_background = true,
     integrations = {
       barbar = true,
       cmp = true,
-      fidget = true,
       gitsigns = true,
       markdown = true,
       mason = true,
@@ -34,5 +33,3 @@ function config()
 
   vim.cmd.colorscheme("catppuccin")
 end
-
-return config

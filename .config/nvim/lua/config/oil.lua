@@ -1,4 +1,4 @@
-function config()
+return function()
   local oil = require("oil")
 
   oil.setup({
@@ -16,5 +16,3 @@ function config()
     },
   })
 end
-
-return config

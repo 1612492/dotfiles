@@ -1,4 +1,4 @@
-function config()
+return function()
   require("nvim-treesitter.configs").setup({
     auto_install = true,
     autotag = {
@@ -24,5 +24,3 @@ function config()
     },
   })
 end
-
-return config

@@ -1,4 +1,4 @@
-function config()
+return function()
   require("nvim-autopairs").setup({
     check_ts = true,
     ts_config = {
@@ -10,5 +10,3 @@ function config()
     map_c_w = true,
   })
 end
-
-return config

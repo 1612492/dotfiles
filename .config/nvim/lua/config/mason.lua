@@ -1,5 +1,11 @@
-function config()
-  require("mason").setup()
+return function()
+  require("mason").setup({
+    ui = {
+      border = "rounded",
+      width = 0.8,
+      height = 0.8,
+    },
+  })
 
   require("mason-lspconfig").setup({
     ensure_installed = {
@@ -8,17 +14,15 @@ function config()
       "dockerls",
       "html",
       "jsonls",
+      "solidity_ls_nomicfoundation",
       "tailwindcss",
-      "tsserver",
     },
   })
+
   require("mason-null-ls").setup({
     ensure_installed = {
-      "eslint_d",
       "prettierd",
       "stylua",
     },
   })
 end
-
-return config

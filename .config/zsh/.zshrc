@@ -6,6 +6,5 @@ plugins=(
 )
 
 alias v='nvim'
-alias docker-compose='docker compose'
 
 source $ZSH/oh-my-zsh.sh

@@ -4,29 +4,10 @@ return function(on_attach, capabilities)
   nls.setup({
     border = "rounded",
     sources = {
-      nls.builtins.code_actions.eslint_d,
-      nls.builtins.diagnostics.eslint_d.with({
-        condition = function(utils)
-          return utils.root_has_file({ ".eslintrc.json", ".eslintrc.js" })
-        end,
-      }),
       nls.builtins.formatting.prettierd.with({
-        filetypes = {
-          "astro",
-          "javascript",
-          "javascriptreact",
-          "typescript",
-          "typescriptreact",
-          "css",
-          "html",
-          "json",
-          "jsonc",
-          "markdown",
-          "solidity",
-          "svg",
-        },
+        extra_filetypes = { "astro", "solidity", "svg" },
         env = {
-          PRETTIERD_DEFAULT_CONFIG = vim.fn.stdpath("config") .. "/.prettierrc.json",
+          PRETTIERD_DEFAULT_CONFIG = vim.fn.stdpath("config") .. "/prettier.config.js",
         },
       }),
       nls.builtins.formatting.stylua.with({
@@ -34,6 +15,5 @@ return function(on_attach, capabilities)
       }),
     },
     on_attach = on_attach,
-    debug = false,
   })
 end

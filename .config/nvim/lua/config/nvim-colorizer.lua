@@ -1,4 +1,4 @@
-function config()
+return function()
   require("colorizer").setup({
     "*",
     css = {
@@ -8,5 +8,3 @@ function config()
     },
   })
 end
-
-return config

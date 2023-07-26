@@ -16,8 +16,8 @@ vim.opt.runtimepath:prepend(lazypath)
 require("lazy").setup({
   { "catppuccin/nvim", priority = 1000, name = "catppuccin", config = require("config.catppuccin") },
   { "romgrk/barbar.nvim", config = require("config.barbar") },
+  { "gelguy/wilder.nvim", config = require("config.wilder") },
   { "sindrets/diffview.nvim" },
-  { "j-hui/fidget.nvim", tag = "legacy", config = require("config.fidget") },
   { "lewis6991/gitsigns.nvim", config = require("config.gitsigns") },
   { "lukas-reineke/indent-blankline.nvim", config = require("config.indent-blankline") },
   { "hoob3rt/lualine.nvim", config = require("config.lualine") },
@@ -38,8 +38,8 @@ require("lazy").setup({
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      { "pmizio/typescript-tools.nvim", config = require("config.typescript-tools") },
       "jose-elias-alvarez/null-ls.nvim",
-      "jose-elias-alvarez/nvim-lsp-ts-utils",
       "b0o/schemastore.nvim",
       {
         "glepnir/lspsaga.nvim",
@@ -76,7 +76,6 @@ require("lazy").setup({
         },
         config = require("config.mason"),
       },
-      {},
     },
     config = require("config.nvim-lspconfig"),
   },
@@ -106,39 +105,4 @@ require("lazy").setup({
     config = require("config.telescope"),
   },
   { "stevearc/oil.nvim", config = require("config.oil") },
-}, {
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "2html_plugin",
-        "tohtml",
-        "getscript",
-        "getscriptPlugin",
-        "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-        "matchit",
-        "tar",
-        "tarPlugin",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
-        "zipPlugin",
-        "tutor",
-        "rplugin",
-        "syntax",
-        "synmenu",
-        "optwin",
-        "compiler",
-        "bugreport",
-        "ftplugin",
-        "editorconfig",
-      },
-    },
-  },
 })

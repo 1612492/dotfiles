@@ -1,10 +1,7 @@
 return function(on_attach, capabilities)
-  require("lspconfig").tailwindcss.setup({
+  require("lspconfig").solidity_ls_nomicfoundation.setup({
     capabilities = capabilities,
-    root_dir = function(fname)
-      local util = require("lspconfig/util")
-      return util.root_pattern("tailwind.config.js", "tailwind.config.mjs", "tailwind.config.cjs")(fname)
-    end,
+    single_file_support = true,
     on_attach = function(client, buf)
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false

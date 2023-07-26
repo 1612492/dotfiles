@@ -1,4 +1,4 @@
-function config()
+return function()
   require("lualine").setup({
     options = {
       theme = "catppuccin",
@@ -44,8 +44,6 @@ function config()
       lualine_y = { "branch" },
       lualine_z = { "location" },
     },
-    extensions = { "fzf", "nvim-tree", "quickfix" },
+    extensions = { "fzf", "quickfix" },
   })
 end
-
-return config

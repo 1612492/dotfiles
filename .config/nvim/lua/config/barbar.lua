@@ -1,4 +1,4 @@
-function config()
+return function()
   vim.g.barbar_auto_setup = false
 
   require("barbar").setup({
@@ -19,5 +19,3 @@ function config()
     no_name_title = "NO NAME",
   })
 end
-
-return config

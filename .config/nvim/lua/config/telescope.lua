@@ -1,4 +1,4 @@
-function config()
+return function()
   require("telescope").setup({
     defaults = {
       vimgrep_arguments = {
@@ -26,8 +26,8 @@ function config()
         vertical = {
           mirror = false,
         },
-        width = 0.87,
-        height = 0.80,
+        width = 0.8,
+        height = 0.8,
         preview_cutoff = 120,
       },
       file_sorter = require("telescope.sorters").get_fuzzy_file,
@@ -36,6 +36,8 @@ function config()
       path_display = { "truncate" },
       mappings = {
         i = {
+          ["<Tab>"] = require("telescope.actions").move_selection_next,
+          ["<S-Tab>"] = require("telescope.actions").move_selection_previous,
           ["<C-f>"] = require("telescope.actions").cycle_history_next,
           ["<C-b>"] = require("telescope.actions").cycle_history_prev,
         },
@@ -53,5 +55,3 @@ function config()
 
   require("telescope").load_extension("fzf")
 end
-
-return config

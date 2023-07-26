@@ -1,4 +1,4 @@
-function config()
+return function()
   require("indent_blankline").setup({
     char = "│",
     buftype_exclude = { "terminal", "help", "nofile", "nowrite", "quickfix", "prompt" },
@@ -41,5 +41,3 @@ function config()
     use_treesitter = true,
   })
 end
-
-return config
