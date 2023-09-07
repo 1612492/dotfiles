@@ -1,7 +1,3 @@
 return function()
-  require("typescript-tools").setup({
-    settings = {
-      tsserver_plugins = {},
-    },
-  })
+  require("typescript-tools").setup({})
 end

@@ -1,39 +1,5 @@
-local icons = {
-  Array = "",
-  Boolean = "",
-  Class = "",
-  Constant = "",
-  Constructor = "",
-  Enum = "",
-  EnumMember = "",
-  Event = "",
-  Field = "",
-  File = "",
-  Folder = "",
-  Function = "",
-  Interface = "",
-  Keyword = "",
-  Method = "",
-  Module = "",
-  Namespace = "",
-  Null = "",
-  Number = "",
-  Object = "",
-  Operator = "",
-  Package = "",
-  Property = "",
-  Reference = "",
-  Snippet = "",
-  String = "",
-  Struct = "",
-  Text = "",
-  TypeParameter = "",
-  Unit = "塞",
-  Value = "",
-  Variable = "",
-}
-
 local has_words_before = function()
+  unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
@@ -41,6 +7,13 @@ end
 return function()
   local luasnip = require("luasnip")
   local cmp = require("cmp")
+  local lspkind = require('lspkind')
+  local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+  cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+  )
 
   cmp.setup({
     preselect = cmp.PreselectMode.None,
@@ -50,11 +23,10 @@ return function()
       end,
     },
     formatting = {
-      format = function(entry, vim_item)
-        vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-
-        return vim_item
-      end,
+      format = lspkind.cmp_format({
+        mode = 'symbol_text',
+        ellipsis_char = '...',
+      })
     },
     window = {
       completion = cmp.config.window.bordered({
@@ -65,7 +37,7 @@ return function()
         winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
       }),
     },
-    mapping = cmp.mapping.preset.insert({
+    mapping = {
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
@@ -91,9 +63,8 @@ return function()
           fallback()
         end
       end, { "i", "s" }),
-    }),
+    },
     sources = cmp.config.sources({
-      { name = "path" },
       { name = "nvim_lsp" },
       { name = "luasnip" },
       {
@@ -104,6 +75,7 @@ return function()
           end,
         },
       },
+      { name = "path" },
     }),
   })
 end

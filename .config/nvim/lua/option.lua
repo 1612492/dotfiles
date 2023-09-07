@@ -9,7 +9,6 @@ opt.smartindent = true
 opt.tabstop = 2
 opt.softtabstop = 2
 
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.hlsearch = true
 opt.incsearch = true
 opt.ignorecase = true
@@ -29,6 +28,7 @@ opt.termguicolors = true
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 0
 
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.foldcolumn = "1"
 opt.foldenable = true
 opt.foldlevel = 99

@@ -1,5 +1,9 @@
 return function()
-  require("telescope").setup({
+  local telescope = require("telescope")
+  local actions = require("telescope.actions")
+  local sorters = require("telescope.sorters")
+
+  telescope.setup({
     defaults = {
       vimgrep_arguments = {
         "rg",
@@ -30,17 +34,18 @@ return function()
         height = 0.8,
         preview_cutoff = 120,
       },
-      file_sorter = require("telescope.sorters").get_fuzzy_file,
+      file_sorter = sorters.get_fuzzy_file,
       file_ignore_patterns = { "node_modules" },
-      generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+      generic_sorter = sorters.get_generic_fuzzy_sorter,
       path_display = { "truncate" },
       mappings = {
         i = {
-          ["<Tab>"] = require("telescope.actions").move_selection_next,
-          ["<S-Tab>"] = require("telescope.actions").move_selection_previous,
-          ["<C-f>"] = require("telescope.actions").cycle_history_next,
-          ["<C-b>"] = require("telescope.actions").cycle_history_prev,
+          ["<Tab>"] = actions.move_selection_next,
+          ["<S-Tab>"] = actions.move_selection_previous,
+          ["<C-f>"] = actions.cycle_history_next,
+          ["<C-b>"] = actions.cycle_history_prev,
         },
+        n = { q = actions.close },
       },
     },
     extensions = {
@@ -53,5 +58,5 @@ return function()
     },
   })
 
-  require("telescope").load_extension("fzf")
+  telescope.load_extension("fzf")
 end

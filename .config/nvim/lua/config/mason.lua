@@ -7,22 +7,27 @@ return function()
     },
   })
 
-  require("mason-lspconfig").setup({
-    ensure_installed = {
-      "astro",
-      "cssls",
-      "dockerls",
-      "html",
-      "jsonls",
-      "solidity_ls_nomicfoundation",
-      "tailwindcss",
-    },
-  })
 
-  require("mason-null-ls").setup({
-    ensure_installed = {
-      "prettierd",
-      "stylua",
-    },
-  })
+  local registry = require("mason-registry")
+
+  local servers = {
+    "astro-language-server",
+    "css-lsp",
+    "dockerfile-language-server",
+    "gopls",
+    "html-lsp",
+    "json-lsp",
+    "lua-language-server",
+    "nomicfoundation-solidity-language-server",
+    "tailwindcss-language-server",
+  }
+
+  registry.refresh(function()
+    for _, p in ipairs(servers) do
+      local package = registry.get_package(p)
+      if not package:is_installed() then
+        package:install()
+      end
+    end
+  end)
 end

@@ -14,95 +14,144 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
-  { "catppuccin/nvim", priority = 1000, name = "catppuccin", config = require("config.catppuccin") },
-  { "romgrk/barbar.nvim", config = require("config.barbar") },
-  { "gelguy/wilder.nvim", config = require("config.wilder") },
-  { "sindrets/diffview.nvim" },
-  { "lewis6991/gitsigns.nvim", config = require("config.gitsigns") },
-  { "lukas-reineke/indent-blankline.nvim", config = require("config.indent-blankline") },
-  { "hoob3rt/lualine.nvim", config = require("config.lualine") },
-  {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    dependencies = {
-      "SmiteshP/nvim-navic",
+    { "nvim-lua/plenary.nvim" },
+    {
+      "catppuccin/nvim",
+      name = "catppuccin",
+      priority = 1000,
+      config = require("config.catppuccin"),
     },
-    config = true,
-  },
-  { "iamcco/markdown-preview.nvim", build = "cd app && yarn install" },
-  { "numToStr/Comment.nvim", config = require("config.comment") },
-  { "karb94/neoscroll.nvim", config = true },
-  { "windwp/nvim-autopairs", config = require("config.nvim-autopairs") },
-  { "norcalli/nvim-colorizer.lua", config = require("config.nvim-colorizer") },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      { "pmizio/typescript-tools.nvim", config = require("config.typescript-tools") },
-      "jose-elias-alvarez/null-ls.nvim",
-      "b0o/schemastore.nvim",
-      {
-        "glepnir/lspsaga.nvim",
-        event = "LspAttach",
-        config = require("config.lspsaga"),
+    { "kyazdani42/nvim-web-devicons" },
+    {
+      "romgrk/barbar.nvim",
+      config = require("config.barbar"),
+    },
+    {
+      "lewis6991/gitsigns.nvim",
+      config = require("config.gitsigns"),
+    },
+    {
+      "sindrets/diffview.nvim",
+      cmd = { "DiffviewOpen" },
+    },
+    {
+      "lukas-reineke/indent-blankline.nvim",
+      config = require("config.indent-blankline"),
+    },
+    {
+      "hoob3rt/lualine.nvim",
+      config = require("config.lualine"),
+    },
+    {
+      "utilyre/barbecue.nvim",
+      name = "barbecue",
+      version = "*",
+      config = true,
+      dependencies = {
+        "SmiteshP/nvim-navic",
       },
-      {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-        dependencies = {
-          "hrsh7th/cmp-nvim-lsp",
-          "hrsh7th/cmp-buffer",
-          "hrsh7th/cmp-path",
-          {
-            "saadparwaiz1/cmp_luasnip",
-            dependencies = {
-              {
-                "L3MON4D3/LuaSnip",
-                build = "make install_jsregexp",
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      build = "cd app && yarn install",
+    },
+    {
+      "numToStr/Comment.nvim",
+      config = require("config.comment"),
+    },
+    {
+      "karb94/neoscroll.nvim",
+      config = true,
+    },
+    { "tpope/vim-surround" },
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      config = require("config.nvim-autopairs"),
+    },
+    {
+      "NvChad/nvim-colorizer.lua",
+      config = require("config.nvim-colorizer"),
+    },
+    {
+      "neovim/nvim-lspconfig",
+      config = require("lsp"),
+      dependencies = {
+        "b0o/schemastore.nvim",
+        {
+          "pmizio/typescript-tools.nvim",
+          config = require("config.typescript-tools"),
+        },
+        {
+          "williamboman/mason.nvim",
+          build = ":MasonUpdate",
+          config = require("config.mason"),
+        },
+        {
+          "hrsh7th/nvim-cmp",
+          event = "InsertEnter",
+          config = require("config.nvim-cmp"),
+          dependencies = {
+            "onsails/lspkind.nvim",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            {
+              "saadparwaiz1/cmp_luasnip",
+              dependencies = {
+                {
+                  "L3MON4D3/LuaSnip",
+                  build = "make install_jsregexp",
+                },
+                "1612492/friendly-snippets",
               },
-              "1612492/friendly-snippets",
+              config = require("config.luasnip"),
             },
-            config = require("config.luasnip"),
           },
         },
-        config = require("config.nvim-cmp"),
       },
-      {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate",
-        dependencies = {
-          "williamboman/mason-lspconfig.nvim",
-          "jayp0521/mason-null-ls.nvim",
+    },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
+      config = require("config.nvim-treesitter"),
+      dependencies = {
+        "windwp/nvim-ts-autotag",
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        "nvim-treesitter/nvim-treesitter-textobjects",
+      },
+    },
+    {
+      "kevinhwang91/nvim-ufo",
+      event = "InsertEnter",
+      config = require("config.nvim-ufo"),
+      dependencies = {
+        "kevinhwang91/promise-async",
+      },
+    },
+    {
+      "nvim-telescope/telescope.nvim",
+      config = require("config.telescope"),
+      dependencies = {
+        {
+          "nvim-telescope/telescope-fzf-native.nvim",
+          build = "make",
         },
-        config = require("config.mason"),
       },
     },
-    config = require("config.nvim-lspconfig"),
-  },
-  { "tpope/vim-surround" },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    dependencies = {
-      "windwp/nvim-ts-autotag",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "nvim-treesitter/nvim-treesitter-textobjects",
+    {
+      "stevearc/oil.nvim",
+      config = require("config.oil"),
     },
-    config = require("config.nvim-treesitter"),
+    {
+      "j-hui/fidget.nvim",
+      tag = "legacy",
+      event = "LspAttach",
+      config = require("config.fidget")
+    }
   },
   {
-    "kevinhwang91/nvim-ufo",
-    dependencies = "kevinhwang91/promise-async",
-    config = require("config.nvim-ufo"),
-  },
-  { "kyazdani42/nvim-web-devicons" },
-  { "nvim-lua/plenary.nvim" },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    },
-    config = require("config.telescope"),
-  },
-  { "stevearc/oil.nvim", config = require("config.oil") },
-})
+    ui = {
+      border = "rounded",
+    }
+  })

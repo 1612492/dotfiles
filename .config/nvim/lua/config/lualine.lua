@@ -44,6 +44,6 @@ return function()
       lualine_y = { "branch" },
       lualine_z = { "location" },
     },
-    extensions = { "fzf", "quickfix" },
+    extensions = { "quickfix" },
   })
 end
