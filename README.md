@@ -3,6 +3,13 @@
 - Terminal: Kitty, Tmux
 - Editor: Neovim
 
+## Prerequisites
+- [Kitty](https://sw.kovidgoyal.net/kitty/binary)
+- [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- [Tmux](https://github.com/tmux/tmux/wiki/Installing)
+- [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+- `curl`, `git`, `sh`
+
 ## Installation
 
 ```bash
