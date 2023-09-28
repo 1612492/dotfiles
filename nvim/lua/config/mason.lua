@@ -20,6 +20,9 @@ return function()
     "lua-language-server",
     "nomicfoundation-solidity-language-server",
     "tailwindcss-language-server",
+    "eslint_d",
+    "prettierd",
+    "stylua"
   }
 
   registry.refresh(function()

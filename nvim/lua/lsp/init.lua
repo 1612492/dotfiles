@@ -1,3 +1,5 @@
+local icon = require("icon")
+
 return function()
   require("lspconfig.ui.windows").default_options.border = "rounded"
 
@@ -13,10 +15,10 @@ return function()
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
-  vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-  vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-  vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-  vim.fn.sign_define("DiagnosticSignHint", { text = " ", texthl = "DiagnosticSignHint" })
+  vim.fn.sign_define("DiagnosticSignError", { text = icon.error, texthl = "DiagnosticSignError" })
+  vim.fn.sign_define("DiagnosticSignWarn", { text = icon.warn, texthl = "DiagnosticSignWarn" })
+  vim.fn.sign_define("DiagnosticSignInfo", { text = icon.info, texthl = "DiagnosticSignInfo" })
+  vim.fn.sign_define("DiagnosticSignHint", { text = icon.hint, texthl = "DiagnosticSignHint" })
 
   local servers = {
     "astro",
@@ -26,6 +28,7 @@ return function()
     "html",
     "jsonls",
     "lua_ls",
+    "null_ls",
     "solidity_ls_nomicfoundation",
     "tailwindcss",
   }

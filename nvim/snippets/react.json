@@ -1,0 +1,488 @@
+{
+  "exportType": {
+    "body": [
+      "export type ${1:first} = {${2:second}}"
+    ],
+    "prefix": "exptp"
+  },
+  "exportInterface": {
+    "prefix": "expint",
+    "body": [
+      "export interface ${1:first} {${2:second}}"
+    ]
+  },
+  "typescriptReactFunctionalExportComponent": {
+    "prefix": "tsrfce",
+    "body": [
+      "type Props = {}",
+      "",
+      "function ${1:${TM_FILENAME_BASE}}({}: Props) {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Creates a React Functional Component with ES7 module system and TypeScript interface"
+  },
+  "typescriptReactFunctionalComponent": {
+    "prefix": "tsrfc",
+    "body": [
+      "type Props = {}",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}({}: Props) {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}"
+    ],
+    "description": "Creates a React Functional Component with ES7 module system and TypeScript interface"
+  },
+  "typescriptReactArrowFunctionExportComponent": {
+    "prefix": "tsrafce",
+    "body": [
+      "type Props = {}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = (props: Props) => {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Creates a React Arrow Function Component with ES7 module system and TypeScript interface"
+  },
+  "typescriptReactArrowFunctionComponent": {
+    "prefix": "tsrafc",
+    "body": [
+      "type Props = {}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = (props: Props) => {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}"
+    ],
+    "description": "Creates a React Arrow Function Component with ES7 module system and TypeScript interface"
+  },
+  "typescriptReactNativeArrowFunctionComponent": {
+    "prefix": "tsrnf",
+    "body": [
+      "import { View, Text } from 'react-native'",
+      "",
+      "type Props = {}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = (props: Props) => {",
+      "  return (",
+      "    <View>",
+      "      <Text>${1:first}</Text>",
+      "    </View>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Creates a React Native Arrow Function Component with ES7 module system in TypeScript"
+  },
+  "typescriptReactNativeArrowFunctionComponentWithStyles": {
+    "prefix": "tsrnfs",
+    "body": [
+      "import { StyleSheet, Text, View } from 'react-native'",
+      "",
+      "type Props = {}",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = (props: Props) => {",
+      "  return (",
+      "    <View>",
+      "      <Text>${1:first}</Text>",
+      "    </View>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      "",
+      "const styles = StyleSheet.create({})"
+    ],
+    "description": "Creates a React Native Arrow Function Component with ES7 module system, TypeScript interface and StyleSheet"
+  },
+  "reactArrowFunctionComponent": {
+    "prefix": "rafc",
+    "body": [
+      "export const ${1:${TM_FILENAME_BASE}} = () => {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}",
+    ],
+    "description": "Creates a React Arrow Function Component with ES7 module system"
+  },
+  "reactArrowFunctionExportComponent": {
+    "prefix": "rafce",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Creates a React Arrow Function Component with ES7 module system"
+  },
+  "reactFunctionalComponent": {
+    "prefix": "rfc",
+    "body": [
+      "export default function ${1:${TM_FILENAME_BASE}}() {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}",
+    ],
+    "description": "Creates a React Functional Component with ES7 module system"
+  },
+  "reactFunctionalExportComponent": {
+    "prefix": "rfce",
+    "body": [
+      "function ${1:${TM_FILENAME_BASE}}() {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Creates a React Functional Component with ES7 module system"
+  },
+  "useCallback": {
+    "prefix": "useCallbackSnippet",
+    "body": [
+      "useCallback(",
+      "  () => {",
+      "    ${1:first}",
+      "  },",
+      "  [${2:second}],",
+      ")",
+      ""
+    ]
+  },
+  "useContext": {
+    "prefix": "useContextSnippet",
+    "body": [
+      "const ${1:first} = useContext(${2:second})"
+    ]
+  },
+  "useEffect": {
+    "prefix": "useEffectSnippet",
+    "body": [
+      "useEffect(() => {",
+      "  ${1:first}",
+      "",
+      "  return () => {",
+      "    ${2:second}",
+      "  }",
+      "}, [${3:third}])",
+      ""
+    ]
+  },
+  "useImperativeHandle": {
+    "prefix": "useImperativeHandleSnippet",
+    "body": [
+      "useImperativeHandle(",
+      "  ${1:first},",
+      "  () => {",
+      "    ${2:second}",
+      "  },",
+      "  [${3:third}],",
+      ")"
+    ]
+  },
+  "useLayoutEffect": {
+    "prefix": "useLayoutEffectSnippet",
+    "body": [
+      "useLayoutEffect(() => {",
+      "  ${1:first}",
+      "",
+      "  return () => {",
+      "    ${2:second}",
+      "  };",
+      "}, [${3:third}])"
+    ]
+  },
+  "useMemo": {
+    "prefix": "useMemoSnippet",
+    "body": [
+      "useMemo(() => ${1:first}, [${2:second}])"
+    ]
+  },
+  "useReducer": {
+    "prefix": "useReducerSnippet",
+    "body": [
+      "const [state, dispatch] = useReducer(${1:first}, ${2:second}, ${3:third})"
+    ]
+  },
+  "useRef": {
+    "prefix": "useRefSnippet",
+    "body": [
+      "const ${1:first} = useRef(${2:second})"
+    ]
+  },
+  "useState": {
+    "prefix": "useStateSnippet",
+    "body": [
+      "const [${1:first}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:second})"
+    ]
+  },
+  "importAs": {
+    "prefix": "ima",
+    "body": [
+      "import { ${2:second} as ${3:third} } from '${1:first}'"
+    ]
+  },
+  "importDestructing": {
+    "prefix": "imd",
+    "body": [
+      "import { ${2:second} } from '${1:first}'"
+    ]
+  },
+  "importEverything": {
+    "prefix": "ime",
+    "body": [
+      "import * as ${2:second} from '${1:first}'"
+    ]
+  },
+  "importNoModuleName": {
+    "prefix": "imn",
+    "body": [
+      "import '${1:first}'"
+    ]
+  },
+  "import": {
+    "prefix": "imp",
+    "body": [
+      "import ${2:second} from '${1:first}'"
+    ]
+  },
+  "reactNativeFunctionalComponent": {
+    "prefix": "rnf",
+    "body": [
+      "import { View, Text } from 'react-native'",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}() {",
+      "  return (",
+      "    <View>",
+      "      <Text>${1:first}</Text>",
+      "    </View>",
+      "  )",
+      "}"
+    ]
+  },
+  "reactNativeFunctionalComponentWithStyles": {
+    "prefix": "rnfs",
+    "body": [
+      "import { StyleSheet, Text, View } from 'react-native'",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}() {",
+      "  return (",
+      "    <View>",
+      "      <Text>${1:first}</Text>",
+      "    </View>",
+      "  )",
+      "}",
+      "",
+      "const styles = StyleSheet.create({})"
+    ]
+  },
+  "reactNativeFunctionalExportComponent": {
+    "prefix": "rnfe",
+    "body": [
+      "import { View, Text } from 'react-native'",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
+      "  return (",
+      "    <View>",
+      "      <Text>${1:first}</Text>",
+      "    </View>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ]
+  },
+  "reactNativeFunctionalExportComponentWithStyles": {
+    "prefix": "rnfes",
+    "body": [
+      "import { StyleSheet, Text, View } from 'react-native'",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
+      "  return (",
+      "    <View>",
+      "      <Text>${1:first}</Text>",
+      "    </View>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      "",
+      "const styles = StyleSheet.create({})"
+    ]
+  },
+  "reactNativeStyles": {
+    "prefix": "rnstyle",
+    "body": [
+      "const styles = StyleSheet.create({${1:first}})"
+    ]
+  },
+  "describeBlock": {
+    "prefix": "desc",
+    "body": [
+      "describe('${1:first}', () => { ${2:second} })"
+    ],
+    "description": "Testing `describe` block"
+  },
+  "itAsyncBlock": {
+    "prefix": "tita",
+    "body": [
+      "it('should ${1:first}', async () => { ${2:second} })"
+    ],
+    "description": "Testing asynchronous `it` block"
+  },
+  "itBlock": {
+    "prefix": "tit",
+    "body": [
+      "it('should ${1:first}', () => { ${2:second} })"
+    ],
+    "description": "Testing `it` block"
+  },
+  "testAsyncBlock": {
+    "prefix": "testa",
+    "body": [
+      "test('should ${1:first}', async () => { ${2:second} })"
+    ],
+    "description": "Testing `asynchronous test` block"
+  },
+  "testBlock": {
+    "prefix": "test",
+    "body": [
+      "test('should ${1:first}', () => { ${2:second} })"
+    ],
+    "description": "Testing `test` block"
+  },
+  "exportDefault": {
+    "prefix": "exp",
+    "body": [
+      "export default ${1:first}"
+    ]
+  },
+  "exportDestructing": {
+    "prefix": "exd",
+    "body": [
+      "export { ${2:second} } from '${1:first}'"
+    ]
+  },
+  "exportAs": {
+    "prefix": "exa",
+    "body": [
+      "export { ${2:second} as ${3:third} } from '${1:first}'"
+    ]
+  },
+  "exportNamedFunction": {
+    "prefix": "enf",
+    "body": [
+      "export const ${1:first} = (${2:second}) => {${3:third}}"
+    ],
+    "description": "Export named function"
+  },
+  "exportDefaultFunction": {
+    "prefix": "edf",
+    "body": [
+      "export default (${1:first}) => {${2:second}}"
+    ],
+    "description": "Export default function"
+  },
+  "exportDefaultNamedFunction": {
+    "prefix": "ednf",
+    "body": [
+      "export default function ${1:first}(${2:second}) {${3:third}}"
+    ],
+    "description": "Export default named function"
+  },
+  "method": {
+    "prefix": "met",
+    "body": [
+      "${1:first} = (${2:second}) => {${3:third}}"
+    ],
+    "description": "Creates a method inside a class"
+  },
+  "forEach": {
+    "prefix": "fre",
+    "body": [
+      "${1:first}.forEach(${2:second} => {${3:third}})"
+    ],
+    "description": "Creates a forEach statement"
+  },
+  "forOf": {
+    "prefix": "fof",
+    "body": [
+      "for(let ${1:first} of ${2:second}) {${3:third}}"
+    ],
+    "description": "Iterating over property names of iterable objects"
+  },
+  "forIn": {
+    "prefix": "fin",
+    "body": [
+      "for(let ${1:first} in ${2:second}) {${3:third}}"
+    ],
+    "description": "Iterating over property values of iterable objects"
+  },
+  "anonymousFunction": {
+    "prefix": "anfn",
+    "body": [
+      "(${1:first}) => { ${2:second} }"
+    ],
+    "description": "Creates an anonymous function"
+  },
+  "namedFunction": {
+    "prefix": "nfn",
+    "body": [
+      "const ${1:first} = (${2:second}) => { ${3:third} }"
+    ],
+    "description": "Creates a named function"
+  },
+  "destructingObject": {
+    "prefix": "dob",
+    "body": [
+      "const {${2:second}} = ${1:first}"
+    ],
+    "description": "Creates and assigns a local variable using object destructing"
+  },
+  "destructingArray": {
+    "prefix": "dar",
+    "body": [
+      "const [${2:second}] = ${1:first}"
+    ],
+    "description": "Creates and assigns a local variable using array destructing"
+  },
+  "setInterval": {
+    "prefix": "sti",
+    "body": [
+      "setInterval(() => { ${1:first} }, ${2:second})"
+    ],
+    "description": "Executes the given function at specified intervals"
+  },
+  "setTimeOut": {
+    "prefix": "sto",
+    "body": [
+      "setTimeout(() => { ${1:first} }, ${2:second})"
+    ],
+    "description": "Executes the given function after the specified delay"
+  },
+  "promise": {
+    "prefix": "prom",
+    "body": [
+      "return new Promise((resolve, reject) => { ${1:first} })"
+    ],
+    "description": "Creates and returns a new Promise in the standard ES7 syntax"
+  },
+}

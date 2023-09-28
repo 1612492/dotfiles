@@ -9,7 +9,8 @@ return function()
       enable = true,
       enable_autocmd = false,
     },
-    ensure_installed = { },
+    ignore_install = { "dart" },
+    ensure_installed = {},
     incremental_selection = { enable = true },
     indent = { enable = true },
     highlight = {

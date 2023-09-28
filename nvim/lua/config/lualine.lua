@@ -1,3 +1,5 @@
+local icon = require("icon")
+
 return function()
   require("lualine").setup({
     options = {
@@ -13,7 +15,7 @@ return function()
         {
           "filename",
           symbols = {
-            modified = "●",
+            modified = icon.modified,
           },
           path = 1,
         },
@@ -22,9 +24,9 @@ return function()
         {
           "diff",
           symbols = {
-            added = " ",
-            modified = " ",
-            removed = " ",
+            added = icon.added_outline,
+            modified = icon.modified_outline,
+            removed = icon.removed_outline,
           },
         },
       },
@@ -33,10 +35,10 @@ return function()
           "diagnostics",
           sources = { "nvim_diagnostic" },
           symbols = {
-            error = " ",
-            warn = " ",
-            info = " ",
-            hint = " ",
+            error = icon.error,
+            warn = icon.warn,
+            info = icon.info,
+            hint = icon.hint,
           },
         },
         "filetype",

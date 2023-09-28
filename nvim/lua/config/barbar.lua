@@ -1,3 +1,5 @@
+local icon = require("icon")
+
 return function()
   vim.g.barbar_auto_setup = false
 
@@ -8,7 +10,7 @@ return function()
     clickable = true,
     icons = {
       buffer_index = true,
-      button = "",
+      button = icon.tab_close,
       filetype = { enabled = false },
       separator = { left = "", right = "" },
       modified = { button = "" },

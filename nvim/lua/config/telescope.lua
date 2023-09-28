@@ -1,3 +1,5 @@
+local icon = require("icon")
+
 return function()
   local telescope = require("telescope")
   local actions = require("telescope.actions")
@@ -15,8 +17,8 @@ return function()
         "--column",
         "--smart-case",
       },
-      prompt_prefix = "   ",
-      selection_caret = "  ",
+      prompt_prefix = icon.search,
+      selection_caret = icon.selection,
       initial_mode = "insert",
       selection_strategy = "reset",
       sorting_strategy = "ascending",
@@ -59,4 +61,5 @@ return function()
   })
 
   telescope.load_extension("fzf")
+  telescope.load_extension("flutter")
 end
