@@ -13,7 +13,7 @@ fi
 echo "Creating symbolic links..."
 ln -s "$DOTFILES_DIR/kitty" ~/.config/kitty
 ln -s "$DOTFILES_DIR/nvim" ~/.config/nvim
-ln -s "$DOTFILES_DIR/tmux" ~/.config/tmux
+ln -s "$DOTFILES_DIR/tmux/tmux.conf" ~/.tmux.conf
 ln -s "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
 
 echo "Setup successfully."
