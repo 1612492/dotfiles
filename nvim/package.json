@@ -36,6 +36,8 @@
       {
         "language": [
           "astro",
+          "javascript",
+          "typescript",
           "javascriptreact",
           "typescriptreact"
         ],

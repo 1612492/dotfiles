@@ -33,7 +33,8 @@ require("lazy").setup({
   { "sindrets/diffview.nvim" },
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = require("config.indent-blankline"),
+    main = "ibl",
+    config = true,
   },
   {
     "nvim-lualine/lualine.nvim",
