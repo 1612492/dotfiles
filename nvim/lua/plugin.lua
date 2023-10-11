@@ -85,6 +85,11 @@ require("lazy").setup({
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
         config = require("config.mason"),
+        dependencies = {
+          "williamboman/mason-lspconfig.nvim",
+          "jay-babu/mason-null-ls.nvim",
+          "jay-babu/mason-nvim-dap.nvim",
+        },
       },
       {
         "hrsh7th/nvim-cmp",
@@ -155,7 +160,17 @@ require("lazy").setup({
     "akinsho/flutter-tools.nvim",
     config = true,
   },
-  { "folke/neodev.nvim" },
+  {
+    "folke/neodev.nvim",
+    config = require("config.neodev"),
+  },
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      config = true,
+    },
+  },
 }, {
   ui = {
     border = "rounded",

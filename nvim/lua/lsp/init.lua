@@ -29,6 +29,7 @@ return function()
     "jsonls",
     "lua_ls",
     "null_ls",
+    "rust_analyzer",
     "solidity_ls_nomicfoundation",
     "tailwindcss",
   }

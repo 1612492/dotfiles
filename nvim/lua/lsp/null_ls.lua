@@ -18,5 +18,8 @@ null_ls.setup({
     null_ls.builtins.formatting.stylua.with({
       extra_args = { "--config-path", vim.fn.stdpath("config") .. "/stylua.toml" },
     }),
+    null_ls.builtins.formatting.gofumpt,
+    null_ls.builtins.formatting.goimports_reviser,
+    null_ls.builtins.formatting.golines,
   },
 })

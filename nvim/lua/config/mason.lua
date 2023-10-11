@@ -7,30 +7,41 @@ return function()
     },
   })
 
+  require("mason-lspconfig").setup({
+    automatic_installation = true,
+    ensure_installed = {
+      "astro",
+      "cssls",
+      "dockerls",
+      "gopls",
+      "html",
+      "jsonls",
+      "lua_ls",
+      "rust_analyzer",
+      "solidity_ls_nomicfoundation",
+      "tailwindcss",
+    },
+  })
 
-  local registry = require("mason-registry")
+  require("mason-null-ls").setup({
+    automatic_installation = true,
+    ensure_installed = {
+      "eslint_d",
+      "gofumpt",
+      "goimports-reviser",
+      "golines",
+      "prettierd",
+      "stylua",
+    },
+  })
 
-  local servers = {
-    "astro-language-server",
-    "css-lsp",
-    "dockerfile-language-server",
-    "gopls",
-    "html-lsp",
-    "json-lsp",
-    "lua-language-server",
-    "nomicfoundation-solidity-language-server",
-    "tailwindcss-language-server",
-    "eslint_d",
-    "prettierd",
-    "stylua"
-  }
-
-  registry.refresh(function()
-    for _, p in ipairs(servers) do
-      local package = registry.get_package(p)
-      if not package:is_installed() then
-        package:install()
-      end
-    end
-  end)
+  require("mason-nvim-dap").setup({
+    automatic_installation = true,
+    ensure_installed = { "delve" },
+    handlers = {
+      function(config)
+        require("mason-nvim-dap").default_setup(config)
+      end,
+    },
+  })
 end
