@@ -35,11 +35,13 @@
       },
       {
         "language": [
-          "astro",
           "javascript",
-          "typescript",
           "javascriptreact",
-          "typescriptreact"
+          "typescript",
+          "typescriptreact",
+          "astro",
+          "svelte",
+          "vue"
         ],
         "path": "./snippets/react.json"
       }

@@ -12,7 +12,6 @@ return {
   hint = " ",
   search = "   ",
   selection = "  ",
-  modified = "●",
   added_outline = " ",
   modified_outline = " ",
   removed_outline = " ",

@@ -14,9 +14,6 @@ return function()
       lualine_b = {
         {
           "filename",
-          symbols = {
-            modified = icon.modified,
-          },
           path = 1,
         },
       },

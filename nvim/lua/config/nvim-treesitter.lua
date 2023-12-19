@@ -5,11 +5,6 @@ return function()
       enable = true,
       enable_close_on_slash = false,
     },
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
-    ignore_install = { "dart" },
     ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
     incremental_selection = { enable = true },
     indent = { enable = true },

@@ -58,6 +58,10 @@ require("lazy").setup({
     config = require("config.comment"),
   },
   {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    config = require("config.commentstring"),
+  },
+  {
     "karb94/neoscroll.nvim",
     config = true,
   },
@@ -76,7 +80,7 @@ require("lazy").setup({
     config = require("lsp"),
     dependencies = {
       "b0o/schemastore.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
+      "nvimtools/none-ls.nvim",
       {
         "pmizio/typescript-tools.nvim",
         config = true,
@@ -120,7 +124,6 @@ require("lazy").setup({
     config = require("config.nvim-treesitter"),
     dependencies = {
       "windwp/nvim-ts-autotag",
-      "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
   },

@@ -19,6 +19,7 @@ return function()
       "lua_ls",
       "rust_analyzer",
       "solidity_ls_nomicfoundation",
+      "svelte",
       "tailwindcss",
     },
   })

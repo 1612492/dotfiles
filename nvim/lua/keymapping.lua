@@ -12,8 +12,6 @@ keymap("n", "<leader>=", ":BufferCloseAllButCurrent<cr>", opts)
 keymap("n", "<leader>f", require("telescope.builtin").find_files, opts)
 keymap("n", "<leader>g", require("telescope.builtin").live_grep, opts)
 keymap("n", "<leader>e", require("oil").open, opts)
-keymap("n", "]c", require("gitsigns").next_hunk, opts)
-keymap("n", "[c", require("gitsigns").prev_hunk, opts)
 
 keymap("n", "<leader>du", require("dapui").toggle, opts)
 keymap("n", "<leader>db", require("dap").toggle_breakpoint, opts)

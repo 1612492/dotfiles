@@ -3,7 +3,6 @@ return function()
 
   oil.setup({
     delete_to_trash = true,
-    trash_command = "trash",
     keymaps = {
       ["gx"] = function()
         local cwd = oil.get_current_dir()
