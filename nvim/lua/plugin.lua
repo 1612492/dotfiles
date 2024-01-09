@@ -14,14 +14,16 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
-  { "nvim-lua/plenary.nvim" },
+  "nvim-lua/plenary.nvim",
+  "nvim-tree/nvim-web-devicons",
+  "sindrets/diffview.nvim",
+  "tpope/vim-surround",
   {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
     config = require("config.catppuccin"),
   },
-  { "nvim-tree/nvim-web-devicons" },
   {
     "romgrk/barbar.nvim",
     config = require("config.barbar"),
@@ -30,7 +32,6 @@ require("lazy").setup({
     "lewis6991/gitsigns.nvim",
     config = require("config.gitsigns"),
   },
-  { "sindrets/diffview.nvim" },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
@@ -42,8 +43,6 @@ require("lazy").setup({
   },
   {
     "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
     config = true,
     dependencies = {
       "SmiteshP/nvim-navic",
@@ -56,16 +55,17 @@ require("lazy").setup({
   {
     "numToStr/Comment.nvim",
     config = require("config.comment"),
-  },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    config = require("config.commentstring"),
+    dependencies = {
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        config = require("config.commentstring"),
+      },
+    },
   },
   {
     "karb94/neoscroll.nvim",
     config = true,
   },
-  { "tpope/vim-surround" },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -151,17 +151,12 @@ require("lazy").setup({
   },
   {
     "j-hui/fidget.nvim",
-    tag = "legacy",
     event = "LspAttach",
     config = require("config.fidget"),
   },
   {
     "stevearc/dressing.nvim",
     config = require("config.dressing"),
-  },
-  {
-    "akinsho/flutter-tools.nvim",
-    config = true,
   },
   {
     "folke/neodev.nvim",

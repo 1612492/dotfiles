@@ -7,8 +7,8 @@ if [ ! -d "$DOTFILES_DIR" ]; then
   git clone "$DOTFILES_REPO_URL" "$DOTFILES_DIR"
 fi
 
-ln -s "$DOTFILES_DIR/kitty" ~/.config/kitty
-ln -s "$DOTFILES_DIR/nvim" ~/.config/nvim
+ln -s "$DOTFILES_DIR/kitty" ~/.config
+ln -s "$DOTFILES_DIR/nvim" ~/.config
 ln -s "$DOTFILES_DIR/tmux/tmux.conf" ~/.tmux.conf
 ln -s "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
 
