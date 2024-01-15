@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
+require("bootstrap")
 require("option")
-require("plugin")
-require("keymapping")
+require("keymap")

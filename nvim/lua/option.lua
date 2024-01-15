@@ -1,41 +1,38 @@
-local opt = vim.opt
+local options = {
+  encoding = "utf-8",
+  expandtab = true,
+  shiftwidth = 2,
+  smartindent = true,
+  tabstop = 2,
+  softtabstop = 2,
+  hlsearch = true,
+  incsearch = true,
+  ignorecase = true,
+  smartcase = true,
+  mouse = "a",
+  cursorline = true,
+  signcolumn = "yes",
+  number = true,
+  relativenumber = true,
+  splitbelow = true,
+  splitright = true,
+  pumheight = 10,
+  showmode = false,
+  termguicolors = true,
+  completeopt = "menu,menuone,noselect",
+  conceallevel = 0,
+  fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
+  foldcolumn = "1",
+  foldenable = true,
+  foldlevel = 99,
+  foldlevelstart = 99,
+  updatetime = 250,
+  hidden = true,
+  swapfile = false,
+  backup = false,
+  writebackup = false,
+}
 
-vim.g.mapleader = " "
-
-opt.encoding = "utf-8"
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
-
-opt.hlsearch = true
-opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.mouse = "a"
-
-opt.cursorline = true
-opt.signcolumn = "yes"
-opt.number = true
-opt.relativenumber = true
-opt.splitbelow = true
-opt.splitright = true
-opt.pumheight = 10
-opt.showmode = false
-opt.termguicolors = true
-
-opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 0
-
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-opt.foldcolumn = "1"
-opt.foldenable = true
-opt.foldlevel = 99
-opt.foldlevelstart = 99
-
-opt.updatetime = 250
-opt.hidden = true
-opt.swapfile = false
-opt.backup = false
-opt.writebackup = false
+for name, value in pairs(options) do
+  vim.opt[name] = value
+end
