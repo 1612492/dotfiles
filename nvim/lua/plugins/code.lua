@@ -1,5 +1,51 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    version = false,
+    build = ":TSUpdate",
+    event = "VeryLazy",
+    opts = {
+      auto_install = true,
+      ensure_installed = { "c", "lua", "query", "vim", "vimdoc" },
+      indent = { enable = true },
+      highlight = {
+        enable = true,
+        disable = function(_, buf)
+          local max_filesize = 100 * 1024 -- 100 KB
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then
+            return true
+          end
+        end,
+      },
+    },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    opts = {},
+  },
+  {
+    "stevearc/conform.nvim",
+    lazy = true,
+    opts = {
+      formatters_by_ft = {
+        css = { "prettierd" },
+        html = { "prettierd" },
+        javascript = { "prettierd" },
+        javascriptreact = { "prettierd" },
+        json = { "prettierd" },
+        lua = { "stylua" },
+        markdown = { "prettierd" },
+        typescript = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        yaml = { "prettierd" },
+      },
+    },
+  },
+  {
     "lewis6991/gitsigns.nvim",
     opts = {
       signs = {
@@ -39,21 +85,27 @@ return {
     },
   },
   {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup({
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-      })
-    end,
-    dependencies = {
-      {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        opts = {
-          enable = true,
-          enable_autocmd = false,
-        },
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+  {
+    "echasnovski/mini.comment",
+    event = "VeryLazy",
+    opts = {
+      options = {
+        custom_commentstring = function()
+          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
+        end,
       },
     },
+  },
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "iamcco/markdown-preview.nvim",

@@ -1,9 +1,5 @@
 return {
   {
-    "karb94/neoscroll.nvim",
-    config = true,
-  },
-  {
     "stevearc/oil.nvim",
     opts = {
       delete_to_trash = true,
@@ -11,6 +7,8 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    version = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       {
@@ -68,7 +66,6 @@ return {
             n = { q = actions.close },
           },
         },
-
         extensions = {
           fzf = {
             fuzzy = true,
@@ -84,6 +81,6 @@ return {
   },
   {
     "karb94/neoscroll.nvim",
-    config = true,
+    opts = {},
   },
 }

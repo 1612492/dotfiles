@@ -6,26 +6,26 @@ end
 
 return {
   "neovim/nvim-lspconfig",
-  config = function()
+  opts = {
+    diagnostic = {
+      underline = false,
+      float = { border = "rounded" },
+    },
+    signs = {
+      DiagnosticSignError = " ",
+      DiagnosticSignWarn = " ",
+      DiagnosticSignInfo = " ",
+      DiagnosticSignHint = " ",
+    },
+  },
+  config = function(_, opts)
     require("lspconfig.ui.windows").default_options.border = "rounded"
 
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = true,
-      signs = false,
-      update_in_insert = false,
-      underline = false,
-    })
+    vim.diagnostic.config(opts.diagnostic)
 
-    vim.diagnostic.config({ float = { border = "rounded" } })
-
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-    vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-
-    vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-    vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-    vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-    vim.fn.sign_define("DiagnosticSignHint", { text = " ", texthl = "DiagnosticSignHint" })
+    for name, icon in pairs(opts.signs) do
+      vim.fn.sign_define(name, { text = icon, texthl = name })
+    end
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -74,39 +74,8 @@ return {
   end,
   dependencies = {
     {
-      "nvimtools/none-ls.nvim",
-      config = function()
-        local null_ls = require("null-ls")
-
-        null_ls.setup({
-          border = "rounded",
-          sources = {
-            null_ls.builtins.code_actions.eslint_d,
-            null_ls.builtins.diagnostics.eslint_d.with({
-              condition = function(utils)
-                return utils.root_has_file({ ".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs" })
-              end,
-            }),
-            null_ls.builtins.formatting.prettierd.with({
-              extra_filetypes = { "astro", "solidity", "svelte", "svg" },
-            }),
-            null_ls.builtins.formatting.stylua.with({
-              extra_args = { "--config-path", vim.fn.stdpath("config") .. "/stylua.toml" },
-            }),
-            null_ls.builtins.formatting.gofumpt,
-            null_ls.builtins.formatting.goimports_reviser,
-            null_ls.builtins.formatting.golines,
-          },
-        })
-      end,
-    },
-    {
       "williamboman/mason.nvim",
       build = ":MasonUpdate",
-      dependencies = {
-        "williamboman/mason-lspconfig.nvim",
-        "jay-babu/mason-null-ls.nvim",
-      },
       config = function()
         require("mason").setup({
           ui = {
@@ -116,38 +85,38 @@ return {
           },
         })
 
-        require("mason-lspconfig").setup({
-          automatic_installation = true,
-          ensure_installed = {
-            "astro",
-            "cssls",
-            "dockerls",
-            "gopls",
-            "html",
-            "jsonls",
-            "lua_ls",
-            "rust_analyzer",
-            "solidity_ls_nomicfoundation",
-            "svelte",
-            "tailwindcss",
-          },
-        })
+        local registry = require("mason-registry")
 
-        require("mason-null-ls").setup({
-          automatic_installation = true,
-          ensure_installed = {
-            "eslint_d",
-            "gofumpt",
-            "goimports-reviser",
-            "golines",
-            "prettierd",
-            "stylua",
-          },
-        })
+        local packages = {
+          -- lsp
+          "astro-language-server",
+          "css-lsp",
+          "dockerfile-language-server",
+          "gopls",
+          "html-lsp",
+          "json-lsp",
+          "lua-language-server",
+          "nomicfoundation-solidity-language-server",
+          "rust-analyzer",
+          "svelte-language-server",
+          "tailwindcss-language-server",
+          "prettierd",
+          "stylua",
+        }
+
+        registry.refresh(function()
+          for _, p in ipairs(packages) do
+            local package = registry.get_package(p)
+            if not package:is_installed() then
+              package:install()
+            end
+          end
+        end)
       end,
     },
     {
       "hrsh7th/nvim-cmp",
+      version = false,
       event = "InsertEnter",
       dependencies = {
         "onsails/lspkind.nvim",
@@ -155,25 +124,14 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         {
-          "windwp/nvim-autopairs",
-          event = "InsertEnter",
-          opts = {
-            check_ts = true,
-            ts_config = {
-              lua = { "string", "source" },
-              javascript = { "string", "template_string" },
-            },
-            disable_in_macro = true,
-            disable_in_visualblock = true,
-            map_c_w = true,
-          },
-        },
-        {
           "saadparwaiz1/cmp_luasnip",
           dependencies = {
             {
               "L3MON4D3/LuaSnip",
               build = "make install_jsregexp",
+              dependencies = {
+                "1612492/snippets"
+              }
             },
           },
           config = function()
@@ -185,12 +143,9 @@ return {
         local luasnip = require("luasnip")
         local cmp = require("cmp")
         local lspkind = require("lspkind")
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
         cmp.setup({
-          preselect = cmp.PreselectMode.None,
+          -- preselect = cmp.PreselectMode.None,
           snippet = {
             expand = function(args)
               luasnip.lsp_expand(args.body)
@@ -203,13 +158,8 @@ return {
             }),
           },
           window = {
-            completion = cmp.config.window.bordered({
-              winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-              scrollbar = false,
-            }),
-            documentation = cmp.config.window.bordered({
-              winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-            }),
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
           },
           mapping = {
             ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -257,7 +207,7 @@ return {
     "b0o/schemastore.nvim",
     {
       "pmizio/typescript-tools.nvim",
-      config = true,
+      opts = {},
     },
   },
 }

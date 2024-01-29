@@ -13,6 +13,10 @@ keymap("n", "<leader>f", require("telescope.builtin").find_files, opts)
 keymap("n", "<leader>g", require("telescope.builtin").live_grep, opts)
 keymap("n", "<leader>e", require("oil").open, opts)
 
+keymap("n", "gf", function()
+  require("conform").format({ async = true, lsp_fallback = true })
+end, opts)
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(args)
@@ -33,9 +37,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     keymap("n", "[d", vim.diagnostic.goto_prev)
     keymap("n", "]d", vim.diagnostic.goto_next)
-
-    keymap("n", "gf", function()
-      vim.lsp.buf.format({ async = true })
-    end, opts)
   end,
 })
