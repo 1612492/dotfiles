@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
 
-require("bootstrap")
-require("option")
-require("keymap")
+require("core.lazy")
+require("core.option")

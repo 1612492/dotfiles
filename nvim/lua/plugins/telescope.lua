@@ -1,19 +1,26 @@
 return {
   {
-    "stevearc/oil.nvim",
-    opts = {
-      delete_to_trash = true,
-    },
-  },
-  {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     version = false,
     dependencies = {
-      "nvim-lua/plenary.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
+      },
+    },
+    keys = {
+      {
+        "<leader>f",
+        function()
+          require("telescope.builtin").find_files()
+        end,
+      },
+      {
+        "<leader>g",
+        function()
+          require("telescope.builtin").live_grep()
+        end,
       },
     },
     config = function()
@@ -78,9 +85,5 @@ return {
 
       telescope.load_extension("fzf")
     end,
-  },
-  {
-    "karb94/neoscroll.nvim",
-    opts = {},
   },
 }

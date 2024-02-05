@@ -1,0 +1,26 @@
+return {
+  "nvim-tree/nvim-web-devicons",
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+    priority = 1000,
+    init = function()
+      vim.cmd.colorscheme("catppuccin")
+    end,
+    opts = {
+      flavour = "mocha",
+      transparent_background = true,
+      integrations = {
+        barbar = true,
+        cmp = true,
+        gitsigns = true,
+        markdown = true,
+        mason = true,
+        treesitter = true,
+        telescope = true,
+        native_lsp = true,
+      },
+    },
+  },
+}

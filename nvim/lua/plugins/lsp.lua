@@ -1,9 +1,3 @@
-local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 return {
   "neovim/nvim-lspconfig",
   opts = {
@@ -17,11 +11,58 @@ return {
       DiagnosticSignInfo = " ",
       DiagnosticSignHint = " ",
     },
+    servers = {
+      astro = {},
+      cssls = {},
+      dockerls = {},
+      gopls = {},
+      html = {},
+      jsonls = {},
+      lua_ls = {},
+      rust_analyzer = {},
+      solidity_ls_nomicfoundation = {
+        single_file_support = true,
+      },
+      svelte = {},
+      tailwindcss = {},
+    },
   },
   config = function(_, opts)
     require("lspconfig.ui.windows").default_options.border = "rounded"
+    require("neodev").setup()
+
+    local handlers = vim.lsp.handlers
 
     vim.diagnostic.config(opts.diagnostic)
+    handlers["textDocument/hover"] = vim.lsp.with(handlers.hover, { border = "rounded" })
+    handlers["textDocument/signatureHelp"] = vim.lsp.with(handlers.signature_help, { border = "rounded" })
+
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+      callback = function(args)
+        vim.bo[args.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+        local function map(mode, l, r)
+          local opts = { noremap = true, silent = true, buffer = args.buf }
+          vim.keymap.set(mode, l, r, opts)
+        end
+
+        map({ "n", "v" }, "<leader>a", vim.lsp.buf.code_action)
+        map("n", "gR", vim.lsp.buf.rename)
+        map("n", "gd", vim.lsp.buf.definition)
+        map("n", "gt", vim.lsp.buf.type_definition)
+        map("n", "gD", vim.lsp.buf.declaration)
+        map("n", "gi", vim.lsp.buf.implementation)
+        map("n", "gr", vim.lsp.buf.references)
+
+        map("n", "<C-k>", vim.lsp.buf.signature_help)
+        map("n", "K", vim.lsp.buf.hover)
+
+        map("n", "[d", vim.diagnostic.goto_prev)
+        map("n", "]d", vim.diagnostic.goto_next)
+      end,
+    })
+
 
     for name, icon in pairs(opts.signs) do
       vim.fn.sign_define(name, { text = icon, texthl = name })
@@ -29,42 +70,7 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    local servers = {
-      astro = {},
-      cssls = {},
-      dockerls = {},
-      gopls = {},
-      html = {},
-      jsonls = {
-        settings = {
-          json = {
-            schemas = require("schemastore").json.schemas(),
-          },
-        },
-      },
-      lua_ls = {
-        settings = {
-          Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            diagnostics = {
-              globals = { "vim" },
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
-        },
-      },
-      rust_analyzer = {},
-      solidity_ls_nomicfoundation = {
-        single_file_support = true,
-      },
-      svelte = {},
-      tailwindcss = {},
-    }
-
-    for name, config in pairs(servers) do
+    for name, config in pairs(opts.servers) do
       local extended_config = vim.tbl_extend("force", {
         capabilities = capabilities,
       }, config)
@@ -73,141 +79,7 @@ return {
     end
   end,
   dependencies = {
-    {
-      "williamboman/mason.nvim",
-      build = ":MasonUpdate",
-      config = function()
-        require("mason").setup({
-          ui = {
-            border = "rounded",
-            width = 0.8,
-            height = 0.8,
-          },
-        })
-
-        local registry = require("mason-registry")
-
-        local packages = {
-          -- lsp
-          "astro-language-server",
-          "css-lsp",
-          "dockerfile-language-server",
-          "gopls",
-          "html-lsp",
-          "json-lsp",
-          "lua-language-server",
-          "nomicfoundation-solidity-language-server",
-          "rust-analyzer",
-          "svelte-language-server",
-          "tailwindcss-language-server",
-          "prettierd",
-          "stylua",
-        }
-
-        registry.refresh(function()
-          for _, p in ipairs(packages) do
-            local package = registry.get_package(p)
-            if not package:is_installed() then
-              package:install()
-            end
-          end
-        end)
-      end,
-    },
-    {
-      "hrsh7th/nvim-cmp",
-      version = false,
-      event = "InsertEnter",
-      dependencies = {
-        "onsails/lspkind.nvim",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        {
-          "saadparwaiz1/cmp_luasnip",
-          dependencies = {
-            {
-              "L3MON4D3/LuaSnip",
-              build = "make install_jsregexp",
-              dependencies = {
-                "1612492/snippets"
-              }
-            },
-          },
-          config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-          end,
-        },
-      },
-      config = function()
-        local luasnip = require("luasnip")
-        local cmp = require("cmp")
-        local lspkind = require("lspkind")
-
-        cmp.setup({
-          -- preselect = cmp.PreselectMode.None,
-          snippet = {
-            expand = function(args)
-              luasnip.lsp_expand(args.body)
-            end,
-          },
-          formatting = {
-            format = lspkind.cmp_format({
-              mode = "symbol_text",
-              ellipsis_char = "...",
-            }),
-          },
-          window = {
-            completion = cmp.config.window.bordered(),
-            documentation = cmp.config.window.bordered(),
-          },
-          mapping = {
-            ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-            ["<C-f>"] = cmp.mapping.scroll_docs(4),
-            ["<C-Space>"] = cmp.mapping.complete(),
-            ["<C-e>"] = cmp.mapping.abort(),
-            ["<CR>"] = cmp.mapping.confirm({ select = true }),
-            ["<Tab>"] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-              elseif has_words_before() then
-                cmp.complete()
-              else
-                fallback()
-              end
-            end, { "i", "s" }),
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                fallback()
-              end
-            end, { "i", "s" }),
-          },
-          sources = cmp.config.sources({
-            { name = "nvim_lsp" },
-            { name = "luasnip" },
-            {
-              name = "buffer",
-              option = {
-                get_bufnrs = function()
-                  return vim.api.nvim_list_bufs()
-                end,
-              },
-            },
-            { name = "path" },
-          }),
-        })
-      end,
-    },
-    "b0o/schemastore.nvim",
-    {
-      "pmizio/typescript-tools.nvim",
-      opts = {},
-    },
+    { "folke/neodev.nvim", opts = {} },
+    { "pmizio/typescript-tools.nvim", opts = {} },
   },
 }

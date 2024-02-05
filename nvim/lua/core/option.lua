@@ -22,6 +22,7 @@ local options = {
   completeopt = "menu,menuone,noselect",
   conceallevel = 0,
   fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
+  foldmethod = "indent",
   foldcolumn = "1",
   foldenable = true,
   foldlevel = 99,
