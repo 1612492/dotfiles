@@ -2,10 +2,12 @@ return {
   "williamboman/mason.nvim",
   build = ":MasonUpdate",
   opts = {
-    ui = {
-      border = "rounded",
-      width = 0.8,
-      height = 0.8,
+    core = {
+      ui = {
+        border = "rounded",
+        width = 0.8,
+        height = 0.8,
+      },
     },
     packages = {
       "astro-language-server",
@@ -24,7 +26,7 @@ return {
     },
   },
   config = function(_, opts)
-    require("mason").setup(opts)
+    require("mason").setup(opts.core)
     local registry = require("mason-registry")
 
     registry.refresh(function()
