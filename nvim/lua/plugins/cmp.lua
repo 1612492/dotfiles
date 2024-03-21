@@ -8,11 +8,8 @@ return {
     "L3MON4D3/LuaSnip",
     cmd = {},
     build = "make install_jsregexp",
-    dependencies = {
-      "1612492/snippets",
-    },
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
     end,
   },
   {
@@ -45,10 +42,14 @@ return {
           end,
         },
         formatting = {
-          format = lspkind.cmp_format({
-            mode = "symbol_text",
-            ellipsis_char = "...",
-          }),
+          format = function(entry, vim_item)
+            local kind = lspkind.cmp_format({ mode = "symbol_text", ellipsis_char = "..." })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. (strings[1] or "") .. " "
+            kind.menu = " " .. (strings[2] or "") .. " "
+
+            return kind
+          end,
         },
         window = {
           completion = cmp.config.window.bordered(),

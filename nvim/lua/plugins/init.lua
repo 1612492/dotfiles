@@ -17,10 +17,6 @@ return {
     opts = {},
   },
   {
-    "nvim-pack/nvim-spectre",
-    opts = {},
-  },
-  {
     "kylechui/nvim-surround",
     event = "VeryLazy",
     opts = {},
