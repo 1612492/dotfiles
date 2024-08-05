@@ -17,9 +17,10 @@ return {
     opts = {},
   },
   {
-    "kylechui/nvim-surround",
-    event = "VeryLazy",
+    "windwp/nvim-ts-autotag",
     opts = {},
   },
+  "tpope/vim-surround",
   "nvim-lua/plenary.nvim",
+  "LunarVim/bigfile.nvim",
 }

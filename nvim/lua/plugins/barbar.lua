@@ -14,7 +14,7 @@ return {
   opts = {
     icons = {
       buffer_index = true,
-      button = "",
+      button = "",
       filetype = { enabled = false },
       separator = { left = "", right = "" },
       modified = { button = "" },

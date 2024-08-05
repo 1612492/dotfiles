@@ -3,7 +3,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "folke/neodev.nvim", opts = {} },
       { "pmizio/typescript-tools.nvim", opts = {} },
     },
     opts = {
@@ -34,7 +33,7 @@ return {
       local handlers = vim.lsp.handlers
       local diagnostic = vim.diagnostic
 
-      diagnostic.config({ underline = false, float = { border = "rounded" } })
+      diagnostic.config({ underline = false, update_in_insert = true, float = { border = "rounded" } })
       handlers["textDocument/hover"] = vim.lsp.with(handlers.hover, { border = "rounded" })
       handlers["textDocument/signatureHelp"] = vim.lsp.with(handlers.signature_help, { border = "rounded" })
 

@@ -34,6 +34,12 @@ local options = {
   writebackup = false,
 }
 
+vim.filetype.add({
+  pattern = {
+    ["%.env%.[%w_.-]+"] = "sh",
+  },
+})
+
 for name, value in pairs(options) do
   vim.opt[name] = value
 end

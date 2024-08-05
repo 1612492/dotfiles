@@ -21,5 +21,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     map("n", "[d", vim.diagnostic.goto_prev)
     map("n", "]d", vim.diagnostic.goto_next)
+    map("n", "gf", function()
+      vim.lsp.buf.format({
+        filter = function(client)
+          return client.name == "null-ls"
+        end,
+        bufnr = args.buf,
+      })
+    end)
   end,
 })

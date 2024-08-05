@@ -4,16 +4,12 @@ return {
     version = false,
     build = ":TSUpdate",
     event = "VeryLazy",
-    dependencies = {
-      "windwp/nvim-ts-autotag",
-    },
     init = function(plugin)
       require("lazy.core.loader").add_to_rtp(plugin)
       require("nvim-treesitter.query_predicates")
     end,
     opts = {
       auto_install = true,
-      autotag = { enable = true },
       ensure_installed = { "c", "lua", "query", "vim", "vimdoc" },
       indent = { enable = true },
       highlight = {
