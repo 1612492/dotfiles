@@ -7,10 +7,10 @@ if [ ! -d "$DOTFILES_DIR" ]; then
   git clone "$DOTFILES_REPO_URL" "$DOTFILES_DIR"
 fi
 
-ln -sf "$DOTFILES_DIR/kitty" ~/.config
-ln -sf "$DOTFILES_DIR/nvim" ~/.config
-ln -sf "$DOTFILES_DIR/tmux/tmux.conf" ~/.tmux.conf
-ln -sf "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
+ln -s "$DOTFILES_DIR/kitty" ~/.config
+ln -s "$DOTFILES_DIR/nvim" ~/.config
+ln -s "$DOTFILES_DIR/tmux/tmux.conf" ~/.tmux.conf
+ln -s "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
 
 if [ ! -d ~/.tmux/plugins ]; then
   mkdir -p ~/.tmux/plugins
