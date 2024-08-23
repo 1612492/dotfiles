@@ -10,7 +10,6 @@
       },
       {
         "language": [
-          "astro",
           "html"
         ],
         "path": "./html.json"
@@ -23,20 +22,16 @@
       },
       {
         "language": [
-          "astro",
           "javascript",
           "javascriptreact",
           "typescript",
-          "typescriptreact",
-          "svelte",
-          "vue"
+          "typescriptreact"
         ],
         "path": "./javascript.json"
       },
       {
         "language": [
           "typescript",
-          "javascriptreact",
           "typescriptreact"
         ],
         "path": "./react.json"

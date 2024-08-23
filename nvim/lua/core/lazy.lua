@@ -13,30 +13,4 @@ end
 
 vim.opt.runtimepath:prepend(lazypath)
 
-require("lazy").setup("plugins", {
-  ui = { border = "rounded" },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "2html_plugin",
-        "getscript",
-        "getscriptPlugin",
-        "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-        "matchit",
-        "tar",
-        "tarPlugin",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
-        "zipPlugin",
-      },
-    },
-  },
-})
+require("lazy").setup("plugins", { ui = { border = "rounded" } })
