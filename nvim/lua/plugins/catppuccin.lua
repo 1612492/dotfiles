@@ -12,9 +12,7 @@ return {
       flavour = "mocha",
       transparent_background = true,
       integrations = {
-        barbar = true,
         diffview = true,
-        fidget = true,
         mason = true,
       },
     },
