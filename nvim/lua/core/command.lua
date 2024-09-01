@@ -6,7 +6,6 @@ vim.api.nvim_create_user_command("MasonInstallAll", function()
     "lua-language-server",
     "nomicfoundation-solidity-language-server",
     "tailwindcss-language-server",
-    "vtsls",
     "prettierd",
     "stylua",
   }

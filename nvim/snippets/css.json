@@ -1,0 +1,6 @@
+{
+  "@media": {
+    "prefix": "med",
+    "body": "@media (${1:min-width: 300px}) {\n  $0\n}"
+  }
+}

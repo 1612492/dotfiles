@@ -21,12 +21,6 @@ return {
         require("telescope.builtin").live_grep()
       end,
     },
-    {
-      "<leader>b",
-      function()
-        require("telescope.builtin").buffers()
-      end,
-    },
   },
   config = function()
     local telescope = require("telescope")
