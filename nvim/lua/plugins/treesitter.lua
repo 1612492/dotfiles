@@ -1,14 +1,9 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    version = false,
     build = ":TSUpdate",
     event = "VeryLazy",
     main = "nvim-treesitter.configs",
-    init = function(plugin)
-      require("lazy.core.loader").add_to_rtp(plugin)
-      require("nvim-treesitter.query_predicates")
-    end,
     opts = {
       auto_install = true,
       ensure_installed = { "c", "lua", "query", "vim", "vimdoc" },

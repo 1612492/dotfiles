@@ -20,6 +20,7 @@ return {
       json = { "prettierd" },
       yaml = { "prettierd" },
       markdown = { "prettierd" },
+      svg = { "prettierd" },
       lua = { "stylua" },
     },
   },

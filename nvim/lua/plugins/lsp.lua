@@ -2,7 +2,16 @@ return {
   { "b0o/SchemaStore.nvim", lazy = true },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { { "pmizio/typescript-tools.nvim", opts = {} } },
+    dependencies = {
+      {
+        "pmizio/typescript-tools.nvim",
+        opts = {
+          settings = {
+            tsserver_max_memory = 1536,
+          },
+        },
+      },
+    },
     opts = {
       signs = {
         DiagnosticSignError = " ",
