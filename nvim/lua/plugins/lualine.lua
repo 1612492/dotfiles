@@ -27,9 +27,10 @@ return {
         },
       },
       lualine_x = {
+        "g:coc_status",
         {
           "diagnostics",
-          sources = { "nvim_diagnostic" },
+          sources = { "coc" },
           symbols = {
             error = " ",
             warn = " ",
