@@ -1,5 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
+  event = "BufReadPre",
   opts = {
     on_attach = function(buffer)
       local gs = require("gitsigns")
@@ -26,7 +27,6 @@ return {
 
       map("n", "<leader>hr", gs.reset_hunk)
       map("n", "<leader>hR", gs.reset_buffer)
-      map("n", "<leader>hp", gs.preview_hunk)
     end,
   },
 }

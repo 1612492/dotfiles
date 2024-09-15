@@ -13,8 +13,7 @@ return {
       "coc-tsserver",
       "https://github.com/rafamadriz/friendly-snippets@main",
     }
-  end,
-  config = function()
+
     local map = vim.keymap.set
     local opts = { silent = true }
 

@@ -1,3 +1,19 @@
+local formatters = {
+  prettierd = {
+    "css",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "svg",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  },
+  stylua = { "lua" },
+}
+
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
@@ -9,19 +25,15 @@ return {
       end,
     },
   },
-  opts = {
-    formatters_by_ft = {
-      javascript = { "prettierd" },
-      typescript = { "prettierd" },
-      javascriptreact = { "prettierd" },
-      typescriptreact = { "prettierd" },
-      css = { "prettierd" },
-      html = { "prettierd" },
-      json = { "prettierd" },
-      yaml = { "prettierd" },
-      markdown = { "prettierd" },
-      svg = { "prettierd" },
-      lua = { "stylua" },
-    },
-  },
+  opts = function()
+    local opts = { formatters_by_ft = {} }
+
+    for formatter, filetypes in pairs(formatters) do
+      for _, filetype in ipairs(filetypes) do
+        opts.formatters_by_ft[filetype] = { formatter }
+      end
+    end
+
+    return opts
+  end,
 }

@@ -1,16 +1,24 @@
 {
   "Lua.diagnostics.globals": ["vim"],
   "suggest.floatConfig": {
-    "border": true
+    "border": true,
+    "rounded": true,
+    "borderhighlight": "FloatBorder"
   },
   "diagnostic.floatConfig": {
-    "border": true
+    "border": true,
+    "rounded": true,
+    "borderhighlight": "FloatBorder"
   },
   "signature.floatConfig": {
-    "border": true
+    "border": true,
+    "rounded": true,
+    "borderhighlight": "FloatBorder"
   },
   "hover.floatConfig": {
-    "border": true
+    "border": true,
+    "rounded": true,
+    "borderhighlight": "FloatBorder"
   },
   "snippets.ultisnips.pythonPrompt": false,
   "@nomicfoundation/coc-solidity.telemetry": false

@@ -3,13 +3,17 @@ return {
   init = function()
     vim.g.barbar_auto_setup = false
 
-    for i = 1, 9 do
-      vim.keymap.set("n", ("<leader>%s"):format(i), ("<cmd>BufferGoto %s<cr>"):format(i), { silent = true })
+    local function map(mode, l, r)
+      vim.keymap.set(mode, l, r, { silent = true })
     end
 
-    vim.keymap.set("n", "<leader>0", "<cmd>BufferPick<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>-", "<cmd>BufferClose<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>=", "<cmd>BufferCloseAllButCurrent<cr>", { silent = true })
+    for i = 1, 9 do
+      map("n", ("<leader>%s"):format(i), ("<cmd>BufferGoto %s<cr>"):format(i))
+    end
+
+    map("n", "<leader>0", "<cmd>BufferPick<cr>")
+    map("n", "<leader>-", "<cmd>BufferClose<cr>")
+    map("n", "<leader>=", "<cmd>BufferCloseAllButCurrent<cr>")
   end,
   opts = {
     icons = {

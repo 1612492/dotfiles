@@ -3,6 +3,5 @@ return {
   { "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
   { "karb94/neoscroll.nvim", opts = {} },
   { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
-  "tpope/vim-fugitive",
   "tpope/vim-surround",
 }

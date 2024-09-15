@@ -1,6 +1,5 @@
 return {
   "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
   tag = "0.1.8",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -25,23 +24,6 @@ return {
   },
   config = function()
     local telescope = require("telescope")
-
-    telescope.setup({
-      defaults = {
-        prompt_prefix = "   ",
-        selection_caret = "  ",
-        layout_config = {
-          horizontal = {
-            width = 0.4,
-            height = 0.6,
-            prompt_position = "top",
-          },
-        },
-        preview = {
-          hide_on_startup = true,
-        },
-      },
-    })
 
     telescope.setup()
     telescope.load_extension("fzf")
