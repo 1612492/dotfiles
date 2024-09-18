@@ -1,5 +1,7 @@
 {
-  "Lua.diagnostics.globals": ["vim"],
+  "coc.preferences.promptInput": false,
+  "coc.preferences.useQuickfixForLocations": true,
+  "suggest.noselect": true,
   "suggest.floatConfig": {
     "border": true,
     "rounded": true,
@@ -20,6 +22,14 @@
     "rounded": true,
     "borderhighlight": "FloatBorder"
   },
-  "snippets.ultisnips.pythonPrompt": false,
-  "@nomicfoundation/coc-solidity.telemetry": false
+  "dialog.rounded": true,
+  "dialog.floatBorderHighlight": "FloatBorder",
+  "Lua.diagnostics.globals": ["vim"],
+  "@nomicfoundation/coc-solidity.telemetry": false,
+  "snippets.textmateSnippetsRoots": ["~/.config/nvim/snippets"],
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"],
+    "typescriptreact": ["javascript"]
+  }
 }

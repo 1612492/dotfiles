@@ -1,9 +1,13 @@
 return {
   "neoclide/coc.nvim",
   branch = "release",
+  dependencies = {
+    { "windwp/nvim-autopairs", event = "InsertEnter", opts = { map_cr = false } },
+  },
   init = function()
     vim.g.coc_global_extensions = {
       "@nomicfoundation/coc-solidity",
+      "@yaegassy/coc-astro",
       "@yaegassy/coc-tailwindcss3",
       "coc-css",
       "coc-html",
@@ -11,12 +15,20 @@ return {
       "coc-lua",
       "coc-snippets",
       "coc-tsserver",
-      "https://github.com/rafamadriz/friendly-snippets@main",
     }
 
     local map = vim.keymap.set
-    local opts = { silent = true }
+    local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
 
+    map("i", "<CR>", function()
+      if vim.fn["coc#pum#visible"]() == 1 then
+        return vim.fn["coc#pum#confirm"]()
+      else
+        return require("nvim-autopairs").autopairs_cr()
+      end
+    end, opts)
+
+    opts = { silent = true }
     map("n", "gR", "<Plug>(coc-rename)", opts)
     map("n", "gd", "<Plug>(coc-definition)", opts)
     map("n", "gy", "<Plug>(coc-type-definition)", opts)
