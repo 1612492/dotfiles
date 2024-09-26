@@ -7,6 +7,7 @@ local formatters = {
     "json",
     "markdown",
     "svg",
+    "tact",
     "typescript",
     "typescriptreact",
     "yaml",

@@ -1,4 +1,8 @@
 {
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": " ",
+  "diagnostic.hintSign": " ",
   "coc.preferences.promptInput": false,
   "coc.preferences.useQuickfixForLocations": true,
   "suggest.noselect": true,
@@ -31,5 +35,13 @@
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"],
     "typescriptreact": ["javascript"]
+  },
+  "languageserver": {
+    "tact": {
+      "command": "tact-extracted-ls",
+      "args": ["--stdio"],
+      "filetypes": ["tact"],
+      "ignoredRootPaths": ["~"]
+    }
   }
 }
