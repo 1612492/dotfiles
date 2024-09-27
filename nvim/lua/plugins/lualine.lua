@@ -3,19 +3,13 @@ return {
   opts = {
     options = {
       theme = "catppuccin",
-      icons_enabled = true,
       globalstatus = true,
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
     },
     sections = {
       lualine_a = { "mode" },
-      lualine_b = {
-        {
-          "filename",
-          path = 1,
-        },
-      },
+      lualine_b = { "filename" },
       lualine_c = {
         {
           "diff",

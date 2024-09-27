@@ -14,7 +14,6 @@ return {
       integrations = {
         barbar = true,
         coc_nvim = true,
-        mason = true
       },
     },
   },

@@ -6,13 +6,9 @@ return {
   },
   init = function()
     vim.g.coc_global_extensions = {
-      "@nomicfoundation/coc-solidity",
-      "@yaegassy/coc-astro",
-      "@yaegassy/coc-tailwindcss3",
       "coc-css",
       "coc-html",
       "coc-json",
-      "coc-lua",
       "coc-snippets",
       "coc-tsserver",
     }
@@ -29,10 +25,8 @@ return {
     end, opts)
 
     opts = { silent = true }
-    map("n", "gR", "<Plug>(coc-rename)", opts)
+    map("n", "grr", "<Plug>(coc-rename)", opts)
     map("n", "gd", "<Plug>(coc-definition)", opts)
-    map("n", "gy", "<Plug>(coc-type-definition)", opts)
-    map("n", "gi", "<Plug>(coc-implementation)", opts)
     map("n", "gr", "<Plug>(coc-references)", opts)
     map("n", "[d", "<Plug>(coc-diagnostic-prev)", opts)
     map("n", "]d", "<Plug>(coc-diagnostic-next)", opts)
