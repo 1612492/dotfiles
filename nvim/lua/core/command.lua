@@ -1,17 +1,14 @@
 vim.api.nvim_create_user_command("InstallAll", function()
   local npm_packages = {
-    pnpm = "pnpm",
-    yarn = "yarn",
     ["@fsouza/prettierd"] = "prettierd",
-    ["@johnnymorganz/stylua-bin"] = "stylua",
     ["@nomicfoundation/solidity-language-server"] = "nomicfoundation-solidity-language-server",
     ["@tailwindcss/language-server"] = "tailwindcss-language-server",
     ["tact-extracted-ls"] = "tact-extracted-ls",
   }
 
   local brew_packages = {
-    fzf = "fzf",
     ripgrep = "ripgrep",
+    stylua = "stylua",
     ["lua-language-server"] = "lua-language-server",
   }
 

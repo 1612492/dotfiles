@@ -6,7 +6,8 @@
   "diagnostic.warningSign": " ",
   "floatFactory.floatConfig": {
     "border": true,
-    "rounded": true
+    "rounded": true,
+    "borderhighlight": "FloatBorder"
   },
   "languageserver": {
     "lua": {
@@ -37,7 +38,8 @@
   "suggest.defaultSortMethod": "alphabetical",
   "suggest.floatConfig": {
     "border": true,
-    "rounded": true
+    "rounded": true,
+    "borderhighlight": "FloatBorder"
   },
   "suggest.noselect": true,
   "snippets.extends": {

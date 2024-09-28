@@ -4,10 +4,10 @@ return {
   opts = {
     hooks = {
       view_opened = function()
-        vim.cmd("CocDisable")
+        vim.cmd("silent! CocDisable")
       end,
       view_closed = function()
-        vim.cmd("CocEnable")
+        vim.cmd("silent! CocEnable")
       end,
     },
   },
