@@ -21,10 +21,9 @@ return {
         },
       },
       lualine_x = {
-        "g:coc_status",
         {
           "diagnostics",
-          sources = { "coc" },
+          sources = { "nvim_diagnostic" },
           symbols = {
             error = " ",
             warn = " ",
@@ -37,6 +36,6 @@ return {
       lualine_y = { "branch" },
       lualine_z = { "location" },
     },
-    extensions = { "quickfix" },
+    extensions = { "quickfix", "oil" },
   },
 }

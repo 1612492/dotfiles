@@ -1,0 +1,28 @@
+{
+  "name": "snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "all"
+        ],
+        "path": "./common.json"
+      },
+      {
+        "language": [
+          "html"
+        ],
+        "path": "./html.json"
+      },
+      {
+        "language": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "path": "./javascript.json"
+      }
+    ]
+  }
+}

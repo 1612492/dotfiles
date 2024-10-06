@@ -13,7 +13,9 @@ return {
       transparent_background = true,
       integrations = {
         barbar = true,
-        coc_nvim = true,
+        diffview = true,
+        fidget = true,
+        mason = true,
       },
     },
   },
