@@ -1,14 +1,15 @@
 vim.api.nvim_create_user_command("MasonInstallAll", function()
   local ensure_installed = {
     "css-lsp",
+    "eslint_d",
     "html-lsp",
     "json-lsp",
     "lua-language-server",
     "nomicfoundation-solidity-language-server",
-    "tailwindcss-language-server",
-    "vtsls",
     "prettierd",
     "stylua",
+    "tailwindcss-language-server",
+    "vtsls",
   }
 
   require("mason.ui").open()

@@ -1,5 +1,10 @@
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(args)
     vim.bo[args.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
