@@ -63,14 +63,10 @@ return {
         vim.fn.sign_define(name, { text = icon, texthl = name })
       end
 
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
       for name, option in pairs(opts.servers) do
         option = type(option) == "function" and option() or option
 
-        require("lspconfig")[name].setup(vim.tbl_extend("force", {
-          capabilities = capabilities,
-        }, option))
+        require("lspconfig")[name].setup(option)
       end
     end,
   },
