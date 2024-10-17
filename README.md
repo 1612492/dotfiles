@@ -1,10 +1,10 @@
 # My working environment
 
-- Terminal: Kitty, Tmux
+- Terminal: Wezterm, Tmux
 - Editor: Neovim
 
 ## Prerequisites
-- [Kitty](https://sw.kovidgoyal.net/kitty/binary)
+- [Wezterm](https://wezfurlong.org/wezterm/installation.html)
 - [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - [Tmux](https://github.com/tmux/tmux/wiki/Installing)
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
