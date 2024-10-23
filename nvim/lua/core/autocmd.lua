@@ -24,3 +24,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "]d", vim.diagnostic.goto_next)
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
+})

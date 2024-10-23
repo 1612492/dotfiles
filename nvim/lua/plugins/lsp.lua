@@ -11,6 +11,7 @@ return {
       },
       servers = {
         cssls = {},
+        gopls = {},
         html = {},
         jsonls = function()
           return { settings = { json = { schemas = require("schemastore").json.schemas() } } }
