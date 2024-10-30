@@ -30,13 +30,14 @@ return {
     },
     config = function()
       local cmp = require("cmp")
-      local luasnip = require("luasnip")
+      local defaults = require("cmp.config.default")()
 
       cmp.setup({
         preselect = cmp.PreselectMode.None,
+        sorting = defaults.sorting,
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            require("luasnip").lsp_expand(args.body)
           end,
         },
         window = {

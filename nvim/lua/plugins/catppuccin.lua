@@ -14,7 +14,6 @@ return {
       integrations = {
         barbar = true,
         diffview = true,
-        fidget = true,
         mason = true,
         noice = true,
         notify = true,

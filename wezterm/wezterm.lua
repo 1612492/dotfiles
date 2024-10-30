@@ -3,7 +3,10 @@ local wezterm = require("wezterm")
 return {
 	color_scheme = "Catppuccin Mocha",
 	enable_tab_bar = false,
-	font = wezterm.font("Victor Mono"),
+	font = wezterm.font_with_fallback({
+		"Victor Mono",
+		{ family = "Symbols Nerd Font Mono", scale = 0.75 },
+	}),
 	font_size = 16,
 	initial_cols = 120,
 	initial_rows = 30,
