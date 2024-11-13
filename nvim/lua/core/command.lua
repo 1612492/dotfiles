@@ -9,6 +9,7 @@ vim.api.nvim_create_user_command("MasonInstallAll", function()
     "nomicfoundation-solidity-language-server",
     "prettierd",
     "stylua",
+    "svelte-language-server",
     "tailwindcss-language-server",
     "vtsls",
   }

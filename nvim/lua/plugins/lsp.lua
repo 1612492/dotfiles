@@ -28,6 +28,7 @@ return {
         solidity_ls_nomicfoundation = {
           single_file_support = true,
         },
+        svelte = {},
         tailwindcss = {},
         vtsls = {
           settings = {

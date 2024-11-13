@@ -18,6 +18,7 @@
         "language": [
           "javascript",
           "javascriptreact",
+          "svelte",
           "typescript",
           "typescriptreact"
         ],
