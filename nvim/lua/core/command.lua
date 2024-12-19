@@ -1,15 +1,11 @@
 vim.api.nvim_create_user_command("MasonInstallAll", function()
   local ensure_installed = {
     "css-lsp",
-    "eslint_d",
-    "gopls",
     "html-lsp",
     "json-lsp",
     "lua-language-server",
-    "nomicfoundation-solidity-language-server",
     "prettierd",
     "stylua",
-    "svelte-language-server",
     "tailwindcss-language-server",
     "vtsls",
   }

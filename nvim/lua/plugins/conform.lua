@@ -18,8 +18,6 @@ return {
       jsonc = { "prettierd" },
       lua = { "stylua" },
       markdown = { "prettierd" },
-      svelte = { "prettierd" },
-      solidity = { "prettierd" },
       svg = { "prettierd" },
       typescript = { "prettierd" },
       typescriptreact = { "prettierd" },

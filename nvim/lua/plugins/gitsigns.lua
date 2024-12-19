@@ -1,9 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
   opts = {
-    preview_config = {
-      border = "rounded",
-    },
     on_attach = function(buffer)
       local gs = require("gitsigns")
       local map = vim.keymap.set
@@ -26,8 +23,7 @@ return {
       end, opts)
 
       map("n", "<leader>hr", gs.reset_hunk, opts)
-      map("n", "<leader>hrr", gs.reset_buffer, opts)
-      map("n", "<leader>hp", gs.preview_hunk, opts)
+      map("n", "<leader>hR", gs.reset_buffer, opts)
     end,
   },
 }

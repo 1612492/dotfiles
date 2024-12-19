@@ -2,6 +2,7 @@ return {
   { "b0o/SchemaStore.nvim", lazy = true, version = false },
   {
     "neovim/nvim-lspconfig",
+    dependencies = { "saghen/blink.cmp" },
     opts = {
       signs = {
         DiagnosticSignError = " ",
@@ -11,7 +12,6 @@ return {
       },
       servers = {
         cssls = {},
-        gopls = {},
         html = {},
         jsonls = function()
           return { settings = { json = { schemas = require("schemastore").json.schemas() } } }
@@ -25,10 +25,6 @@ return {
             },
           },
         },
-        solidity_ls_nomicfoundation = {
-          single_file_support = true,
-        },
-        svelte = {},
         tailwindcss = {},
         vtsls = {
           settings = {
@@ -65,7 +61,7 @@ return {
         vim.fn.sign_define(name, { text = icon, texthl = name })
       end
 
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       for name, option in pairs(opts.servers) do
         option = type(option) == "function" and option() or option

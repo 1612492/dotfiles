@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     map("n", "<leader>a", vim.lsp.buf.code_action)
-    map("n", "grr", vim.lsp.buf.rename)
+    map("n", "gR", vim.lsp.buf.rename)
     map("n", "gr", vim.lsp.buf.references)
     map("n", "gd", vim.lsp.buf.definition)
 
@@ -22,11 +22,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     map("n", "[d", vim.diagnostic.goto_prev)
     map("n", "]d", vim.diagnostic.goto_next)
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  callback = function()
-    require("lint").try_lint()
   end,
 })

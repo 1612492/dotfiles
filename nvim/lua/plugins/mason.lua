@@ -1,6 +1,6 @@
 return {
   "williamboman/mason.nvim",
-  build = ":MasonUpdate",
+  build = ":MasonInstallAll",
   opts = {
     ui = {
       border = "rounded",
