@@ -50,6 +50,7 @@ return {
     },
     config = function(_, opts)
       require("lspconfig.ui.windows").default_options.border = "rounded"
+      local lspconfig = require("lspconfig")
       local handlers = vim.lsp.handlers
       local diagnostic = vim.diagnostic
 
@@ -61,14 +62,11 @@ return {
         vim.fn.sign_define(name, { text = icon, texthl = name })
       end
 
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
+      for server, config in pairs(opts.servers) do
+        config = type(config) == "function" and config() or config
 
-      for name, option in pairs(opts.servers) do
-        option = type(option) == "function" and option() or option
-
-        require("lspconfig")[name].setup(vim.tbl_extend("force", {
-          capabilities = capabilities,
-        }, option))
+        config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+        lspconfig[server].setup(config)
       end
     end,
   },

@@ -7,77 +7,12 @@
     "prefix": "ce",
     "body": "console.error(${0})"
   },
-  "switch": {
-    "prefix": "switch",
-    "body": [
-      "switch (${1:key}) {",
-      "\tcase ${2:value}:",
-      "\t\t$0",
-      "\t\tbreak;",
-      "",
-      "\tdefault:",
-      "\t\tbreak;",
-      "}"
-    ]
-  },
   "trycatch": {
     "prefix": "trycatch",
     "body": ["try {", "\t$0", "} catch (${1:error}) {", "\t", "}"]
   },
-  "reactFunctionalExportComponent": {
-    "prefix": "rfce",
-    "body": [
-      "function ${1:${TM_FILENAME_BASE}}() {",
-      "\treturn (",
-      "\t\t<div>${1:first}</div>",
-      "\t)",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
-    ]
-  },
   "import": {
     "prefix": "imp",
     "body": ["import ${2:second} from '${1:first}'"]
-  },
-  "useState": {
-    "prefix": "useState",
-    "body": [
-      "const [${1:first}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:second})"
-    ]
-  },
-  "useEffect": {
-    "prefix": "useEffect",
-    "body": [
-      "useEffect(() => {",
-      "\t${1:effect}",
-      "\treturn () => {",
-      "\t\t${2:cleanup}",
-      "\t}",
-      "}, [${3:input}])"
-    ]
-  },
-  "useContext": {
-    "prefix": "useContext",
-    "body": ["const ${1:context} = useContext(${2:contextValue})"]
-  },
-  "useCallback": {
-    "prefix": "useCallback",
-    "body": [
-      "useCallback(",
-      "\t() => {",
-      "\t\t${1:callback}",
-      "\t},",
-      "\t[${2:input}],",
-      ")"
-    ]
-  },
-  "useMemo": {
-    "prefix": "useMemo",
-    "body": ["useMemo(() => ${1:function}, ${2:input})"]
-  },
-  "useRef": {
-    "prefix": "useRef",
-    "body": ["const ${1:ref} = useRef(${2:initialValue})"]
   }
 }
