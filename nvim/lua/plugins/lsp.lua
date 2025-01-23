@@ -28,9 +28,7 @@ return {
         tailwindcss = {},
         vtsls = {
           settings = {
-            complete_function_calls = true,
             vtsls = {
-              enableMoveToFileCodeAction = true,
               autoUseWorkspaceTsdk = true,
               experimental = {
                 completion = {
@@ -40,9 +38,6 @@ return {
             },
             typescript = {
               updateImportsOnFileMove = { enabled = "always" },
-              suggest = {
-                completeFunctionCalls = true,
-              },
             },
           },
         },

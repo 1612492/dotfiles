@@ -41,19 +41,6 @@ return {
           ["enter"] = actions.file_edit_or_qf,
           ["ctrl-s"] = actions.file_split,
           ["ctrl-v"] = actions.file_vsplit,
-          ["ctrl-q"] = actions.file_sel_to_qf,
-        },
-      },
-      previewers = {
-        builtin = {
-          extensions = {
-            ["gif"] = { "viu", "-b" },
-            ["jpeg"] = { "viu", "-b" },
-            ["jpg"] = { "viu", "-b" },
-            ["png"] = { "viu", "-b" },
-            ["svg"] = { "viu", "-b" },
-            ["webp"] = { "viu", "-b" },
-          },
         },
       },
       files = {
@@ -61,6 +48,14 @@ return {
         actions = {
           ["ctrl-g"] = { actions.toggle_ignore },
           ["ctrl-h"] = { actions.toggle_hidden },
+        },
+      },
+      grep = {
+        actions = {
+          ["ctrl-q"] = {
+            fn = actions.file_edit_or_qf,
+            prefix = "select-all+",
+          },
         },
       },
     }

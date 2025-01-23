@@ -1,11 +1,7 @@
 return {
   "saghen/blink.cmp",
-  version = "v0.*",
+  version = "*",
   opts = {
-    appearance = {
-      use_nvim_cmp_as_default = true,
-      nerd_font_variant = "mono",
-    },
     keymap = {
       ["<C-e>"] = { "cancel", "fallback" },
       ["<CR>"] = { "accept", "fallback" },
@@ -17,7 +13,7 @@ return {
       ["<C-d>"] = { "scroll_documentation_down", "fallback" },
     },
     completion = {
-      list = { selection = "auto_insert" },
+      list = { selection = { preselect = false, auto_insert = true } },
       menu = {
         draw = { treesitter = { "lsp" } },
         border = "rounded",
@@ -25,14 +21,10 @@ return {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
-        window = {
-          border = "rounded",
-        },
+        window = { border = "rounded" },
       },
     },
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
-    },
+    sources = { default = { "lsp", "path", "snippets", "buffer" } },
   },
   opts_extend = { "sources.default" },
 }
