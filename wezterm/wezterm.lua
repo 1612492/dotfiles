@@ -7,7 +7,7 @@ return {
 		"Victor Mono",
 		{ family = "Symbols Nerd Font Mono", scale = 0.75 },
 	}),
-	font_size = 16,
+	font_size = 14,
 	initial_cols = 120,
 	initial_rows = 30,
 	window_close_confirmation = "NeverPrompt",

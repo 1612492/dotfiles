@@ -4,12 +4,6 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = { "saghen/blink.cmp" },
     opts = {
-      signs = {
-        DiagnosticSignError = " ",
-        DiagnosticSignWarn = " ",
-        DiagnosticSignInfo = " ",
-        DiagnosticSignHint = " ",
-      },
       servers = {
         cssls = {},
         html = {},
@@ -49,13 +43,20 @@ return {
       local handlers = vim.lsp.handlers
       local diagnostic = vim.diagnostic
 
-      diagnostic.config({ underline = false, float = { border = "rounded" } })
+      diagnostic.config({
+        underline = false,
+        float = { border = "rounded" },
+        signs = {
+          text = {
+            [diagnostic.severity.ERROR] = " ",
+            [diagnostic.severity.WARN] = " ",
+            [diagnostic.severity.INFO] = " ",
+            [diagnostic.severity.HINT] = " ",
+          },
+        },
+      })
       handlers["textDocument/hover"] = vim.lsp.with(handlers.hover, { border = "rounded" })
       handlers["textDocument/signatureHelp"] = vim.lsp.with(handlers.signature_help, { border = "rounded" })
-
-      for name, icon in pairs(opts.signs) do
-        vim.fn.sign_define(name, { text = icon, texthl = name })
-      end
 
       for server, config in pairs(opts.servers) do
         config = type(config) == "function" and config() or config
