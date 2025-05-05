@@ -7,6 +7,7 @@ vim.api.nvim_create_user_command("MasonInstallAll", function()
     "prettierd",
     "stylua",
     "tailwindcss-language-server",
+    "vscode-solidity-server",
     "vtsls",
   }
 

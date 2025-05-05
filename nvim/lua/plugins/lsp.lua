@@ -19,6 +19,7 @@ return {
             },
           },
         },
+        solidity_ls = {},
         tailwindcss = {},
         vtsls = {
           settings = {
@@ -40,23 +41,18 @@ return {
     config = function(_, opts)
       require("lspconfig.ui.windows").default_options.border = "rounded"
       local lspconfig = require("lspconfig")
-      local handlers = vim.lsp.handlers
-      local diagnostic = vim.diagnostic
 
-      diagnostic.config({
-        underline = false,
+      vim.diagnostic.config({
         float = { border = "rounded" },
         signs = {
           text = {
-            [diagnostic.severity.ERROR] = " ",
-            [diagnostic.severity.WARN] = " ",
-            [diagnostic.severity.INFO] = " ",
-            [diagnostic.severity.HINT] = " ",
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
           },
         },
       })
-      handlers["textDocument/hover"] = vim.lsp.with(handlers.hover, { border = "rounded" })
-      handlers["textDocument/signatureHelp"] = vim.lsp.with(handlers.signature_help, { border = "rounded" })
 
       for server, config in pairs(opts.servers) do
         config = type(config) == "function" and config() or config

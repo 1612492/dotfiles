@@ -18,7 +18,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gr", vim.lsp.buf.references)
     map("n", "gd", vim.lsp.buf.definition)
 
-    map("n", "K", vim.lsp.buf.hover)
+    map("n", "K", function()
+      vim.lsp.buf.hover({ border = "rounded" })
+    end)
 
     map("n", "[d", vim.diagnostic.goto_prev)
     map("n", "]d", vim.diagnostic.goto_next)

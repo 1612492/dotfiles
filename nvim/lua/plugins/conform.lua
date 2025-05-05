@@ -4,11 +4,14 @@ return {
     {
       "gf",
       function()
-        require("conform").format({ async = true, lsp_fallback = true })
+        require("conform").format()
       end,
     },
   },
   opts = {
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
     formatters_by_ft = {
       css = { "prettierd" },
       html = { "prettierd" },
@@ -19,6 +22,7 @@ return {
       lua = { "stylua" },
       markdown = { "prettierd" },
       svg = { "prettierd" },
+      solidity = { "prettierd" },
       typescript = { "prettierd" },
       typescriptreact = { "prettierd" },
       yaml = { "prettierd" },

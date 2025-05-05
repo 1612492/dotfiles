@@ -22,10 +22,6 @@ return {
       },
       lualine_x = {
         {
-          require("noice").api.statusline.mode.get,
-          cond = require("noice").api.statusline.mode.has,
-        },
-        {
           "diagnostics",
           sources = { "nvim_diagnostic" },
           symbols = {
