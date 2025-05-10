@@ -1,31 +1,26 @@
-local options = {
-  encoding = "utf-8",
-  expandtab = true,
-  shiftwidth = 2,
-  smartindent = true,
-  tabstop = 2,
-  softtabstop = 2,
-  hlsearch = true,
-  incsearch = true,
-  ignorecase = true,
-  smartcase = true,
-  mouse = "",
-  cursorline = true,
-  signcolumn = "yes",
-  number = true,
-  relativenumber = true,
-  splitbelow = true,
-  splitright = true,
-  showmode = false,
-  termguicolors = true,
-  foldmethod = "expr",
-  foldexpr = "v:lua.vim.treesitter.foldexpr()",
-  foldenable = true,
-  foldlevel = 99,
-  swapfile = false,
-  writebackup = false,
-}
-
-for name, value in pairs(options) do
-  vim.opt[name] = value
-end
+vim.opt.encoding = "utf-8"
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.mouse = ""
+vim.opt.cursorline = true
+vim.opt.signcolumn = "yes"
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.showmode = false
+vim.opt.termguicolors = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.swapfile = false
+vim.opt.winborder = "rounded"
+vim.opt.writebackup = false

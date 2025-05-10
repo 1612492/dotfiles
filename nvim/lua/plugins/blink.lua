@@ -24,7 +24,5 @@ return {
         window = { border = "rounded" },
       },
     },
-    sources = { default = { "lsp", "path", "snippets", "buffer" } },
   },
-  opts_extend = { "sources.default" },
 }

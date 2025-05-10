@@ -14,7 +14,7 @@ return {
           settings = {
             Lua = {
               diagnostics = {
-                globals = { "vim" },
+                globals = { "Snacks", "vim" },
               },
             },
           },
@@ -39,11 +39,8 @@ return {
       },
     },
     config = function(_, opts)
-      require("lspconfig.ui.windows").default_options.border = "rounded"
-      local lspconfig = require("lspconfig")
-
       vim.diagnostic.config({
-        float = { border = "rounded" },
+        underline = false,
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = " ",
@@ -56,9 +53,8 @@ return {
 
       for server, config in pairs(opts.servers) do
         config = type(config) == "function" and config() or config
-
         config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-        lspconfig[server].setup(config)
+        require("lspconfig")[server].setup(config)
       end
     end,
   },

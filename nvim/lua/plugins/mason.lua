@@ -1,11 +1,5 @@
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
   build = ":MasonInstallAll",
-  opts = {
-    ui = {
-      border = "rounded",
-      width = 0.8,
-      height = 0.8,
-    },
-  },
+  opts = {},
 }
