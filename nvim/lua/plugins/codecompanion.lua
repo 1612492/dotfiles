@@ -6,12 +6,9 @@ return {
   },
   opts = {
     strategies = {
-      chat = {
-        adapter = "gemini",
-      },
-      inline = {
-        adapter = "gemini",
-      },
+      chat = { adapter = "gemini" },
+      inline = { adapter = "gemini" },
+      agent = { adapter = "gemini" },
     },
     adapters = {
       gemini = function()

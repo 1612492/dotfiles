@@ -19,13 +19,13 @@ return {
     {
       "<leader>f",
       function()
-        Snacks.picker.files()
+        require("snacks").picker.files()
       end,
     },
     {
       "<leader>g",
       function()
-        Snacks.picker.grep()
+        require("snacks").picker.grep()
       end,
     },
   },
