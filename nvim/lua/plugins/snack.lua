@@ -28,5 +28,11 @@ return {
         require("snacks").picker.grep()
       end,
     },
+    {
+      "<leader>b",
+      function()
+        require("snacks").picker.buffers()
+      end,
+    },
   },
 }

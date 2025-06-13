@@ -5,11 +5,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", key, func, opts)
     end
 
-    map("<leader>a", vim.lsp.buf.code_action)
-    map("gR", vim.lsp.buf.rename)
-    map("gr", require("snacks").picker.lsp_references)
-    map("gi", require("snacks").picker.lsp_implementations)
-    map("gd", require("snacks").picker.lsp_definitions)
+    map("gra", vim.lsp.buf.code_action)
+    map("grn", vim.lsp.buf.rename)
+    map("grr", vim.lsp.buf.references)
+    map("gri", vim.lsp.buf.implementation)
+    map("grd", vim.lsp.buf.definition)
     map("[d", vim.diagnostic.goto_prev)
     map("]d", vim.diagnostic.goto_next)
     map("K", vim.lsp.buf.hover)
@@ -24,12 +24,6 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.WARN] = " ",
       [vim.diagnostic.severity.INFO] = " ",
       [vim.diagnostic.severity.HINT] = " ",
-    },
-    linehl = {
-      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-    },
-    numhl = {
-      [vim.diagnostic.severity.WARN] = "WarningMsg",
     },
   },
 })

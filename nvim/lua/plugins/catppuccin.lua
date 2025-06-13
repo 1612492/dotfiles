@@ -10,7 +10,6 @@ return {
     flavour = "mocha",
     transparent_background = true,
     integrations = {
-      barbar = true,
       blink_cmp = true,
       diffview = true,
       fidget = true,
