@@ -26,6 +26,7 @@ return {
         end
       end)
 
+      map("n", "<leader>hR", gitsigns.reset_buffer)
       map("n", "<leader>hr", gitsigns.reset_hunk)
       map("n", "<leader>hb", gitsigns.blame_line)
     end,

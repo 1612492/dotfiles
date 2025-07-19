@@ -1,8 +1,10 @@
 local lsps = {
   ["css-lsp"] = "cssls",
+  ["json-lsp"] = "jsonls",
   ["html-lsp"] = "html",
   ["tailwindcss-language-server"] = "tailwindcss",
-  ["vtsls"] = "vtsls",
+  ["vscode-solidity-server"] = "solidity_ls",
+  vtsls = "vtsls",
 }
 
 local formatters = {
@@ -24,6 +26,28 @@ end
 
 return {
   "mason-org/mason.nvim",
+  dependencies = {
+    {
+      "neovim/nvim-lspconfig",
+      config = function()
+        vim.lsp.config("vtsls", {
+          settings = {
+            vtsls = {
+              autoUseWorkspaceTsdk = true,
+              experimental = {
+                completion = {
+                  enableServerSideFuzzyMatch = true,
+                },
+              },
+            },
+            typescript = {
+              updateImportsOnFileMove = { enabled = "always" },
+            },
+          },
+        })
+      end,
+    },
+  },
   config = function()
     require("mason").setup()
 

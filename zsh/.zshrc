@@ -1,6 +1,5 @@
 ZSH_THEME="robbyrussell"
 plugins=(
-  asdf
   vi-mode
   zsh-autosuggestions
 )

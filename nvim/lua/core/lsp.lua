@@ -5,11 +5,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", key, func, opts)
     end
 
-    map("gra", vim.lsp.buf.code_action)
-    map("grn", vim.lsp.buf.rename)
-    map("grr", vim.lsp.buf.references)
-    map("gri", vim.lsp.buf.implementation)
-    map("grd", vim.lsp.buf.definition)
+    map("ga", vim.lsp.buf.code_action)
+    map("gn", vim.lsp.buf.rename)
+    map("gr", Snacks.picker.lsp_references)
+    map("gi", Snacks.picker.lsp_implementations)
+    map("gd", Snacks.picker.lsp_definitions)
     map("[d", vim.diagnostic.goto_prev)
     map("]d", vim.diagnostic.goto_next)
     map("K", vim.lsp.buf.hover)
