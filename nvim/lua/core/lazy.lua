@@ -14,6 +14,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("plugins", {
+  lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
   ui = { border = "rounded" },
   performance = {
     rtp = {
