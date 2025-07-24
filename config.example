@@ -1,0 +1,6 @@
+Host github.com
+	HostName github.com
+	IdentityFile ~/.ssh/id_ed25519
+Host me.github.com
+	HostName github.com
+	IdentityFile ~/.ssh/me_id_ed25519

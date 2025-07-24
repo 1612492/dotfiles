@@ -33,6 +33,12 @@
 
   programs.tmux = {
     enable = true;
+    prefix = "C-a";
+    mouse = true;
+    keyMode = "vi";
+    terminal = "screen-256color";
+    escapeTime = 0;
+    focusEvents = true;
     plugins = with pkgs.tmuxPlugins; [
       resurrect
       continuum
@@ -40,12 +46,6 @@
       catppuccin
     ];
     extraConfig = ''
-      set -g prefix C-a
-      set -g mouse on
-      setw -g mode-keys vi
-      set -g default-terminal "screen-256color"
-      set -sg escape-time 0
-      set -g focus-events on
       bind -T copy-mode-vi 'v' send -X begin-selection
       bind -T copy-mode-vi 'r' send -X rectangle-toggle
       bind e split-window -h -c '#{pane_current_path}'
@@ -59,12 +59,9 @@
 
       set -g @resurrect-dir '~/.tmux/sessions'
       set -g @continuum-restore 'on'
-      set -g @catppuccin_window_current_text ' #{b:pane_current_path}'
-      set -g @catppuccin_window_text ' #{b:pane_current_path}'
-      set -g @catppuccin_status_background 'none'
 
       set -g status-left '''
-      set -g status-right '%Y-%m-%d %H:%M '
+      set -g status-right '''
     '';
   };
 

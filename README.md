@@ -25,3 +25,14 @@ Uninstall nix
 ```
 /nix/nix-installer uninstall
 ```
+
+Clone ssh config
+
+```
+cp config.example ~/.ssh/config
+```
+
+Create ssh key
+```
+ssh-keygen -t ed25519
+```
