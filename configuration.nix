@@ -1,4 +1,10 @@
-{ self, config, pkgs, whoami, ... }:
+{
+  self,
+  config,
+  pkgs,
+  whoami,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs; [
@@ -25,12 +31,12 @@
   homebrew = {
     enable = true;
     casks = [
+      "cloudflare-warp"
+      "dbeaver-community"
+      "google-chrome"
       "kitty"
       "maccy"
-      "cloudflare-warp"
-      "google-chrome"
       "orbstack"
-      "pgadmin4"
     ];
     onActivation = {
       autoUpdate = true;
@@ -47,7 +53,7 @@
       "/Applications/Google Chrome.app"
       "/Applications/kitty.app"
       "/Applications/OrbStack.app"
-      "/Applications/pgAdmin 4.app"
+      "/Applications/DBeaver.app"
     ];
     autohide = true;
     show-recents = false;

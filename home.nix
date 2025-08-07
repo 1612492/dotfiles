@@ -1,4 +1,13 @@
-{ config, pkgs, whoami, ... }:
+{
+  config,
+  pkgs,
+  whoami,
+  ...
+}:
+
+let
+  pwd = toString ./.;
+in
 
 {
   home.username = whoami;
@@ -11,9 +20,17 @@
     claude-code
     fd
     fzf
+    nixfmt-rfc-style
     nodejs_22
     pnpm
+    prettierd
     ripgrep
+    stylua
+    tailwindcss-language-server
+    tree-sitter
+    vscode-langservers-extracted
+    vscode-solidity-server
+    vtsls
   ];
 
   programs.zsh = {
@@ -29,6 +46,11 @@
     shellAliases = {
       v = "nvim";
     };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.tmux = {

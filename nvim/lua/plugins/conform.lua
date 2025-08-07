@@ -14,6 +14,7 @@ return {
     },
     formatters_by_ft = {
       css = { "prettierd" },
+      graphql = { "prettierd" },
       html = { "prettierd" },
       javascript = { "prettierd" },
       javascriptreact = { "prettierd" },
@@ -21,8 +22,9 @@ return {
       jsonc = { "prettierd" },
       lua = { "stylua" },
       markdown = { "prettierd" },
-      svg = { "prettierd" },
+      nix = { "nixfmt" },
       solidity = { "prettierd" },
+      svg = { "prettierd" },
       typescript = { "prettierd" },
       typescriptreact = { "prettierd" },
       yaml = { "prettierd" },
