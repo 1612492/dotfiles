@@ -1,13 +1,10 @@
 {
   config,
+  lib,
   pkgs,
   whoami,
   ...
 }:
-
-let
-  pwd = toString ./.;
-in
 
 {
   home.username = whoami;
@@ -20,17 +17,9 @@ in
     claude-code
     fd
     fzf
-    nixfmt-rfc-style
     nodejs_22
     pnpm
-    prettierd
     ripgrep
-    stylua
-    tailwindcss-language-server
-    tree-sitter
-    vscode-langservers-extracted
-    vscode-solidity-server
-    vtsls
   ];
 
   programs.zsh = {
@@ -90,10 +79,16 @@ in
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-  };
-
-  programs.kitty = {
-    enable = true;
+    extraPackages = with pkgs; [
+      nixfmt-rfc-style
+      prettierd
+      stylua
+      tailwindcss-language-server
+      tree-sitter
+      vscode-langservers-extracted
+      vscode-solidity-server
+      vtsls
+    ];
   };
 
   home.file = {
