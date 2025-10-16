@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   whoami,
   ...
@@ -17,6 +16,7 @@
     claude-code
     fd
     fzf
+    ngrok
     nodejs_22
     pnpm
     ripgrep
@@ -44,15 +44,21 @@
 
   programs.tmux = {
     enable = true;
-    prefix = "C-a";
+    shortcut = "a";
     mouse = true;
     keyMode = "vi";
     terminal = "screen-256color";
     escapeTime = 0;
     focusEvents = true;
     plugins = with pkgs.tmuxPlugins; [
-      resurrect
-      continuum
+      {
+        plugin = resurrect;
+        extraConfig = "set -g @resurrect-dir '~/.tmux/sessions'";
+      }
+      {
+        plugin = continuum;
+        extraConfig = "set -g @continuum-restore 'on'";
+      }
       yank
       catppuccin
     ];
@@ -66,11 +72,6 @@
       bind -r -T prefix j select-pane -D
       bind -r -T prefix h select-pane -L
       bind -r -T prefix l select-pane -R
-      bind r source-file ~/.config/tmux/tmux.conf \; display-message 'Tmux configuration reloaded!'
-
-      set -g @resurrect-dir '~/.tmux/sessions'
-      set -g @continuum-restore 'on'
-
       set -g status-left '''
       set -g status-right '''
     '';
@@ -80,27 +81,27 @@
     enable = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
+      astro-language-server
+      lua-language-server
+      nixd
       nixfmt-rfc-style
       prettierd
       stylua
       tailwindcss-language-server
       tree-sitter
       vscode-langservers-extracted
-      vscode-solidity-server
       vtsls
     ];
   };
 
-  home.file = {
-    ".config/nvim" = {
-      source = ./nvim;
-      recursive = true;
+  xdg.configFile =
+    let
+      configPath = "${config.home.homeDirectory}/dotfiles";
+    in
+    {
+      "nvim".source = config.lib.file.mkOutOfStoreSymlink "${configPath}/nvim";
+      "kitty".source = config.lib.file.mkOutOfStoreSymlink "${configPath}/kitty";
     };
-    ".config/kitty" = {
-      source = ./kitty;
-      recursive = true;
-    };
-  };
 
   programs.home-manager.enable = true;
 }

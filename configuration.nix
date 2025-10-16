@@ -1,6 +1,5 @@
 {
   self,
-  config,
   pkgs,
   whoami,
   ...
@@ -37,6 +36,8 @@
       "kitty"
       "maccy"
       "orbstack"
+      "postman"
+      "redis-insight"
     ];
     onActivation = {
       autoUpdate = true;
@@ -54,6 +55,7 @@
       "/Applications/kitty.app"
       "/Applications/OrbStack.app"
       "/Applications/DBeaver.app"
+      "/Applications/Postman.app"
     ];
     autohide = true;
     show-recents = false;

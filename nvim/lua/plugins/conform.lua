@@ -13,6 +13,7 @@ return {
       lsp_format = "fallback",
     },
     formatters_by_ft = {
+      astro = { "prettierd" },
       css = { "prettierd" },
       graphql = { "prettierd" },
       html = { "prettierd" },

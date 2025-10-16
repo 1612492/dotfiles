@@ -31,7 +31,17 @@ return {
       },
     })
 
-    vim.lsp.enable({ "cssls", "jsonls", "html", "tailwindcss", "solidity_ls", "vtsls" })
+    vim.lsp.enable({
+      "astro",
+      "cssls",
+      "html",
+      "jsonls",
+      "lua_ls",
+      "nixd",
+      "solidity_ls",
+      "tailwindcss",
+      "vtsls",
+    })
 
     vim.lsp.config("vtsls", {
       settings = {
