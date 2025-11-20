@@ -1,44 +1,40 @@
 # My dotfiles
 
-Install nix use determinate installer
+Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-```
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-```
+## What's included
 
-Install nix-darwin
+- **Neovim** - Configuration with lazy.nvim, LSP, and plugins
+- **Kitty** - Terminal emulator config
+- **Tmux** - Terminal multiplexer with TPM plugins
+- **Zsh** - Shell config with Oh My Zsh
 
-```
-cd dotfiles
-sudo nix run nix-darwin -- switch --flake .
-```
+## Installation
 
-Rebuild
-
-```
-sudo darwin-rebuild switch --flake .
+```bash
+git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./install.sh
 ```
 
-Uninstall nix-darwin
+The install script will:
 
-```
-sudo nix --extra-experimental-features "nix-command flakes" run nix-darwin#darwin-uninstaller
-```
+1. Install Homebrew (if not installed)
+2. Install packages from Brewfile
+3. Install Oh My Zsh
+4. Install Zsh plugins (autosuggestions, syntax-highlighting)
+5. Stow dotfiles to home directory
+6. Install TPM and tmux plugins
 
-Uninstall nix
+## Manual steps after installation
 
-```
-/nix/nix-installer uninstall
-```
+1. Restart your shell or run `source ~/.zshrc`
 
-Clone ssh config
+## Updating
 
-```
-cp config.example ~/.ssh/config
-```
+To re-stow dotfiles after making changes:
 
-Create ssh key
-
-```
-ssh-keygen -t ed25519
+```bash
+cd ~/dotfiles
+stow config -t "$HOME" --restow
 ```

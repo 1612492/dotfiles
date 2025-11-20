@@ -13,6 +13,7 @@ return {
       lsp_format = "fallback",
     },
     formatters_by_ft = {
+      ["_"] = { "trim_whitespace" },
       astro = { "prettierd" },
       css = { "prettierd" },
       graphql = { "prettierd" },
@@ -23,13 +24,12 @@ return {
       jsonc = { "prettierd" },
       lua = { "stylua" },
       markdown = { "prettierd" },
-      nix = { "nixfmt" },
       solidity = { "prettierd" },
       svg = { "prettierd" },
+      templ = { "templ" },
       typescript = { "prettierd" },
       typescriptreact = { "prettierd" },
       yaml = { "prettierd" },
-      ["_"] = { "trim_whitespace" },
     },
   },
 }
