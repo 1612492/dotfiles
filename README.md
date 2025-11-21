@@ -36,5 +36,5 @@ To re-stow dotfiles after making changes:
 
 ```bash
 cd ~/dotfiles
-stow config -t "$HOME" --restow
+stow -R config
 ```

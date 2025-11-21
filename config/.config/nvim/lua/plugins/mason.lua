@@ -1,10 +1,15 @@
 local lsps = {
   ["astro-language-server"] = "astro",
   ["css-lsp"] = "cssls",
-  ["json-lsp"] = "jsonls",
   ["html-lsp"] = "html",
+  ["json-lsp"] = "jsonls",
+  ["lua-language-server"] = "lua_ls",
+  ["rust-analyzer"] = "rust_analyzer",
+  ["svelte-language-server"] = "svelte",
   ["tailwindcss-language-server"] = "tailwindcss",
   ["vscode-solidity-server"] = "solidity_ls",
+  gopls = "gopls",
+  templ = "templ",
   vtsls = "vtsls",
 }
 

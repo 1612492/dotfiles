@@ -5,6 +5,7 @@ return {
   opts = {
     animate = { enabled = true },
     bigfile = { enabled = true },
+    image = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
@@ -26,7 +27,7 @@ return {
     {
       "<leader>f",
       function()
-        require("snacks").picker.files()
+        require("snacks").picker.smart()
       end,
     },
     {

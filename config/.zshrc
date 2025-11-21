@@ -1,6 +1,6 @@
 ZSH_THEME="robbyrussell"
 plugins=(
-  nvm
+  mise
   vi-mode
   zoxide
   zsh-autosuggestions

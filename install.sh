@@ -116,6 +116,18 @@ stow_dotfiles() {
     print_status "Dotfiles stowed"
 }
 
+# Install mise tools from .mise.toml
+install_mise_tools() {
+    if ! command_exists mise; then
+        print_warning "mise not found, skipping tool installation"
+        return
+    fi
+
+    print_warning "Installing mise tools..."
+    mise install -y
+    print_status "mise tools installed"
+}
+
 # Main installation
 main() {
     echo "================================"
@@ -128,6 +140,7 @@ main() {
     install_oh_my_zsh
     install_zsh_plugins
     stow_dotfiles
+    install_mise_tools
     install_tpm
 
     echo ""
