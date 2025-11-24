@@ -112,7 +112,7 @@ install_tpm() {
 stow_dotfiles() {
     print_warning "Stowing dotfiles..."
     cd "$DOTFILES_DIR"
-    stow config -t "$HOME"
+    stow . -t "$HOME"
     print_status "Dotfiles stowed"
 }
 
