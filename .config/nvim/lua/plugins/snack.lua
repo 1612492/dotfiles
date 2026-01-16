@@ -5,7 +5,12 @@ return {
   opts = {
     animate = { enabled = true },
     bigfile = { enabled = true },
-    image = { enabled = true },
+    image = {
+      enabled = true,
+      doc = {
+        enabled = false,
+      },
+    },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
@@ -21,13 +26,12 @@ return {
     scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
-    words = { enabled = true },
   },
   keys = {
     {
       "<leader>f",
       function()
-        require("snacks").picker.smart()
+        require("snacks").picker.files()
       end,
     },
     {
