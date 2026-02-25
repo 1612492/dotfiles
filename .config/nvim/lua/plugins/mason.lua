@@ -4,13 +4,14 @@ local lsps = {
   ["html-lsp"] = "html",
   ["json-lsp"] = "jsonls",
   ["lua-language-server"] = "lua_ls",
+  ["prisma-language-server"] = "prismals",
   ["rust-analyzer"] = "rust_analyzer",
   ["svelte-language-server"] = "svelte",
   ["tailwindcss-language-server"] = "tailwindcss",
   ["vscode-solidity-server"] = "solidity_ls",
   gopls = "gopls",
   templ = "templ",
-  vtsls = "vtsls",
+  tsgo = "tsgo",
 }
 
 local formatters = {
@@ -62,22 +63,6 @@ return {
               [vim.diagnostic.severity.WARN] = " ",
               [vim.diagnostic.severity.INFO] = " ",
               [vim.diagnostic.severity.HINT] = " ",
-            },
-          },
-        })
-
-        vim.lsp.config("vtsls", {
-          settings = {
-            vtsls = {
-              autoUseWorkspaceTsdk = true,
-              experimental = {
-                completion = {
-                  enableServerSideFuzzyMatch = true,
-                },
-              },
-            },
-            typescript = {
-              updateImportsOnFileMove = { enabled = "always" },
             },
           },
         })

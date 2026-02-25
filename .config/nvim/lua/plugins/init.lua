@@ -4,5 +4,4 @@ return {
   { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
   { "sindrets/diffview.nvim", cmd = "DiffviewOpen" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter", opts = {} },
-  { "yioneko/nvim-vtsls" },
 }
