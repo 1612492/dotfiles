@@ -4,7 +4,6 @@ local lsps = {
   ["html-lsp"] = "html",
   ["json-lsp"] = "jsonls",
   ["lua-language-server"] = "lua_ls",
-  ["prisma-language-server"] = "prismals",
   ["rust-analyzer"] = "rust_analyzer",
   ["svelte-language-server"] = "svelte",
   ["tailwindcss-language-server"] = "tailwindcss",

@@ -1,4 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["@tarquinen/opencode-dcp@latest"]
+  "plugin": ["@tarquinen/opencode-dcp@latest", "oh-my-opencode-slim"],
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  }
 }
