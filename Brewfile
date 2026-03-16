@@ -16,5 +16,6 @@ cask "maccy"
 cask "ngrok"
 cask "obsidian"
 cask "orbstack"
+cask "tailscale-app"
 
 cask "font-victor-mono"
