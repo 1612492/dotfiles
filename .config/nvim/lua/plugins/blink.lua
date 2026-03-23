@@ -22,5 +22,14 @@ return {
         auto_show_delay_ms = 200,
       },
     },
+    sources = {
+      default = { "lsp", "buffer", "snippets", "path" },
+      per_filetype = {
+        sql = { "dadbod" },
+      },
+      providers = {
+        dadbod = { module = "vim_dadbod_completion.blink" },
+      },
+    },
   },
 }
