@@ -48,8 +48,12 @@ return {
             map("gr", Snacks.picker.lsp_references)
             map("gi", Snacks.picker.lsp_implementations)
             map("gd", Snacks.picker.lsp_definitions)
-            map("[d", vim.diagnostic.goto_prev)
-            map("]d", vim.diagnostic.goto_next)
+            map("[d", function()
+              vim.diagnostic.jump({ count = -1 })
+            end)
+            map("]d", function()
+              vim.diagnostic.jump({ count = 1 })
+            end)
             map("K", vim.lsp.buf.hover)
           end,
         })
@@ -73,6 +77,26 @@ return {
 
     local packages = vim.list_extend(vim.tbl_keys(lsps), formatters)
     ensure_installed(packages)
+
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          runtime = {
+            version = "LuaJIT",
+          },
+          diagnostics = {
+            globals = { "Snacks", "vim" },
+          },
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              vim.env.VIMRUNTIME,
+              vim.fn.stdpath("config"),
+            },
+          },
+        },
+      },
+    })
 
     vim.lsp.enable(vim.tbl_values(lsps))
   end,

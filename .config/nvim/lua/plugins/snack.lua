@@ -31,13 +31,13 @@ return {
     {
       "<leader>f",
       function()
-        require("snacks").picker.files()
+        Snacks.picker.files()
       end,
     },
     {
       "<leader>g",
       function()
-        require("snacks").picker.grep()
+        Snacks.picker.grep()
       end,
     },
   },

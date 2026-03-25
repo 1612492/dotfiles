@@ -12,7 +12,6 @@ return {
     transparent_background = true,
     integrations = {
       blink_cmp = true,
-      dadbod_ui = true,
       diffview = true,
       fidget = true,
       mason = true,
