@@ -1,6 +1,8 @@
+brew "bottom"
 brew "fd"
 brew "fzf"
 brew "mise"
+brew "mole"
 brew "neovim"
 brew "opencode"
 brew "ripgrep"
