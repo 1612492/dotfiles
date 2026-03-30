@@ -59,7 +59,8 @@ return {
         })
 
         vim.diagnostic.config({
-          underline = false,
+          virtual_text = true,
+          underline = true,
           signs = {
             text = {
               [vim.diagnostic.severity.ERROR] = " ",
