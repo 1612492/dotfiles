@@ -14,7 +14,7 @@ local lsps = {
 }
 
 local formatters = {
-  "prettierd",
+  "prettier",
   "stylua",
 }
 
@@ -59,8 +59,6 @@ return {
         })
 
         vim.diagnostic.config({
-          virtual_text = true,
-          underline = true,
           signs = {
             text = {
               [vim.diagnostic.severity.ERROR] = " ",
@@ -68,6 +66,19 @@ return {
               [vim.diagnostic.severity.INFO] = " ",
               [vim.diagnostic.severity.HINT] = " ",
             },
+          },
+          jump = {
+            on_jump = function(diagnostic, bufnr)
+              if not diagnostic then
+                return
+              end
+              vim.diagnostic.show(
+                diagnostic.namespace,
+                bufnr,
+                { diagnostic },
+                { virtual_lines = false, virtual_text = true }
+              )
+            end,
           },
         })
       end,
