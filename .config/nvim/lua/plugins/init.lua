@@ -1,6 +1,15 @@
-return {
-  { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
-  { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
-  { "sindrets/diffview.nvim", cmd = "DiffviewOpen" },
-  { "windwp/nvim-ts-autotag", event = "InsertEnter", opts = {} },
-}
+require("plugins.catppuccin")
+require("plugins.snacks")
+require("plugins.ts-comments")
+require("plugins.fidget")
+require("plugins.nvim-surround")
+require("plugins.gitsigns")
+require("plugins.mason")
+require("plugins.lualine")
+require("plugins.mini")
+require("plugins.nvim-treesitter")
+require("plugins.barbar")
+require("plugins.blink")
+require("plugins.conform")
+require("plugins.oil")
+require("plugins.nvim-ts-autotag")

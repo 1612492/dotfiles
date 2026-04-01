@@ -1,26 +1,26 @@
-return {
-  "saghen/blink.cmp",
-  version = "*",
-  opts = {
-    keymap = {
-      ["<C-e>"] = { "cancel", "fallback" },
-      ["<CR>"] = { "accept", "fallback" },
-      ["<C-j>"] = { "snippet_forward", "fallback" },
-      ["<C-k>"] = { "snippet_backward", "fallback" },
-      ["<C-p>"] = { "select_prev", "fallback" },
-      ["<C-n>"] = { "select_next", "fallback" },
-      ["<C-u>"] = { "scroll_documentation_up", "fallback" },
-      ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+require("blink.cmp").setup({
+  fuzzy = {
+    prebuilt_binaries = { download = true },
+    implementation = "lua",
+  },
+  keymap = {
+    ["<C-e>"] = { "cancel", "fallback" },
+    ["<CR>"] = { "accept", "fallback" },
+    ["<C-j>"] = { "snippet_forward", "fallback" },
+    ["<C-k>"] = { "snippet_backward", "fallback" },
+    ["<C-p>"] = { "select_prev", "fallback" },
+    ["<C-n>"] = { "select_next", "fallback" },
+    ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+    ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+  },
+  completion = {
+    list = { selection = { preselect = false, auto_insert = true } },
+    menu = {
+      draw = { treesitter = { "lsp" } },
     },
-    completion = {
-      list = { selection = { preselect = false, auto_insert = true } },
-      menu = {
-        draw = { treesitter = { "lsp" } },
-      },
-      documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 200,
-      },
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 200,
     },
   },
-}
+})

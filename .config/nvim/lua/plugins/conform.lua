@@ -1,38 +1,27 @@
-return {
-  "stevearc/conform.nvim",
-  keys = {
-    {
-      "gf",
-      function()
-        require("conform").format()
-      end,
-    },
+require("conform").setup({
+  default_format_opts = {
+    lsp_format = "fallback",
   },
-  opts = {
-    default_format_opts = {
-      lsp_format = "fallback",
-    },
-    formatters_by_ft = {
-      ["_"] = { "trim_whitespace" },
-      astro = { "prettier" },
-      css = { "prettier" },
-      go = { "gofmt" },
-      graphql = { "prettier" },
-      html = { "prettier" },
-      javascript = { "prettier" },
-      javascriptreact = { "prettier" },
-      json = { "prettier" },
-      jsonc = { "prettier" },
-      lua = { "stylua" },
-      markdown = { "prettier" },
-      rust = { "rustfmt" },
-      solidity = { "prettier" },
-      svelte = { "prettier" },
-      svg = { "prettier" },
-      templ = { "templ" },
-      typescript = { "prettier" },
-      typescriptreact = { "prettier" },
-      yaml = { "prettier" },
-    },
+  formatters_by_ft = {
+    ["_"] = { "trim_whitespace" },
+    astro = { "prettier" },
+    css = { "prettier" },
+    go = { "gofmt" },
+    graphql = { "prettier" },
+    html = { "prettier" },
+    javascript = { "prettier" },
+    javascriptreact = { "prettier" },
+    json = { "prettier" },
+    jsonc = { "prettier" },
+    lua = { "stylua" },
+    markdown = { "prettier" },
+    rust = { "rustfmt" },
+    solidity = { "prettier" },
+    svelte = { "prettier" },
+    svg = { "prettier" },
+    templ = { "templ" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    yaml = { "prettier" },
   },
-}
+})
