@@ -55,10 +55,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gD", vim.lsp.buf.declaration, opts)
     map("n", "gt", vim.lsp.buf.type_definition, opts)
     map("n", "[d", function()
-      vim.diagnostic.jump({ count = -1 })
+      vim.diagnostic.jump({ count = -1, float = true })
     end, opts)
     map("n", "]d", function()
-      vim.diagnostic.jump({ count = 1 })
+      vim.diagnostic.jump({ count = 1, float = true })
     end, opts)
     map("n", "K", vim.lsp.buf.hover, opts)
   end,
