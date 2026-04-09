@@ -8,6 +8,7 @@ brew "opencode"
 brew "ripgrep"
 brew "stow"
 brew "tmux"
+brew "tree-sitter-cli"
 brew "zoxide"
 
 cask "brave-browser"

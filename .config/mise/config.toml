@@ -1,5 +1,6 @@
 [tools]
 bun = "latest"
+go = "1.21"
 node = "24"
 pnpm = "latest"
 rust = "latest"
