@@ -1,28 +1,25 @@
 local map = vim.keymap.set
 
+local opts = { silent = true }
+
 map("n", "gf", function()
   require("conform").format()
 end, { silent = true })
 
 for i = 1, 9 do
-  map("n", ("<leader>%s"):format(i), ("<cmd>BufferGoto %s<cr>"):format(i), { silent = true })
+  map("n", ("<leader>%s"):format(i), ("<cmd>BufferGoto %s<cr>"):format(i), opts)
 end
 
-map("n", "<leader>0", "<cmd>BufferPick<cr>", { silent = true })
-map("n", "<leader>-", "<cmd>BufferClose<cr>", { silent = true })
-map("n", "<leader>=", "<cmd>BufferCloseAllButCurrent<cr>", { silent = true })
+map("n", "<leader>0", "<cmd>BufferPick<cr>", opts)
+map("n", "<leader>-", "<cmd>BufferClose<cr>", opts)
+map("n", "<leader>=", "<cmd>BufferCloseAllButCurrent<cr>", opts)
 
 map("n", "<leader>e", function()
   require("oil").open()
-end, { silent = true })
+end, opts)
 
-map("n", "<leader>f", function()
-  require("snacks").picker.files()
-end, { silent = true })
-
-map("n", "<leader>g", function()
-  require("snacks").picker.grep()
-end, { silent = true })
+map("n", "<leader>f", Snacks.picker.files, opts)
+map("n", "<leader>g", Snacks.picker.grep, opts)
 
 local function copy_to_clipboard(text, message)
   vim.fn.setreg("+", text)

@@ -1,9 +1,5 @@
 local map = vim.keymap.set
 
-vim.api.nvim_create_user_command("PackUpdate", function()
-  vim.pack.update()
-end, {})
-
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
@@ -49,11 +45,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     map("n", "ga", vim.lsp.buf.code_action, opts)
     map("n", "gn", vim.lsp.buf.rename, opts)
-    map("n", "gr", vim.lsp.buf.references, opts)
-    map("n", "gi", vim.lsp.buf.implementation, opts)
-    map("n", "gd", vim.lsp.buf.definition, opts)
-    map("n", "gD", vim.lsp.buf.declaration, opts)
-    map("n", "gt", vim.lsp.buf.type_definition, opts)
+    map("n", "gr", Snacks.picker.lsp_references, opts)
+    map("n", "gi", Snacks.picker.lsp_implementations, opts)
+    map("n", "gd", Snacks.picker.lsp_definitions, opts)
+    map("n", "gD", Snacks.picker.lsp_declarations, opts)
+    map("n", "gy", Snacks.picker.lsp_type_definitions, opts)
     map("n", "[d", function()
       vim.diagnostic.jump({ count = -1, float = true })
     end, opts)

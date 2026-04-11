@@ -40,7 +40,7 @@ vim.lsp.config("lua_ls", {
         version = "LuaJIT",
       },
       diagnostics = {
-        globals = { "vim" },
+        globals = { "Snacks", "vim" },
       },
       workspace = {
         checkThirdParty = false,
