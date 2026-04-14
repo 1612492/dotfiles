@@ -21,7 +21,7 @@ cask "ngrok"
 cask "nikitabobko/tap/aerospace"
 cask "obsidian"
 cask "orbstack"
-cask "raycask"
+cask "raycast"
 cask "shottr"
 cask "tailscale-app"
 

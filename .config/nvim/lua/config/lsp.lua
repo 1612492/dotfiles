@@ -10,7 +10,8 @@ local lsps = {
   ["vscode-solidity-server"] = "solidity_ls",
   gopls = "gopls",
   templ = "templ",
-  tsgo = "tsgo",
+  -- tsgo = "tsgo",
+  vtsls = "vtsls",
 }
 
 local formatters = {
@@ -49,6 +50,22 @@ vim.lsp.config("lua_ls", {
           vim.fn.stdpath("config"),
         },
       },
+    },
+  },
+})
+
+vim.lsp.config("vtsls", {
+  settings = {
+    vtsls = {
+      autoUseWorkspaceTsdk = true,
+      experimental = {
+        completion = {
+          enableServerSideFuzzyMatch = true,
+        },
+      },
+    },
+    typescript = {
+      updateImportsOnFileMove = { enabled = "always" },
     },
   },
 })
