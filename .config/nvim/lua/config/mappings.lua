@@ -31,6 +31,11 @@ map("n", "<leader>af", function()
   copy_to_clipboard(path, "Copied: " .. path)
 end, { desc = "Copy file path", silent = true })
 
+map("n", "<leader>aF", function()
+  local path = vim.fn.expand("%:p")
+  copy_to_clipboard(path, "Copied: " .. path)
+end, { desc = "Copy full file path", silent = true })
+
 map("v", "<leader>av", function()
   local path = vim.fn.expand("%:.")
   local start_line = vim.fn.line("v")
