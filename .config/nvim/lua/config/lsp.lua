@@ -54,21 +54,7 @@ vim.lsp.config("lua_ls", {
   },
 })
 
-vim.lsp.config("vtsls", {
-  settings = {
-    vtsls = {
-      autoUseWorkspaceTsdk = true,
-      experimental = {
-        completion = {
-          enableServerSideFuzzyMatch = true,
-        },
-      },
-    },
-    typescript = {
-      updateImportsOnFileMove = { enabled = "always" },
-    },
-  },
-})
+require("lspconfig.configs").vtsls = require("vtsls").lspconfig
 
 vim.lsp.enable(vim.tbl_values(lsps))
 
