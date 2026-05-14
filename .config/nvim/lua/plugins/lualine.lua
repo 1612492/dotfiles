@@ -1,38 +1,41 @@
-require("lualine").setup({
-  options = {
-    theme = "auto",
-    globalstatus = true,
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
-  },
-  sections = {
-    lualine_a = { "mode" },
-    lualine_b = { { "filename", path = 1 } },
-    lualine_c = {
-      {
-        "diff",
-        symbols = {
-          added = " ",
-          modified = " ",
-          removed = " ",
+return {
+  "nvim-lualine/lualine.nvim",
+  opts = {
+    options = {
+      theme = "auto",
+      globalstatus = true,
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
+    },
+    sections = {
+      lualine_a = { "mode" },
+      lualine_b = { { "filename", path = 1 } },
+      lualine_c = {
+        {
+          "diff",
+          symbols = {
+            added = " ",
+            modified = " ",
+            removed = " ",
+          },
         },
       },
-    },
-    lualine_x = {
-      {
-        "diagnostics",
-        sources = { "nvim_diagnostic" },
-        symbols = {
-          error = " ",
-          warn = " ",
-          info = " ",
-          hint = " ",
+      lualine_x = {
+        {
+          "diagnostics",
+          sources = { "nvim_diagnostic" },
+          symbols = {
+            error = " ",
+            warn = " ",
+            info = " ",
+            hint = " ",
+          },
         },
+        "filetype",
       },
-      "filetype",
+      lualine_y = { "branch" },
+      lualine_z = { "location" },
     },
-    lualine_y = { "branch" },
-    lualine_z = { "location" },
+    extensions = { "quickfix", "oil" },
   },
-  extensions = { "quickfix", "oil" },
-})
+}

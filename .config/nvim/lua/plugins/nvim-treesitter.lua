@@ -1,3 +1,8 @@
-require("nvim-treesitter").setup({
-  install_dir = vim.fn.stdpath("data") .. "/treesitter",
-})
+return {
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false,
+  build = ":TSUpdate",
+  opts = {
+    install_dir = vim.fn.stdpath("data") .. "/treesitter",
+  },
+}

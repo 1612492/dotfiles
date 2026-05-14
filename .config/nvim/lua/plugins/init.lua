@@ -1,16 +1,9 @@
-require("plugins.barbar")
-require("plugins.blink")
-require("plugins.catppuccin")
-require("plugins.conform")
-require("plugins.fidget")
-require("plugins.gitsigns")
-require("plugins.lualine")
-require("plugins.mason")
-require("plugins.mini")
-require("plugins.nvim-surround")
-require("plugins.nvim-treesitter")
-require("plugins.nvim-ts-autotag")
-require("plugins.oil")
-require("plugins.smear-cursor")
-require("plugins.snacks")
-require("plugins.ts-comments")
+return {
+  { "sindrets/diffview.nvim", cmd = "DiffviewOpen" },
+  { "windwp/nvim-ts-autotag", event = "InsertEnter", opts = {} },
+  { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
+  { "MeanderingProgrammer/render-markdown.nvim", opts = {} },
+  { "b0o/schemastore.nvim" },
+  { "sphamba/smear-cursor.nvim", opts = {} },
+  { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
+}

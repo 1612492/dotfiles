@@ -1,7 +1,10 @@
-require("fidget").setup({
-  notification = {
-    window = {
-      winblend = 0,
+return {
+  "j-hui/fidget.nvim",
+  opts = {
+    notification = {
+      window = {
+        winblend = 0,
+      },
     },
   },
-})
+}
