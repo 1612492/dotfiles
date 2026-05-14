@@ -7,6 +7,7 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+alias t='tmux'
 alias v='nvim'
 
 export ZSH=$HOME/.oh-my-zsh

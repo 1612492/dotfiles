@@ -36,6 +36,27 @@ The install script will:
 1. Restart your shell or run `source ~/.zshrc`
 2. Restart tmux if it was already running so the updated config is reloaded
 
+## Kanata setup
+
+```bash
+./scripts/kanata/KarabinerDriverKit.sh install
+./scripts/kanata/SetupDaemons.sh install
+sudo launchctl kickstart -k system/com.example.kanata
+```
+
+After running the setup scripts, complete these macOS settings:
+
+1. Settings > Keyboard > Keyboard Shortcuts... > Modifier Keys, select keyboard "Karabiner DriverKit VirtualHIDKeyboard x.x.x"
+2. Settings > Privacy & Security > Input Monitoring > click "+" > Press keys SHIFT + COMMAND + G > type "/opt/homebrew/bin/kanata" > Open
+3. Settings > Privacy & Security > Accessibility > click "+" > Press keys SHIFT + COMMAND + G > type "/opt/homebrew/bin/kanata" > Open
+
+To uninstall:
+
+```bash
+./scripts/kanata/SetupDaemons.sh uninstall
+./scripts/kanata/KarabinerDriverKit.sh uninstall
+```
+
 ## Updating
 
 To re-stow dotfiles after making changes:
