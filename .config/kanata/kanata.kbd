@@ -23,7 +23,7 @@
   _     _     _     _     _     _     _     _     _     _     _     _     _     _
   @caps @a    @s    @d    @f    _     _     @j    @k    @l    @;    _     _
   _     _     _     _     _     _     _     _     _     _     _     _
-  @fn   _     _     _                 _                 _     _     _    _ _    _
+  @fn   _     _     _                 _                 @hyper _     _    _ _    _
 )
 
 (deflayer fn
@@ -37,7 +37,8 @@
 
 (defalias
   fn (tap-hold 250 250 fn (layer-toggle fn))
-  caps lctl
+  caps (tap-hold 150 150 esc lctl)
+  hyper (multi lctl lsft lalt lmet)
   a (tap-hold $tap-time $hold-time a lmet)
   s (tap-hold $tap-time $hold-time s lalt)
   d (tap-hold $tap-time $hold-time d lsft)

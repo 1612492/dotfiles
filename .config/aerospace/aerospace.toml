@@ -75,6 +75,10 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 
+cmd-alt-ctrl-shift-t = 'exec-and-forget open -a "Kitty"'
+cmd-alt-ctrl-shift-b = 'exec-and-forget open -a "Brave Browser"'
+cmd-alt-ctrl-shift-c = 'exec-and-forget open -a "Google Chrome"'
+
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
 run = 'move-node-to-workspace 0'
