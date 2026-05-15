@@ -38,24 +38,16 @@ The install script will:
 
 ## Kanata setup
 
-```bash
-./scripts/kanata/KarabinerDriverKit.sh install
-./scripts/kanata/SetupDaemons.sh install
-sudo launchctl kickstart -k system/com.example.kanata
-```
-
-After running the setup scripts, complete these macOS settings:
-
-1. Settings > Keyboard > Keyboard Shortcuts... > Modifier Keys, select keyboard "Karabiner DriverKit VirtualHIDKeyboard x.x.x"
-2. Settings > Privacy & Security > Input Monitoring > click "+" > Press keys SHIFT + COMMAND + G > type "/opt/homebrew/bin/kanata" > Open
-3. Settings > Privacy & Security > Accessibility > click "+" > Press keys SHIFT + COMMAND + G > type "/opt/homebrew/bin/kanata" > Open
-
-To uninstall:
+Start/stop/restart Kanata with Homebrew services:
 
 ```bash
-./scripts/kanata/SetupDaemons.sh uninstall
-./scripts/kanata/KarabinerDriverKit.sh uninstall
+sudo brew services start kanata
+sudo brew services stop kanata
+sudo brew services restart kanata
 ```
+
+Make sure karabiner-elements itself is not running (remove from startup items if added). We only need it for the virtual hid driver.
+The permissions under system settings / security are still required as previously.
 
 ## Updating
 

@@ -16,7 +16,7 @@ return {
       ["_"] = { "trim_whitespace" },
       astro = { "prettier" },
       css = { "prettier" },
-      go = { "gofmt" },
+      go = { "gofumpt" },
       graphql = { "prettier" },
       html = { "prettier" },
       javascript = { "prettier" },

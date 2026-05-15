@@ -1,18 +1,43 @@
 (defcfg
   process-unmapped-keys yes
+  concurrent-tap-hold   yes
 )
 
 (defsrc
-  caps a s d f j k l ;
+  esc    f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  grv    1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab    q     w     e     r     t     y     u     i     o     p     [     ]     \
+  caps   a     s     d     f     g     h     j     k     l     ;     '     ret
+  lsft   z     x     c     v     b     n     m     ,     .     /     rsft
+  fn     lctl  lalt  lmet              spc               rmet  ralt  ◀    ▲ ▼    ▶
 )
 
 (defvar
-  tap-time 150
-  hold-time 200
+  tap-time 300
+  hold-time 300
+)
+
+(deflayer base
+  _     🔅    🔆    mctl  sls   dtn   dnd   ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  @caps @a    @s    @d    @f    _     _     @j    @k    @l    @;    _     _
+  _     _     _     _     _     _     _     _     _     _     _     _
+  @fn   _     _     _                 _                 _     _     _    _ _    _
+)
+
+(deflayer fn
+  _     f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+  _     _     _     _     _     _     _     _     _     _     _     _     _     del
+  _     _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _                 _                 _     _     ⤒    ⇞ ⇟    ⤓
 )
 
 (defalias
-  caps (tap-hold $tap-time $hold-time esc lctl)
+  fn (tap-hold 250 250 fn (layer-toggle fn))
+  caps lctl
   a (tap-hold $tap-time $hold-time a lmet)
   s (tap-hold $tap-time $hold-time s lalt)
   d (tap-hold $tap-time $hold-time d lsft)
@@ -21,8 +46,4 @@
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $hold-time l ralt)
   ; (tap-hold $tap-time $hold-time ; rmet)
-)
-
-(deflayer base
-  @caps @a @s @d @f @j @k @l @;
 )

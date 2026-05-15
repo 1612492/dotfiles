@@ -16,15 +16,19 @@ local lsps = {
 local formatters = {
   "prettier",
   "stylua",
+  "gofumpt",
+  "templ",
 }
 
 local ensure_installed = function(packages)
   local registry = require("mason-registry")
   registry.refresh(function()
     for _, package_name in ipairs(packages) do
-      local package = registry.get_package(package_name)
-      if package and not package:is_installed() then
+      local ok, package = pcall(registry.get_package, package_name)
+      if ok and package and not package:is_installed() then
         package:install()
+      elseif not ok then
+        vim.notify(("[mason] Package not found in registry: %s"):format(package_name), vim.log.levels.WARN)
       end
     end
   end)
@@ -33,6 +37,7 @@ end
 return {
   "mason-org/mason.nvim",
   dependencies = {
+    "b0o/schemastore.nvim",
     {
       "neovim/nvim-lspconfig",
       config = function()
