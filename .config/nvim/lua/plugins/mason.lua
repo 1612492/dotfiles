@@ -62,6 +62,7 @@ return {
 
     require("lsp.jsonls")
     require("lsp.lua_ls")
+    require("lsp.tailwindcss")
     vim.lsp.enable(vim.tbl_values(lsps))
   end,
 }

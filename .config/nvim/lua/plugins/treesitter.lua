@@ -1,8 +1,17 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  lazy = false,
-  build = ":TSUpdate",
+  "romus204/tree-sitter-manager.nvim",
   opts = {
-    install_dir = vim.fn.stdpath("data") .. "/treesitter",
+    ensure_installed = {
+      "css",
+      "html",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "markdown_inline",
+      "tsx",
+      "typescript",
+      "yaml",
+    },
   },
 }
