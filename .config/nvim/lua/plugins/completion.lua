@@ -1,0 +1,26 @@
+local cmp = require("blink.cmp")
+cmp.build():wait(60000)
+cmp.setup({
+	keymap = {
+		["<C-e>"] = { "cancel", "fallback" },
+		["<CR>"] = { "accept", "fallback" },
+		["<C-j>"] = { "snippet_forward", "fallback" },
+		["<C-k>"] = { "snippet_backward", "fallback" },
+		["<C-p>"] = { "select_prev", "fallback" },
+		["<C-n>"] = { "select_next", "fallback" },
+		["<C-u>"] = { "scroll_documentation_up", "fallback" },
+		["<C-d>"] = { "scroll_documentation_down", "fallback" },
+	},
+	completion = {
+		list = { selection = { preselect = false, auto_insert = true } },
+		menu = {
+			draw = {
+				columns = {
+					{ "label", "label_description", gap = 1 },
+					{ "kind_icon", "kind", gap = 2 },
+				},
+			},
+		},
+		documentation = { auto_show = true, auto_show_delay_ms = 200 },
+	},
+})

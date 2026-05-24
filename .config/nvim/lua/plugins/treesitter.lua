@@ -1,17 +1,3 @@
-return {
-  "romus204/tree-sitter-manager.nvim",
-  opts = {
-    ensure_installed = {
-      "css",
-      "html",
-      "javascript",
-      "json",
-      "lua",
-      "markdown",
-      "markdown_inline",
-      "tsx",
-      "typescript",
-      "yaml",
-    },
-  },
-}
+local config = require("plugins.config")
+
+require("nvim-treesitter").install(config.treesitter_parsers)

@@ -1,0 +1,6 @@
+require("mini.icons").setup()
+require("mini.icons").mock_nvim_web_devicons()
+require("mini.pairs").setup()
+require("ts-comments").setup()
+require("nvim-surround").setup()
+require("nvim-ts-autotag").setup()
