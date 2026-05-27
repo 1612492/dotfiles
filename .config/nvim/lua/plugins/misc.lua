@@ -11,6 +11,5 @@ require("snacks").setup({
 	scroll = { enabled = true },
 	statuscolumn = { enabled = true },
 })
-require("oil").setup()
+require("oil").setup({ delete_to_trash = true, view_options = { show_hidden = true } })
 require("render-markdown").setup()
-require("smear_cursor").setup()

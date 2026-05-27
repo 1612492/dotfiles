@@ -4,10 +4,8 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
 
-	"https://github.com/nvim-mini/mini.icons",
-	"https://github.com/nvim-mini/mini.pairs",
-
 	"https://github.com/folke/snacks.nvim",
+	"https://github.com/nvim-mini/mini.nvim",
 	"https://github.com/saghen/blink.cmp",
 	"https://github.com/saghen/blink.lib",
 	"https://github.com/stevearc/conform.nvim",
@@ -23,6 +21,5 @@ vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/rafamadriz/friendly-snippets",
 	"https://github.com/sindrets/diffview.nvim",
-	"https://github.com/sphamba/smear-cursor.nvim",
 	"https://github.com/windwp/nvim-ts-autotag",
 })

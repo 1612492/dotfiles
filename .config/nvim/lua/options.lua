@@ -14,6 +14,7 @@ vim.o.splitkeep = "screen"
 vim.o.splitright = true
 vim.o.winborder = "rounded"
 vim.o.wrap = false
+vim.o.termguicolors = true
 
 vim.o.foldlevel = 10
 vim.o.foldmethod = "indent"

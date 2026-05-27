@@ -10,7 +10,7 @@
       "oracle": {
         "model": "openai/gpt-5.3-codex",
         "variant": "high",
-        "skills": ["simplify"],
+        "skills": [],
         "mcps": []
       },
       "librarian": {
@@ -28,7 +28,7 @@
       "designer": {
         "model": "openai/gpt-5.4-mini",
         "variant": "medium",
-        "skills": ["agent-browser"],
+        "skills": [],
         "mcps": []
       },
       "fixer": {

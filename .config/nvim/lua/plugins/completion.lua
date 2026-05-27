@@ -3,7 +3,7 @@ cmp.build():wait(60000)
 cmp.setup({
 	keymap = {
 		["<C-e>"] = { "cancel", "fallback" },
-		["<CR>"] = { "accept", "fallback" },
+		["<CR>"] = { "select_and_accept", "fallback" },
 		["<C-j>"] = { "snippet_forward", "fallback" },
 		["<C-k>"] = { "snippet_backward", "fallback" },
 		["<C-p>"] = { "select_prev", "fallback" },

@@ -27,7 +27,7 @@ vim.lsp.config("lua_ls", {
 			diagnostics = { globals = { "Snacks", "vim" } },
 			workspace = {
 				checkThirdParty = false,
-				library = { vim.env.VIMRUNTIME, vim.fn.stdpath("config") },
+				library = { vim.env.VIMRUNTIME },
 			},
 		},
 	},
