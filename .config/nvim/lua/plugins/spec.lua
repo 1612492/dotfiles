@@ -19,7 +19,6 @@ vim.pack.add({
 	"https://github.com/folke/ts-comments.nvim",
 	"https://github.com/kylechui/nvim-surround",
 	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/rafamadriz/friendly-snippets",
 	"https://github.com/sindrets/diffview.nvim",
 	"https://github.com/windwp/nvim-ts-autotag",
 })

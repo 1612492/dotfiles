@@ -1,6 +1,7 @@
-local cmp = require("blink.cmp")
-cmp.build():wait(60000)
-cmp.setup({
+require("blink.cmp").setup({
+	fuzzy = {
+		implementation = "lua",
+	},
 	keymap = {
 		["<C-e>"] = { "cancel", "fallback" },
 		["<CR>"] = { "select_and_accept", "fallback" },

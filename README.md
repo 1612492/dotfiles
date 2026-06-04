@@ -36,19 +36,6 @@ The install script will:
 1. Restart your shell or run `source ~/.zshrc`
 2. Restart tmux if it was already running so the updated config is reloaded
 
-## Kanata setup
-
-Start/stop/restart Kanata with Homebrew services:
-
-```bash
-sudo brew services start kanata
-sudo brew services stop kanata
-sudo brew services restart kanata
-```
-
-Make sure karabiner-elements itself is not running (remove from startup items if added). We only need it for the virtual hid driver.
-The permissions under system settings / security are still required as previously.
-
 ## Updating
 
 To re-stow dotfiles after making changes:

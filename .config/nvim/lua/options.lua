@@ -13,7 +13,7 @@ vim.o.splitbelow = true
 vim.o.splitkeep = "screen"
 vim.o.splitright = true
 vim.o.winborder = "rounded"
-vim.o.wrap = false
+vim.o.wrap = true
 vim.o.termguicolors = true
 
 vim.o.foldlevel = 10
