@@ -13,7 +13,6 @@ M.lsps = {
 }
 
 M.formatters = {
-	"prettier",
 	"stylua",
 	"gofumpt",
 }
