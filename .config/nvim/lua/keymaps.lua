@@ -9,18 +9,7 @@ local function copy_to_clipboard(text, message)
 	vim.notify(message, vim.log.levels.INFO)
 end
 
-vim.keymap.set("n", "<leader>af", function()
-	local path = vim.fn.expand("%:.")
-	copy_to_clipboard(path, "Copied: " .. path)
-end, { desc = "Copy file path" })
-
-vim.keymap.set("n", "<leader>aF", function()
-	local path = vim.fn.expand("%:p")
-	copy_to_clipboard(path, "Copied: " .. path)
-end, { desc = "Copy full file path" })
-
-vim.keymap.set("v", "<leader>av", function()
-	local path = vim.fn.expand("%:.")
+local function get_visual_range()
 	local start_line = vim.fn.line("v")
 	local end_line = vim.fn.line(".")
 
@@ -28,9 +17,36 @@ vim.keymap.set("v", "<leader>av", function()
 		start_line, end_line = end_line, start_line
 	end
 
-	local formatted = string.format("%s:%d-%d", path, start_line, end_line)
-	copy_to_clipboard(formatted, "Copied: " .. formatted)
+	return start_line, end_line
+end
+
+local function copy_path_to_clipboard(path_expr, include_range)
+	local path = vim.fn.expand(path_expr)
+	local text = path
+
+	if include_range then
+		local start_line, end_line = get_visual_range()
+		text = string.format("%s:%d-%d", path, start_line, end_line)
+	end
+
+	copy_to_clipboard(text, "Copied: " .. text)
+end
+
+vim.keymap.set("n", "<leader>af", function()
+	copy_path_to_clipboard("%:.", false)
+end, { desc = "Copy file path" })
+
+vim.keymap.set("n", "<leader>aF", function()
+	copy_path_to_clipboard("%:~", false)
+end, { desc = "Copy full file path" })
+
+vim.keymap.set("v", "<leader>af", function()
+	copy_path_to_clipboard("%:.", true)
 end, { desc = "Copy file path with range" })
+
+vim.keymap.set("v", "<leader>aF", function()
+	copy_path_to_clipboard("%:~", true)
+end, { desc = "Copy full file path with range" })
 
 vim.keymap.set("n", "<leader>f", function()
 	Snacks.picker.files()
