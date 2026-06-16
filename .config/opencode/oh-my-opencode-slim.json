@@ -1,23 +1,36 @@
 {
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
   "preset": "openai",
   "presets": {
     "openai": {
       "orchestrator": {
-        "model": "openai/gpt-5.4",
-        "skills": ["*"],
-        "mcps": ["*"]
+        "model": "openai/gpt-5.5",
+        "variant": "medium",
+        "skills": [
+          "*"
+        ],
+        "mcps": [
+          "*",
+          "!context7"
+        ]
       },
       "oracle": {
-        "model": "openai/gpt-5.4",
+        "model": "openai/gpt-5.5",
         "variant": "high",
-        "skills": [],
+        "skills": [
+          "simplify"
+        ],
         "mcps": []
       },
       "librarian": {
         "model": "openai/gpt-5.4-mini",
         "variant": "low",
         "skills": [],
-        "mcps": ["websearch", "context7", "grep_app"]
+        "mcps": [
+          "websearch",
+          "context7",
+          "gh_grep"
+        ]
       },
       "explorer": {
         "model": "openai/gpt-5.4-mini",
@@ -32,7 +45,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "openai/gpt-5.4-mini",
+        "model": "openai/gpt-5.5",
         "variant": "low",
         "skills": [],
         "mcps": []

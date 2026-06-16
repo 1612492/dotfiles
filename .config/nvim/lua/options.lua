@@ -6,7 +6,6 @@ vim.o.relativenumber = true
 vim.o.pumborder = "rounded"
 vim.o.pumheight = 10
 vim.o.pummaxwidth = 100
-vim.o.shortmess = "CFOSWaco"
 vim.o.showmode = false
 vim.o.signcolumn = "yes"
 vim.o.splitbelow = true
