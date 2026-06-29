@@ -13,8 +13,9 @@ M.lsps = {
 }
 
 M.formatters = {
-	"stylua",
 	"gofumpt",
+	"prettier",
+	"stylua",
 }
 
 M.treesitter_parsers = {
