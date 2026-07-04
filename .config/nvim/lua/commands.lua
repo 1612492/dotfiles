@@ -6,6 +6,21 @@ vim.api.nvim_create_user_command("PackDel", function(opts)
 	vim.pack.del(opts.fargs)
 end, { nargs = "+", desc = "Delete plugins (:PackDel plugin1 plugin2)" })
 
+vim.api.nvim_create_user_command("PackClean", function()
+	local plugins = vim.iter(vim.pack.get())
+		:filter(function(plugin)
+			return not plugin.active
+		end)
+		:map(function(plugin)
+			return plugin.spec.name
+		end)
+		:totable()
+
+	if #plugins > 0 then
+		vim.pack.del(plugins)
+	end
+end, { desc = "Delete all inactive plugins" })
+
 vim.api.nvim_create_user_command("PackUpdate", function(opts)
 	if opts.args:match("%S") then
 		local plugins = vim.split(opts.args, "%s+", { trimempty = true })
