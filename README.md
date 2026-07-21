@@ -4,13 +4,13 @@ Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
 
 ## What's included
 
-- **Neovim** - lazy.nvim-based setup with modular config in `.config/nvim/`
-- **Kitty** - Customized terminal config in `.config/kitty/kitty.conf`
-- **Tmux** - `.tmux.conf` with TPM plugin management
-- **Zsh** - Oh My Zsh setup in `.zshrc` with `mise`, `vi-mode`, `zoxide`, autosuggestions, and syntax highlighting
-- **Mise** - Tool versions pinned in `.config/mise/config.toml` (`node@24`, latest `bun`, latest `pnpm`)
-- **Aerospace** - Tiling window manager config in `.config/aerospace/aerospace.toml`
-- **Opencode** - CLI config and plugin setup in `.config/opencode/`
+- **Aerospace** - package dir `aerospace/` stows `.config/aerospace/` into `~/.config/aerospace/`
+- **Kitty** - package dir `kitty/` stows `.config/kitty/` into `~/.config/kitty/`
+- **Mise** - package dir `mise/` stows `.config/mise/` into `~/.config/mise/`
+- **Neovim** - package dir `nvim/` stows `.config/nvim/` into `~/.config/nvim/`
+- **Opencode** - package dir `opencode/` stows `.config/opencode/` into `~/.config/opencode/`
+- **Tmux** - package dir `tmux/` stows `.tmux.conf` into `~/.tmux.conf`
+- **Zsh** - package dir `zsh/` stows `.zshrc` into `~/.zshrc` with `mise`, `vi-mode`, `zoxide`, autosuggestions, and syntax highlighting
 - **Homebrew** - Packages and apps defined in `Brewfile`
 
 ## Installation
@@ -27,8 +27,8 @@ The install script will:
 2. Install packages from Brewfile
 3. Install Oh My Zsh
 4. Install Zsh plugins (autosuggestions, syntax-highlighting)
-5. Stow dotfiles into your home directory with GNU Stow
-6. Install `mise` tools from `.config/mise/config.toml` if `mise` is available
+5. Stow package dirs into your home directory with GNU Stow
+6. Install `mise` tools from `mise/.config/mise/config.toml` if `mise` is available
 7. Install TPM and tmux plugins
 
 ## Manual steps after installation
@@ -42,10 +42,8 @@ To re-stow dotfiles after making changes:
 
 ```bash
 cd ~/dotfiles
-stow -R .
+stow -t "$HOME" aerospace kitty mise nvim opencode tmux zsh
 ```
-
-GNU Stow skips files listed in `.stow-local-ignore`, including `README.md`, `Brewfile`, and `install.sh`.
 
 To update mise-managed tools:
 

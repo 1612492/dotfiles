@@ -96,10 +96,6 @@ if.app-id = 'org.jkiss.dbeaver.core.product'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace 6'
-
-[[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'layout floating'
 

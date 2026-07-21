@@ -12,4 +12,3 @@ require("snacks").setup({
 	statuscolumn = { enabled = true },
 })
 require("oil").setup({ delete_to_trash = true, view_options = { show_hidden = true } })
-require("render-markdown").setup()

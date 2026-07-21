@@ -112,7 +112,7 @@ install_tpm() {
 stow_dotfiles() {
     print_warning "Stowing dotfiles..."
     cd "$DOTFILES_DIR"
-    stow . -t "$HOME"
+    stow -t "$HOME" aerospace kitty mise nvim opencode tmux zsh
     print_status "Dotfiles stowed"
 }
 
