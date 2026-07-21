@@ -1,4 +1,6 @@
 ZSH_THEME="robbyrussell"
+DISABLE_AUTO_TITLE=true
+
 plugins=(
   mise
   vi-mode
