@@ -1,4 +1,8 @@
-require("mason").setup()
+require("mason").setup({
+	firewall = {
+		enabled = true,
+	},
+})
 local config = require("plugins.config")
 local packages = vim.list_extend(vim.tbl_keys(config.lsps), config.formatters)
 local registry = require("mason-registry")

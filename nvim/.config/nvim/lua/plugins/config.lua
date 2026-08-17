@@ -9,7 +9,7 @@ M.lsps = {
 	["tailwindcss-language-server"] = "tailwindcss",
 	["vscode-solidity-server"] = "solidity_ls",
 	gopls = "gopls",
-	tsgo = "tsgo",
+	tsc = "tsc",
 }
 
 M.formatters = {
