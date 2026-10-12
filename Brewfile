@@ -1,4 +1,3 @@
-brew "anomalyco/tap/opencode-v2"
 brew "fzf"
 brew "gh"
 brew "mise"
