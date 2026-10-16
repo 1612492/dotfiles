@@ -1,0 +1,15 @@
+theme = Catppuccin Mocha
+
+background-opacity = 0.90
+background-blur = 20
+
+font-size = 14
+font-family = Victor Mono
+font-family-bold = Victor Mono Bold
+font-family-bold-italic = Victor Mono Bold Italic
+font-family-italic = Victor Mono Italic
+
+window-padding-x = 12
+window-padding-y = 12
+
+macos-titlebar-style = hidden

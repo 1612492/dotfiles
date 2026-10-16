@@ -1,11 +1,3 @@
-vim.api.nvim_create_user_command("PackAdd", function(opts)
-	vim.pack.add(opts.fargs)
-end, { nargs = "+", desc = "Add plugins (:PackAdd user/repo1 user/repo2)" })
-
-vim.api.nvim_create_user_command("PackDel", function(opts)
-	vim.pack.del(opts.fargs)
-end, { nargs = "+", desc = "Delete plugins (:PackDel plugin1 plugin2)" })
-
 vim.api.nvim_create_user_command("PackClean", function()
 	local plugins = vim.iter(vim.pack.get())
 		:filter(function(plugin)

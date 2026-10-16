@@ -14,7 +14,6 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/romgrk/barbar.nvim",
 
-	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	"https://github.com/folke/ts-comments.nvim",
 	"https://github.com/kylechui/nvim-surround",
 	"https://github.com/lewis6991/gitsigns.nvim",
