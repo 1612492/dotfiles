@@ -5,8 +5,7 @@ Personal macOS dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
 ## What's included
 
 - **Aerospace** - package dir `aerospace/` stows `.config/aerospace/` into `~/.config/aerospace/`
-- **Ghostty** - main terminal - package dir `ghostty/` stows `.config/ghostty/` into `~/.config/ghostty/`
-- **Kitty** - kept as fallback terminal - package dir `kitty/` stows `.config/kitty/` into `~/.config/kitty/`
+- **Kitty** - main terminal - package dir `kitty/` stows `.config/kitty/` into `~/.config/kitty/`
 - **Mise** - package dir `mise/` stows `.config/mise/` into `~/.config/mise/`
 - **Neovim** - package dir `nvim/` stows `.config/nvim/` into `~/.config/nvim/`
 - **Opencode** - package dir `opencode/` stows `.config/opencode/` into `~/.config/opencode/`
@@ -43,7 +42,7 @@ To re-stow dotfiles after making changes:
 
 ```bash
 cd ~/dotfiles
-stow -t "$HOME" aerospace ghostty kitty mise nvim opencode tmux zsh
+stow -t "$HOME" aerospace kitty mise nvim opencode tmux zsh
 ```
 
 To update mise-managed tools:
